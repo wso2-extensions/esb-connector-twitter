@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+
+<component name="twitter_tweets" type="synapse/template">
+    <subComponents>
+        <component name="showStatus">
+            <file>show_status.xml</file>
+            <description>Returns a single Tweet, specified by the id parameter.
+                The Tweet's author will also be embedded within the tweet.
+            </description>
+        </component>
+        <component name="updateStatus">
+            <file>update_status.xml</file>
+            <description>Updates the authenticating user's current status, also
+                known as tweeting. To upload an image to accompany the tweet, use
+                POST statuses/update_with_media.
+            </description>
+        </component>
+        <component name="retweet">
+            <file>retweet_status.xml</file>
+            <description>Retweets a tweet. Returns the original tweet with
+                retweet details embedded.
+            </description>
+        </component>
+        <component name="destroyStatus">
+            <file>destroy_status.xml</file>
+            <description>Destroys the status specified by the required ID
+                parameter. The authenticating user must be the author of the
+                specified status. Returns the destroyed status if successful.
+            </description>
+        </component>
+    </subComponents>
+</component>
