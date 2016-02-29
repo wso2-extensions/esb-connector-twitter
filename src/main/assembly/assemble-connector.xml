@@ -35,5 +35,9 @@
                 <exclude>**/META-INF/*</exclude>
             </excludes>
         </fileSet>
+
+
     </fileSets>
+
+
 </assembly>

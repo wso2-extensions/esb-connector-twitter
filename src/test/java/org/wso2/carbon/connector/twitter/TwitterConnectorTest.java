@@ -1,108 +1,68 @@
 /*
+Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+*
+*  WSO2 Inc. licenses this file to you under the Apache License,
+*  Version 2.0 (the "License"); you may not use this file except
+*  in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*    http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on an
+* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied.  See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
 package org.wso2.carbon.connector.twitter;
 
-import java.util.Collection;
-import java.util.Stack;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.wso2.connector.integration.test.base.ConnectorIntegrationTestBase;
+import org.wso2.connector.integration.test.base.RestResponse;
 
-import junit.framework.TestCase;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.axiom.om.OMAbstractFactory;
-import org.apache.axiom.soap.SOAPFactory;
-import org.apache.axis2.AxisFault;
-import org.apache.synapse.MessageContext;
-import org.apache.synapse.SynapseConstants;
-import org.apache.synapse.core.axis2.Axis2MessageContext;
-import org.apache.synapse.mediators.Value;
-import org.apache.synapse.mediators.template.TemplateContext;
-import org.wso2.carbon.connector.twitter.TwitterSearch;
-import org.wso2.carbon.connector.twitter.TwitterSearchPlaces;
+public class TwitterConnectorTest extends ConnectorIntegrationTestBase {
+    private Map<String, String> esbRequestHeadersMap = new HashMap<String, String>();
 
-public class TwitterConnectorTest extends TestCase {
+    private Map<String, String> apiRequestHeadersMap = new HashMap<String, String>();
 
-	private static final String TEST_TEMPLATE = "test123";
+    /**
+     * Set up the environment.
+     */
+    @BeforeClass(alwaysRun = true)
+    public void setEnvironment() throws Exception {
 
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
+        init("twitter-connector-2.0.0");
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
+        esbRequestHeadersMap.put("Accept-Charset", "UTF-8");
+        esbRequestHeadersMap.put("Content-Type", "application/json");
 
-	*/
-/**
-	 * Method to test Twitter generic search
-	 *
-	 * @throws AxisFault
-	 *//*
+        apiRequestHeadersMap.putAll(esbRequestHeadersMap);
 
-	public static void testSearchTest() throws AxisFault {
-		org.apache.axis2.context.MessageContext axis2Ctx = new org.apache.axis2.context.MessageContext();
-		SOAPFactory fac = OMAbstractFactory.getSOAP11Factory();
-		org.apache.axiom.soap.SOAPEnvelope envelope = fac.getDefaultEnvelope();
-		axis2Ctx.setEnvelope(envelope);
-		MessageContext synCtx = new Axis2MessageContext(axis2Ctx, null, null);
-		Collection<String> collection = new java.util.ArrayList<String>();
-		collection.add("search");
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "search", new Value("hotel"));
-		Stack<TemplateContext> stack = prepareMessageContext(synCtx, collection);
+        apiRequestHeadersMap.put("Content-Type", "application/json");
+        apiRequestHeadersMap.put("Accept", "application/json");
+    }
 
-		synCtx.setProperty(SynapseConstants.SYNAPSE__FUNCTION__STACK, stack);
-		TwitterSearch search = new TwitterSearch();
-		search.mediate(synCtx);
-		assertTrue(((Axis2MessageContext) synCtx).getAxis2MessageContext().getEnvelope()
-				.getFirstElement() != null);
-	}
+    /**
+     * Positive test case for getContactFields method with mandatory parameters.
+     */
+    @Test(enabled = false, description = "twitter {getContactFields} integration test with mandatory parameters.")
+    public void testGetContactFieldsWithMandatoryParameters() throws IOException, JSONException {
 
-	*/
-/**
-	 * Unit test to test search places functionality.
-	 *
-	 * @throws AxisFault
-	 *//*
+        String methodName = "getAccountSettings";
+        String apiEndPoint = connectorProperties.getProperty("apiUrl") + "/1.1/account/settings.json";
+        RestResponse<JSONObject> esbRestResponse =
+                sendJsonRestRequest(getProxyServiceURL(methodName), "POST", esbRequestHeadersMap, "getAccountSettings.json");
+        //RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
 
-	public static void testPlacesTest() throws AxisFault {
-		org.apache.axis2.context.MessageContext axis2Ctx = new org.apache.axis2.context.MessageContext();
-		SOAPFactory fac = OMAbstractFactory.getSOAP11Factory();
-		org.apache.axiom.soap.SOAPEnvelope envelope = fac.getDefaultEnvelope();
-		axis2Ctx.setEnvelope(envelope);
-		MessageContext synCtx = new Axis2MessageContext(axis2Ctx, null, null);
-		Collection<String> collection = new java.util.ArrayList<String>();
-		collection.add("latitude");
-		collection.add("longitude");
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "latitude", new Value("40.71435"));
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "longitude", new Value("-74.00597"));
-		Stack<TemplateContext> stack = prepareMessageContext(synCtx, collection);
-
-		synCtx.setProperty(SynapseConstants.SYNAPSE__FUNCTION__STACK, stack);
-		TwitterSearchPlaces search = new TwitterSearchPlaces();
-		search.mediate(synCtx);
-		assertTrue(((Axis2MessageContext) synCtx).getAxis2MessageContext().getEnvelope()
-				.getFirstElement() != null);
-	}
-
-	private static Stack<TemplateContext> prepareMessageContext(MessageContext synCtx,
-			Collection<String> collection) {
-
-		collection.add("oauth.accessTokenSecret");
-		collection.add("oauth.consumerSecret");
-		collection.add("oauth.accessToken");
-		collection.add("oauth.consumerKey");
-		TemplateContext context = new TemplateContext(TEST_TEMPLATE, collection);
-		Stack<TemplateContext> stack = new Stack<TemplateContext>();
-		stack.add(context);
-
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "oauth.accessTokenSecret", new Value(
-				"vkpELc3OWK0TM0BjYcPLCn22Wm3HRliNUyx1QSxg4JI"));
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "oauth.consumerSecret", new Value(
-				"EvTEzc3jj9Z1Kx58ylNfkpnuXYuCeGgKhkVkziYNMs"));
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "oauth.accessToken", new Value(
-				"1114764380-JNGKRkrUFUDCHC0WdmjDurZ3wwi9BV6ysbDRYca"));
-		synCtx.setProperty(TEST_TEMPLATE + ":" + "oauth.consumerKey", new Value(
-				"6U5CNaHKh7hVSGpk1CXo6A"));
-
-		context.setupParams(synCtx);
-		return stack;
-	}
+        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 200);
+    }
 }
-*/

@@ -16,13 +16,14 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-
 <component name="twitter_config" type="synapse/template">
 
     <subComponents>
         <component name="init">
             <file>init.xml</file>
-            <description></description>
+            <description>Common Method having the configurations applicable to all the Methods in
+                the Connector.
+            </description>
         </component>
     </subComponents>
 </component>

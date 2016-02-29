@@ -16,17 +16,21 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-
 <connector>
-    <component name="twitter" package="org.wso2.carbon.connector">
+    <component name="twitter" package="org.wso2.carbon.connectors">
         <dependency component="twitter_config"/>
-        <dependency component="twitter_search"/>
-        <dependency component="twitter_tweets"/>
-        <dependency component="twitter_trends"/>
-        <dependency component="twitter_user"/>
-        <dependency component="twitter_timeline"/>
-        <dependency component="twitter_direct_messages"/>
         <dependency component="twitter_friends_followers"/>
+        <dependency component="twitter-account"/>
+        <dependency component="twitter-blocks"/>
+        <dependency component="twitter-directMessages"/>
+        <dependency component="twitter-favorites"/>
+        <dependency component="twitter-help"/>
+        <dependency component="twitter-lists"/>
+        <dependency component="twitter-search"/>
+        <dependency component="twitter-statuses"/>
+        <dependency component="twitter-trends"/>
+        <dependency component="twitter-users"/>
+        <dependency component="twitter-tweets"/>
         <description>synapse library for twitter connector</description>
     </component>
     <icon>icon/icon-twitter-small.png</icon>
