@@ -40,7 +40,7 @@ public class TwitterConnectorTest extends ConnectorIntegrationTestBase {
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("twitter-connector-2.0.0");
+        init("twitter-connector-2.0.1-SNAPSHOT");
 
         esbRequestHeadersMap.put("Accept-Charset", "UTF-8");
         esbRequestHeadersMap.put("Content-Type", "application/json");
