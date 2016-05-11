@@ -106,7 +106,6 @@
                       uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/account/update_profile.json?{uri.var.uriParams}"/>
             </endpoint>
         </call>
-
         <!-- Remove custom header information in response -->
         <header name="x-access-level" scope="transport" action="remove"/>
         <header name="x-twitter-response-tags" scope="transport" action="remove"/>
@@ -119,6 +118,5 @@
         <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
         <header name="x-rate-limit-reset" scope="transport" action="remove"/>
         <header name="x-xss-protection" scope="transport" action="remove"/>
-
     </sequence>
 </template>

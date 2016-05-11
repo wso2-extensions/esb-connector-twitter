@@ -33,7 +33,6 @@
                 <property name="uri.var.apiUrl" value="https://api.twitter.com"/>
             </else>
         </filter>
-
         <property expression="$func:consumerKey" name="twitter.consumerKey"
                   type="STRING"/>
         <property expression="$func:consumerSecret" name="twitter.consumerSecret"
@@ -42,6 +41,5 @@
                   type="STRING"/>
         <property expression="$func:accessTokenSecret" name="twitter.accessTokenSecret"
                   type="STRING"/>
-
     </sequence>
 </template>
