@@ -18,26 +18,20 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getHelpTos">
     <sequence>
-
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-
         <property name="uri.var.apiUrl.final"
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/help/tos.json')"/>
         <property name="uri.var.httpMethod"
                   value="GET"/>
-
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-
         <header name="Authorization" expression="get-property('uri.var.signature')"
                 scope="transport"/>
-
         <call>
             <endpoint>
                 <http method="get"
                       uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/help/tos.json?{uri.var.uriParams}"/>
             </endpoint>
         </call>
-
         <!-- Remove custom header information in response -->
         <header name="x-access-level" scope="transport" action="remove"/>
         <header name="x-twitter-response-tags" scope="transport" action="remove"/>
@@ -50,6 +44,5 @@
         <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
         <header name="x-rate-limit-reset" scope="transport" action="remove"/>
         <header name="x-xss-protection" scope="transport" action="remove"/>
-
     </sequence>
 </template>

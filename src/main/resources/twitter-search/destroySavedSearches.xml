@@ -38,12 +38,9 @@
         </script>
         <property name="uri.var.apiUrl.final"
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/saved_searches/destroy.json')"/>
-
         <property name="uri.var.httpMethod"
                   value="POST"/>
-
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-
         <header name="Authorization" expression="get-property('uri.var.signature')"
                 scope="transport"/>
         <call>
@@ -64,6 +61,5 @@
         <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
         <header name="x-rate-limit-reset" scope="transport" action="remove"/>
         <header name="x-xss-protection" scope="transport" action="remove"/>
-
     </sequence>
 </template>

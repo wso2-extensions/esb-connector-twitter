@@ -31,11 +31,8 @@
                description="This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses."/>
     <parameter name="contributorDetails "
                description="This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included."/>
-
     <sequence>
-
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-
         <property name="uri.var.includeEntities" expression="$func:includeEntities"/>
         <property name="uri.var.sinceId" expression="$func:sinceId"/>
         <property name="uni.var.count" expression="$func:count"/>
@@ -43,7 +40,6 @@
         <property name="uni.var.trimUser" expression="$func:trimUser"/>
         <property name="uni.var.excludeReplies" expression="$func:excludeReplies"/>
         <property name="uri.var.contributorDetails" expression="$func:contributorDetails"/>
-
         <script language="js">
             <![CDATA[
                 // optional url param variables
@@ -98,25 +94,19 @@
                 }
             ]]>
         </script>
-
         <property name="uri.var.apiUrl.final"
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/statuses/home_timeline.json')"/>
-
         <property name="uri.var.httpMethod"
                   value="GET"/>
-
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-
         <header name="Authorization" expression="get-property('uri.var.signature')"
                 scope="transport"/>
-
         <call>
             <endpoint>
                 <http method="get"
                       uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/statuses/home_timeline.json?{uri.var.uriParams}"/>
             </endpoint>
         </call>
-
         <!-- Remove custom header information in response -->
         <header name="x-access-level" scope="transport" action="remove"/>
         <header name="x-twitter-response-tags" scope="transport" action="remove"/>
@@ -129,6 +119,5 @@
         <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
         <header name="x-rate-limit-reset" scope="transport" action="remove"/>
         <header name="x-xss-protection" scope="transport" action="remove"/>
-
     </sequence>
 </template>
