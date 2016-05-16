@@ -7,28 +7,12 @@
       "id": "http:\/\/wso2jsonschema.org\/includeEntities",
       "type": "string"
     },
-    "consumerKey": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
-      "type": "string"
-    },
     "cursor": {
       "id": "http:\/\/wso2jsonschema.org\/cursor",
       "type": "string"
     },
-    "accessToken": {
-      "id": "http:\/\/wso2jsonschema.org\/accessToken",
-      "type": "string"
-    },
     "skipStatus": {
       "id": "http:\/\/wso2jsonschema.org\/skipStatus",
-      "type": "string"
-    },
-    "accessTokenSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
-      "type": "string"
-    },
-    "consumerSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
       "type": "string"
     }
   },

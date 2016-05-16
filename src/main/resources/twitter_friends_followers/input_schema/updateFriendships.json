@@ -7,18 +7,6 @@
       "id": "http:\/\/wso2jsonschema.org\/userID",
       "type": "string"
     },
-    "consumerKey": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
-      "type": "string"
-    },
-    "accessToken": {
-      "id": "http:\/\/wso2jsonschema.org\/accessToken",
-      "type": "string"
-    },
-    "accessTokenSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
-      "type": "string"
-    },
     "device": {
       "id": "http:\/\/wso2jsonschema.org\/device",
       "type": "string"
@@ -29,10 +17,6 @@
     },
     "retweets": {
       "id": "http:\/\/wso2jsonschema.org\/retweets",
-      "type": "string"
-    },
-    "consumerSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
       "type": "string"
     }
   },

@@ -11,14 +11,6 @@
       "id": "http:\/\/wso2jsonschema.org\/profileLinkColor",
       "type": "string"
     },
-    "consumerKey": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
-      "type": "string"
-    },
-    "accessToken": {
-      "id": "http:\/\/wso2jsonschema.org\/accessToken",
-      "type": "string"
-    },
     "location": {
       "id": "http:\/\/wso2jsonschema.org\/location",
       "type": "string"
@@ -35,16 +27,8 @@
       "id": "http:\/\/wso2jsonschema.org\/name",
       "type": "string"
     },
-    "accessTokenSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
-      "type": "string"
-    },
     "url": {
       "id": "http:\/\/wso2jsonschema.org\/url",
-      "type": "string"
-    },
-    "consumerSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
       "type": "string"
     }
   },

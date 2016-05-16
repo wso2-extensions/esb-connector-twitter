@@ -7,24 +7,12 @@
       "id": "http:\/\/wso2jsonschema.org\/includeRts",
       "type": "string"
     },
-    "consumerKey": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
-      "type": "string"
-    },
-    "accessToken": {
-      "id": "http:\/\/wso2jsonschema.org\/accessToken",
-      "type": "string"
-    },
     "count": {
       "id": "http:\/\/wso2jsonschema.org\/count",
       "type": "string"
     },
     "excludeReplies": {
       "id": "http:\/\/wso2jsonschema.org\/excludeReplies",
-      "type": "string"
-    },
-    "accessTokenSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
       "type": "string"
     },
     "screenName": {
@@ -37,10 +25,6 @@
     },
     "contributorDetails": {
       "id": "http:\/\/wso2jsonschema.org\/contributorDetails",
-      "type": "string"
-    },
-    "consumerSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
       "type": "string"
     },
     "userID": {

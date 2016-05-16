@@ -3,18 +3,6 @@
   "title": "root",
   "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
   "properties": {
-    "consumerKey": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
-      "type": "string"
-    },
-    "accessToken": {
-      "id": "http:\/\/wso2jsonschema.org\/accessToken",
-      "type": "string"
-    },
-    "accessTokenSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
-      "type": "string"
-    },
     "targetId": {
       "id": "http:\/\/wso2jsonschema.org\/targetId",
       "type": "string"
@@ -25,10 +13,6 @@
     },
     "targetScreenName": {
       "id": "http:\/\/wso2jsonschema.org\/targetScreenName",
-      "type": "string"
-    },
-    "consumerSecret": {
-      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
       "type": "string"
     },
     "sourceId": {
