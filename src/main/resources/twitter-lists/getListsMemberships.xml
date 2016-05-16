@@ -24,7 +24,7 @@
                description="The response from the API will include a previous_cursor and next_cursor to allow paging back and forth"/>
     <parameter name="count"
                description="The number of users to return per page, up to a maximum of 200. Defaults to 20."/>
-    <parameter name="filterToOwnedLists "
+    <parameter name="filterToOwnedLists"
                description="When set to either true, t or 1 statuses will not be included in the returned user objects."/>
     <sequence>
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
@@ -41,7 +41,6 @@
                 var cursor  = mc.getProperty('uri.var.cursor');
                 var count  = mc.getProperty('uni.var.count');
                 var filterToOwnedLists  = mc.getProperty('uri.var.filterToOwnedLists');
-
                 var uriParams = '';
 
                 if (screenName != null && screenName != "") {
@@ -77,11 +76,9 @@
         </script>
         <property name="uri.var.apiUrl.final"
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/lists/memberships.json')"/>
-        <property name="uri.var.httpMethod"
-                  value="GET"/>
+        <property name="uri.var.httpMethod" value="GET"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')"
-                scope="transport"/>
+        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="get"

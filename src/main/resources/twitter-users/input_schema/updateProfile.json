@@ -1,0 +1,52 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "includeEntities": {
+      "id": "http:\/\/wso2jsonschema.org\/includeEntities",
+      "type": "string"
+    },
+    "profileLinkColor": {
+      "id": "http:\/\/wso2jsonschema.org\/profileLinkColor",
+      "type": "string"
+    },
+    "consumerKey": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
+      "type": "string"
+    },
+    "accessToken": {
+      "id": "http:\/\/wso2jsonschema.org\/accessToken",
+      "type": "string"
+    },
+    "location": {
+      "id": "http:\/\/wso2jsonschema.org\/location",
+      "type": "string"
+    },
+    "skipStatus": {
+      "id": "http:\/\/wso2jsonschema.org\/skipStatus",
+      "type": "string"
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string"
+    },
+    "name": {
+      "id": "http:\/\/wso2jsonschema.org\/name",
+      "type": "string"
+    },
+    "accessTokenSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
+      "type": "string"
+    },
+    "url": {
+      "id": "http:\/\/wso2jsonschema.org\/url",
+      "type": "string"
+    },
+    "consumerSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

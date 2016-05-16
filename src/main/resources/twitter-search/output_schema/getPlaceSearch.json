@@ -1,0 +1,182 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "result": {
+      "id": "http:\/\/wso2jsonschema.org\/result",
+      "properties": {
+        "places": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/places",
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/result\/places\/0",
+              "properties": {
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/id",
+                  "type": "string"
+                },
+                "place_type": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/place_type",
+                  "type": "string"
+                },
+                "bounding_box": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/bounding_box",
+                  "properties": {
+                    "type": {
+                      "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/bounding_box\/type",
+                      "type": "string"
+                    },
+                    "coordinates": {
+                      "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/bounding_box\/coordinates",
+                      "items": [
+                        {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/bounding_box\/coordinates\/0",
+                          "type": "array"
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "contained_within": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within",
+                  "items": [
+                    {
+                      "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0",
+                      "properties": {
+                        "id": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/id",
+                          "type": "string"
+                        },
+                        "place_type": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/place_type",
+                          "type": "string"
+                        },
+                        "bounding_box": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/bounding_box",
+                          "properties": {
+                            "type": {
+                              "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/bounding_box\/type",
+                              "type": "string"
+                            },
+                            "coordinates": {
+                              "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/bounding_box\/coordinates",
+                              "items": [
+                                {
+                                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/bounding_box\/coordinates\/0",
+                                  "type": "array"
+                                }
+                              ],
+                              "type": "array"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "name": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/name",
+                          "type": "string"
+                        },
+                        "attributes": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/attributes",
+                          "type": "null"
+                        },
+                        "country_code": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/country_code",
+                          "type": "string"
+                        },
+                        "url": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/url",
+                          "type": "string"
+                        },
+                        "full_name": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/full_name",
+                          "type": "string"
+                        },
+                        "country": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/contained_within\/0\/country",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/name",
+                  "type": "string"
+                },
+                "attributes": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/attributes",
+                  "type": "null"
+                },
+                "country_code": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/country_code",
+                  "type": "string"
+                },
+                "url": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/url",
+                  "type": "string"
+                },
+                "full_name": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/full_name",
+                  "type": "string"
+                },
+                "country": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/places\/0\/country",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "query": {
+      "id": "http:\/\/wso2jsonschema.org\/query",
+      "properties": {
+        "params": {
+          "id": "http:\/\/wso2jsonschema.org\/query\/params",
+          "properties": {
+            "trim_place": {
+              "id": "http:\/\/wso2jsonschema.org\/query\/params\/trim_place",
+              "type": "boolean"
+            },
+            "query": {
+              "id": "http:\/\/wso2jsonschema.org\/query\/params\/query",
+              "type": "string"
+            },
+            "granularity": {
+              "id": "http:\/\/wso2jsonschema.org\/query\/params\/granularity",
+              "type": "string"
+            },
+            "autocomplete": {
+              "id": "http:\/\/wso2jsonschema.org\/query\/params\/autocomplete",
+              "type": "boolean"
+            },
+            "accuracy": {
+              "id": "http:\/\/wso2jsonschema.org\/query\/params\/accuracy",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "id": "http:\/\/wso2jsonschema.org\/query\/type",
+          "type": "string"
+        },
+        "url": {
+          "id": "http:\/\/wso2jsonschema.org\/query\/url",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

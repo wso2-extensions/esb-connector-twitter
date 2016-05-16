@@ -1,0 +1,108 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "relationship",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "source": {
+      "id": "http:\/\/wso2jsonschema.org\/source",
+      "properties": {
+        "followed_by": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/followed_by",
+          "type": "boolean"
+        },
+        "marked_spam": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/marked_spam",
+          "type": "boolean"
+        },
+        "all_replies": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/all_replies",
+          "type": "boolean"
+        },
+        "want_retweets": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/want_retweets",
+          "type": "boolean"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/id",
+          "type": "number"
+        },
+        "following": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/following",
+          "type": "boolean"
+        },
+        "notifications_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/notifications_enabled",
+          "type": "boolean"
+        },
+        "blocking": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/blocking",
+          "type": "boolean"
+        },
+        "muting": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/muting",
+          "type": "boolean"
+        },
+        "following_requested": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/following_requested",
+          "type": "boolean"
+        },
+        "following_received": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/following_received",
+          "type": "boolean"
+        },
+        "blocked_by": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/blocked_by",
+          "type": "boolean"
+        },
+        "screen_name": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/screen_name",
+          "type": "string"
+        },
+        "id_str": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/id_str",
+          "type": "string"
+        },
+        "can_dm": {
+          "id": "http:\/\/wso2jsonschema.org\/source\/can_dm",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "target": {
+      "id": "http:\/\/wso2jsonschema.org\/target",
+      "properties": {
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/id",
+          "type": "number"
+        },
+        "following": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/following",
+          "type": "boolean"
+        },
+        "following_requested": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/following_requested",
+          "type": "boolean"
+        },
+        "following_received": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/following_received",
+          "type": "boolean"
+        },
+        "followed_by": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/followed_by",
+          "type": "boolean"
+        },
+        "screen_name": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/screen_name",
+          "type": "string"
+        },
+        "id_str": {
+          "id": "http:\/\/wso2jsonschema.org\/target\/id_str",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

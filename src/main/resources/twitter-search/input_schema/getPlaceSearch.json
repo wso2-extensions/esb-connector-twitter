@@ -1,0 +1,56 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "consumerKey": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
+      "type": "string"
+    },
+    "accessToken": {
+      "id": "http:\/\/wso2jsonschema.org\/accessToken",
+      "type": "string"
+    },
+    "containedWithin": {
+      "id": "http:\/\/wso2jsonschema.org\/containedWithin",
+      "type": "string"
+    },
+    "query": {
+      "id": "http:\/\/wso2jsonschema.org\/query",
+      "type": "string"
+    },
+    "granularity": {
+      "id": "http:\/\/wso2jsonschema.org\/granularity",
+      "type": "string"
+    },
+    "accessTokenSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
+      "type": "string"
+    },
+    "longitude": {
+      "id": "http:\/\/wso2jsonschema.org\/longitude",
+      "type": "string"
+    },
+    "latitude": {
+      "id": "http:\/\/wso2jsonschema.org\/latitude",
+      "type": "string"
+    },
+    "accuracy": {
+      "id": "http:\/\/wso2jsonschema.org\/accuracy",
+      "type": "string"
+    },
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "string"
+    },
+    "consumerSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
+      "type": "string"
+    },
+    "ip": {
+      "id": "http:\/\/wso2jsonschema.org\/ip",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

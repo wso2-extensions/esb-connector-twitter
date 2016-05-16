@@ -1,0 +1,14 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "items": [
+      {
+        "id": "http:\/\/wso2jsonschema.org\/ids\/0",
+        "type": "string"
+      }
+    ]
+  },
+  "type": "object"
+}

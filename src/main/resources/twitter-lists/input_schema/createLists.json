@@ -1,0 +1,36 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "consumerKey": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
+      "type": "string"
+    },
+    "accessToken": {
+      "id": "http:\/\/wso2jsonschema.org\/accessToken",
+      "type": "string"
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string"
+    },
+    "name": {
+      "id": "http:\/\/wso2jsonschema.org\/name",
+      "type": "string"
+    },
+    "accessTokenSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
+      "type": "string"
+    },
+    "consumerSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
+      "type": "string"
+    },
+    "mode": {
+      "id": "http:\/\/wso2jsonschema.org\/mode",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

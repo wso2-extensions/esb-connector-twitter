@@ -1,0 +1,54 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "items": [
+      {
+        "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0",
+        "properties": {
+          "woeid": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/woeid",
+            "type": "number"
+          },
+          "name": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/name",
+            "type": "string"
+          },
+          "countryCode": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/countryCode",
+            "type": "string"
+          },
+          "parentid": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/parentid",
+            "type": "number"
+          },
+          "placeType": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/placeType",
+            "properties": {
+              "name": {
+                "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/placeType\/name",
+                "type": "string"
+              },
+              "code": {
+                "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/placeType\/code",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "url": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/url",
+            "type": "string"
+          },
+          "country": {
+            "id": "http:\/\/wso2jsonschema.org\/aaaaa\/0\/country",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    ]
+  },
+  "type": "object"
+}

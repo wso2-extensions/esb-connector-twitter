@@ -1,0 +1,42 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "items": [
+      {
+        "id": "http:\/\/wso2jsonschema.org\/ids\/0",
+        "properties": {
+          "id": {
+            "id": "http:\/\/wso2jsonschema.org\/ids\/0\/id",
+            "type": "number"
+          },
+          "name": {
+            "id": "http:\/\/wso2jsonschema.org\/ids\/0\/name",
+            "type": "string"
+          },
+          "screen_name": {
+            "id": "http:\/\/wso2jsonschema.org\/ids\/0\/screen_name",
+            "type": "string"
+          },
+          "connections": {
+            "id": "http:\/\/wso2jsonschema.org\/ids\/0\/connections",
+            "items": [
+              {
+                "id": "http:\/\/wso2jsonschema.org\/ids\/0\/connections\/0",
+                "type": "string"
+              }
+            ],
+            "type": "array"
+          },
+          "id_str": {
+            "id": "http:\/\/wso2jsonschema.org\/ids\/0\/id_str",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    ]
+  },
+  "type": "object"
+}

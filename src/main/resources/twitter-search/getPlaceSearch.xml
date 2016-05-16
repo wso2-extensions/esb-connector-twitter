@@ -24,15 +24,15 @@
     <parameter name="query"
                description="Free-form text to match against while executing a geo-based query"/>
     <parameter name="ip"
-               description="This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country"/>
+               description="An IP address. Used when attempting to fix geolocation based off of the user’s IP address."/>
     <parameter name="granularity"
-               description="When set to either true, t or 1, each Tweet returned in a timeline will include a user object including only the status authors numerical ID"/>
+               description="This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country."/>
     <parameter name="accuracy"
                description="A hint on the “region” in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location"/>
     <parameter name="maxResults"
-               description="If you upload Tweet media that might be considered sensitive content such as nudity, violence, or medical procedures, you should set this value to true"/>
+               description="A hint as to the number of results to return."/>
     <parameter name="containedWithin"
-               description="The latitude of the location this tweet refers to."/>
+               description="This is the place_id which you would like to restrict the search results to."/>
     <sequence>
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
         <property name="uri.var.latitude" expression="$func:latitude"/>
@@ -54,7 +54,6 @@
                 var accuracy  = mc.getProperty('uri.var.accuracy');
                 var maxResults  = mc.getProperty('uri.var.maxResults');
                 var containedWithin  = mc.getProperty('uri.var.containedWithin');
-
                 var uriParams = '';
 
 
@@ -106,11 +105,9 @@
         </script>
         <property name="uri.var.apiUrl.final"
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/geo/search.json')"/>
-        <property name="uri.var.httpMethod"
-                  value="GET"/>
+        <property name="uri.var.httpMethod" value="GET"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')"
-                scope="transport"/>
+        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="get"

@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "includeEntities": {
+      "id": "http:\/\/wso2jsonschema.org\/includeEntities",
+      "type": "string"
+    },
+    "count": {
+      "id": "http:\/\/wso2jsonschema.org\/count",
+      "type": "string"
+    },
+    "page": {
+      "id": "http:\/\/wso2jsonschema.org\/page",
+      "type": "string"
+    },
+    "q": {
+      "id": "http:\/\/wso2jsonschema.org\/q",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

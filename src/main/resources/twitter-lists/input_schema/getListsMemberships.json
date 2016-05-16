@@ -1,0 +1,44 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "userID": {
+      "id": "http:\/\/wso2jsonschema.org\/userID",
+      "type": "string"
+    },
+    "consumerKey": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerKey",
+      "type": "string"
+    },
+    "cursor": {
+      "id": "http:\/\/wso2jsonschema.org\/cursor",
+      "type": "string"
+    },
+    "filterToOwnedLists": {
+      "id": "http:\/\/wso2jsonschema.org\/filterToOwnedLists",
+      "type": "string"
+    },
+    "count": {
+      "id": "http:\/\/wso2jsonschema.org\/count",
+      "type": "string"
+    },
+    "accessToken": {
+      "id": "http:\/\/wso2jsonschema.org\/accessToken",
+      "type": "string"
+    },
+    "accessTokenSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/accessTokenSecret",
+      "type": "string"
+    },
+    "screenName": {
+      "id": "http:\/\/wso2jsonschema.org\/screenName",
+      "type": "string"
+    },
+    "consumerSecret": {
+      "id": "http:\/\/wso2jsonschema.org\/consumerSecret",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
