@@ -1,0 +1,44 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "mediaIds": {
+      "id": "http:\/\/wso2jsonschema.org\/mediaIds",
+      "type": "string"
+    },
+    "status": {
+      "id": "http:\/\/wso2jsonschema.org\/status",
+      "type": "string"
+    },
+    "possiblySensitive": {
+      "id": "http:\/\/wso2jsonschema.org\/possiblySensitive",
+      "type": "string"
+    },
+    "inReplyToStatusId": {
+      "id": "http:\/\/wso2jsonschema.org\/inReplyToStatusId",
+      "type": "string"
+    },
+    "displayCoordinates": {
+      "id": "http:\/\/wso2jsonschema.org\/displayCoordinates",
+      "type": "string"
+    },
+    "placeId": {
+      "id": "http:\/\/wso2jsonschema.org\/placeId",
+      "type": "string"
+    },
+    "trimUser": {
+      "id": "http:\/\/wso2jsonschema.org\/trimUser",
+      "type": "string"
+    },
+    "longitude": {
+      "id": "http:\/\/wso2jsonschema.org\/longitude",
+      "type": "string"
+    },
+    "latitude": {
+      "id": "http:\/\/wso2jsonschema.org\/latitude",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

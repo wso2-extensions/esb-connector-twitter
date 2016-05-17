@@ -1,0 +1,36 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "includeEntities": {
+      "id": "http:\/\/wso2jsonschema.org\/includeEntities",
+      "type": "string"
+    },
+    "sinceId": {
+      "id": "http:\/\/wso2jsonschema.org\/sinceId",
+      "type": "string"
+    },
+    "excludeReplies": {
+      "id": "http:\/\/wso2jsonschema.org\/excludeReplies",
+      "type": "string"
+    },
+    "count": {
+      "id": "http:\/\/wso2jsonschema.org\/count",
+      "type": "string"
+    },
+    "trimUser": {
+      "id": "http:\/\/wso2jsonschema.org\/trimUser",
+      "type": "string"
+    },
+    "contributorDetails": {
+      "id": "http:\/\/wso2jsonschema.org\/contributorDetails",
+      "type": "string"
+    },
+    "maxId": {
+      "id": "http:\/\/wso2jsonschema.org\/maxId",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

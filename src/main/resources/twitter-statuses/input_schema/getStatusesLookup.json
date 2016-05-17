@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "includeEntities": {
+      "id": "http:\/\/wso2jsonschema.org\/includeEntities",
+      "type": "string"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "trimUser": {
+      "id": "http:\/\/wso2jsonschema.org\/trimUser",
+      "type": "string"
+    },
+    "map": {
+      "id": "http:\/\/wso2jsonschema.org\/map",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

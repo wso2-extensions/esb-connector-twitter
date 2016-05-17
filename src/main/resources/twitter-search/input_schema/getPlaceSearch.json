@@ -1,0 +1,40 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "containedWithin": {
+      "id": "http:\/\/wso2jsonschema.org\/containedWithin",
+      "type": "string"
+    },
+    "query": {
+      "id": "http:\/\/wso2jsonschema.org\/query",
+      "type": "string"
+    },
+    "granularity": {
+      "id": "http:\/\/wso2jsonschema.org\/granularity",
+      "type": "string"
+    },
+    "longitude": {
+      "id": "http:\/\/wso2jsonschema.org\/longitude",
+      "type": "string"
+    },
+    "latitude": {
+      "id": "http:\/\/wso2jsonschema.org\/latitude",
+      "type": "string"
+    },
+    "accuracy": {
+      "id": "http:\/\/wso2jsonschema.org\/accuracy",
+      "type": "string"
+    },
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "string"
+    },
+    "ip": {
+      "id": "http:\/\/wso2jsonschema.org\/ip",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

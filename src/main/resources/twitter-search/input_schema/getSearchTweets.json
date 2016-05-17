@@ -1,0 +1,56 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "count": {
+      "id": "http:\/\/wso2jsonschema.org\/count",
+      "type": "string"
+    },
+    "locale": {
+      "id": "http:\/\/wso2jsonschema.org\/locale",
+      "type": "string"
+    },
+    "lang": {
+      "id": "http:\/\/wso2jsonschema.org\/lang",
+      "type": "string"
+    },
+    "until": {
+      "id": "http:\/\/wso2jsonschema.org\/until",
+      "type": "string"
+    },
+    "includeEntities": {
+      "id": "http:\/\/wso2jsonschema.org\/includeEntities",
+      "type": "string"
+    },
+    "geocode": {
+      "id": "http:\/\/wso2jsonschema.org\/geocode",
+      "type": "string"
+    },
+    "sinceId": {
+      "id": "http:\/\/wso2jsonschema.org\/sinceId",
+      "type": "string"
+    },
+    "page": {
+      "id": "http:\/\/wso2jsonschema.org\/page",
+      "type": "string"
+    },
+    "q": {
+      "id": "http:\/\/wso2jsonschema.org\/q",
+      "type": "string"
+    },
+    "callback": {
+      "id": "http:\/\/wso2jsonschema.org\/callback",
+      "type": "string"
+    },
+    "resultType": {
+      "id": "http:\/\/wso2jsonschema.org\/resultType",
+      "type": "string"
+    },
+    "maxId": {
+      "id": "http:\/\/wso2jsonschema.org\/maxId",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

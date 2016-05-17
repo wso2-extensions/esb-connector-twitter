@@ -22,8 +22,10 @@
     <parameter name="ownerId"
                description="The screen name of the user for whom to return results for."/>
     <parameter name="listId"
-               description="The screen name of the user for whom to return results for."/>
-    <parameter name="slug" description="Set this to true "/>
+               description="The numerical id of the list."/>
+    <parameter name="slug"
+               description="You can identify a list by its slug instead of its numerical id. If you decide to do so,
+               note that you’ll also have to specify the list owner using the owner_id or owner_screen_name parameters."/>
     <sequence>
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
         <property name="uri.var.ownerScreenName" expression="$func:ownerScreenName"/>
@@ -68,8 +70,7 @@
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/lists/destroy.json')"/>
         <property name="uri.var.httpMethod" value="POST"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')"
-                scope="transport"/>
+        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="POST"

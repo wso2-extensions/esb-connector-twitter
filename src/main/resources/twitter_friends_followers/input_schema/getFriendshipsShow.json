@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "targetId": {
+      "id": "http:\/\/wso2jsonschema.org\/targetId",
+      "type": "string"
+    },
+    "sourceScreenName": {
+      "id": "http:\/\/wso2jsonschema.org\/sourceScreenName",
+      "type": "string"
+    },
+    "targetScreenName": {
+      "id": "http:\/\/wso2jsonschema.org\/targetScreenName",
+      "type": "string"
+    },
+    "sourceId": {
+      "id": "http:\/\/wso2jsonschema.org\/sourceId",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

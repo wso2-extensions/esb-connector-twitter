@@ -49,8 +49,8 @@
                 has a pending follow request.
             </description>
         </component>
-        <component name="CreateFriendships">
-            <file>CreateFriendships.xml</file>
+        <component name="createFriendships">
+            <file>createFriendships.xml</file>
             <description>Allows the authenticating users to follow the user specified in the ID
                 parameter.
             </description>

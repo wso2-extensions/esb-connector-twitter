@@ -1,0 +1,16 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "userID": {
+      "id": "http:\/\/wso2jsonschema.org\/userID",
+      "type": "string"
+    },
+    "screenName": {
+      "id": "http:\/\/wso2jsonschema.org\/screenName",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

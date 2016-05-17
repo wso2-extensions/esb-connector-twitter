@@ -1,0 +1,44 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "includeRts": {
+      "id": "http:\/\/wso2jsonschema.org\/includeRts",
+      "type": "string"
+    },
+    "count": {
+      "id": "http:\/\/wso2jsonschema.org\/count",
+      "type": "string"
+    },
+    "excludeReplies": {
+      "id": "http:\/\/wso2jsonschema.org\/excludeReplies",
+      "type": "string"
+    },
+    "screenName": {
+      "id": "http:\/\/wso2jsonschema.org\/screenName",
+      "type": "string"
+    },
+    "MaxId": {
+      "id": "http:\/\/wso2jsonschema.org\/MaxId",
+      "type": "string"
+    },
+    "contributorDetails": {
+      "id": "http:\/\/wso2jsonschema.org\/contributorDetails",
+      "type": "string"
+    },
+    "userID": {
+      "id": "http:\/\/wso2jsonschema.org\/userID",
+      "type": "string"
+    },
+    "sinceId": {
+      "id": "http:\/\/wso2jsonschema.org\/sinceId",
+      "type": "string"
+    },
+    "trimUser": {
+      "id": "http:\/\/wso2jsonschema.org\/trimUser",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

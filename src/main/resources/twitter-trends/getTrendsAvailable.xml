@@ -21,11 +21,9 @@
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
         <property name="uri.var.apiUrl.final"
                   expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/trends/available.json')"/>
-        <property name="uri.var.httpMethod"
-                  value="GET"/>
+        <property name="uri.var.httpMethod" value="GET"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')"
-                scope="transport"/>
+        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="get"

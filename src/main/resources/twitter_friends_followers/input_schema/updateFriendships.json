@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "userID": {
+      "id": "http:\/\/wso2jsonschema.org\/userID",
+      "type": "string"
+    },
+    "device": {
+      "id": "http:\/\/wso2jsonschema.org\/device",
+      "type": "string"
+    },
+    "screenName": {
+      "id": "http:\/\/wso2jsonschema.org\/screenName",
+      "type": "string"
+    },
+    "retweets": {
+      "id": "http:\/\/wso2jsonschema.org\/retweets",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

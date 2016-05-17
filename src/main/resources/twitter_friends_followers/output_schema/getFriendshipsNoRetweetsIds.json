@@ -1,0 +1,12 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/root\/0",
+      "type": "string"
+    }
+  ],
+  "type": "array"
+}

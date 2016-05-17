@@ -1,0 +1,16 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "long": {
+      "id": "http:\/\/wso2jsonschema.org\/long",
+      "type": "string"
+    },
+    "lat": {
+      "id": "http:\/\/wso2jsonschema.org\/lat",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "includeEntities": {
+      "id": "http:\/\/wso2jsonschema.org\/includeEntities",
+      "type": "string"
+    },
+    "cursor": {
+      "id": "http:\/\/wso2jsonschema.org\/cursor",
+      "type": "string"
+    },
+    "skipStatus": {
+      "id": "http:\/\/wso2jsonschema.org\/skipStatus",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

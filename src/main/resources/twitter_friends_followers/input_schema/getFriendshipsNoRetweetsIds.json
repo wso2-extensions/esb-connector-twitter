@@ -1,0 +1,12 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "stringifyIds": {
+      "id": "http:\/\/wso2jsonschema.org\/stringifyIds",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

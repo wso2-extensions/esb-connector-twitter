@@ -1,0 +1,436 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "sender_id_str": {
+      "id": "http:\/\/wso2jsonschema.org\/sender_id_str",
+      "type": "string"
+    },
+    "sender": {
+      "id": "http:\/\/wso2jsonschema.org\/sender",
+      "properties": {
+        "location": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/location",
+          "type": "string"
+        },
+        "default_profile": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/default_profile",
+          "type": "boolean"
+        },
+        "profile_background_tile": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_background_tile",
+          "type": "boolean"
+        },
+        "statuses_count": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/statuses_count",
+          "type": "number"
+        },
+        "lang": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/lang",
+          "type": "string"
+        },
+        "profile_link_color": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_link_color",
+          "type": "string"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/id",
+          "type": "number"
+        },
+        "following": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/following",
+          "type": "boolean"
+        },
+        "protected": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/protected",
+          "type": "boolean"
+        },
+        "favourites_count": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/favourites_count",
+          "type": "number"
+        },
+        "profile_text_color": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_text_color",
+          "type": "string"
+        },
+        "description": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/description",
+          "type": "string"
+        },
+        "verified": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/verified",
+          "type": "boolean"
+        },
+        "contributors_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/contributors_enabled",
+          "type": "boolean"
+        },
+        "profile_sidebar_border_color": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_sidebar_border_color",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/name",
+          "type": "string"
+        },
+        "profile_background_color": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_background_color",
+          "type": "string"
+        },
+        "created_at": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/created_at",
+          "type": "string"
+        },
+        "is_translation_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/is_translation_enabled",
+          "type": "boolean"
+        },
+        "default_profile_image": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/default_profile_image",
+          "type": "boolean"
+        },
+        "followers_count": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/followers_count",
+          "type": "number"
+        },
+        "has_extended_profile": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/has_extended_profile",
+          "type": "boolean"
+        },
+        "profile_image_url_https": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_image_url_https",
+          "type": "string"
+        },
+        "geo_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/geo_enabled",
+          "type": "boolean"
+        },
+        "profile_background_image_url": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_background_image_url",
+          "type": "string"
+        },
+        "profile_background_image_url_https": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_background_image_url_https",
+          "type": "string"
+        },
+        "follow_request_sent": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/follow_request_sent",
+          "type": "boolean"
+        },
+        "entities": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/entities",
+          "properties": {
+            "description": {
+              "id": "http:\/\/wso2jsonschema.org\/sender\/entities\/description",
+              "properties": {
+                "urls": {
+                  "id": "http:\/\/wso2jsonschema.org\/sender\/entities\/description\/urls",
+                  "items": [],
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "url": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/url",
+          "type": "string"
+        },
+        "utc_offset": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/utc_offset",
+          "type": "string"
+        },
+        "time_zone": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/time_zone",
+          "type": "string"
+        },
+        "notifications": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/notifications",
+          "type": "boolean"
+        },
+        "profile_use_background_image": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_use_background_image",
+          "type": "boolean"
+        },
+        "friends_count": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/friends_count",
+          "type": "number"
+        },
+        "profile_sidebar_fill_color": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_sidebar_fill_color",
+          "type": "string"
+        },
+        "screen_name": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/screen_name",
+          "type": "string"
+        },
+        "id_str": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/id_str",
+          "type": "string"
+        },
+        "profile_image_url": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/profile_image_url",
+          "type": "string"
+        },
+        "listed_count": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/listed_count",
+          "type": "number"
+        },
+        "is_translator": {
+          "id": "http:\/\/wso2jsonschema.org\/sender\/is_translator",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "number"
+    },
+    "text": {
+      "id": "http:\/\/wso2jsonschema.org\/text",
+      "type": "string"
+    },
+    "recipient_screen_name": {
+      "id": "http:\/\/wso2jsonschema.org\/recipient_screen_name",
+      "type": "string"
+    },
+    "sender_id": {
+      "id": "http:\/\/wso2jsonschema.org\/sender_id",
+      "type": "number"
+    },
+    "recipient_id": {
+      "id": "http:\/\/wso2jsonschema.org\/recipient_id",
+      "type": "number"
+    },
+    "sender_screen_name": {
+      "id": "http:\/\/wso2jsonschema.org\/sender_screen_name",
+      "type": "string"
+    },
+    "created_at": {
+      "id": "http:\/\/wso2jsonschema.org\/created_at",
+      "type": "string"
+    },
+    "id_str": {
+      "id": "http:\/\/wso2jsonschema.org\/id_str",
+      "type": "string"
+    },
+    "entities": {
+      "id": "http:\/\/wso2jsonschema.org\/entities",
+      "properties": {
+        "symbols": {
+          "id": "http:\/\/wso2jsonschema.org\/entities\/symbols",
+          "items": [],
+          "type": "array"
+        },
+        "urls": {
+          "id": "http:\/\/wso2jsonschema.org\/entities\/urls",
+          "items": [],
+          "type": "array"
+        },
+        "hashtags": {
+          "id": "http:\/\/wso2jsonschema.org\/entities\/hashtags",
+          "items": [],
+          "type": "array"
+        },
+        "user_mentions": {
+          "id": "http:\/\/wso2jsonschema.org\/entities\/user_mentions",
+          "items": [],
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "recipient_id_str": {
+      "id": "http:\/\/wso2jsonschema.org\/recipient_id_str",
+      "type": "string"
+    },
+    "recipient": {
+      "id": "http:\/\/wso2jsonschema.org\/recipient",
+      "properties": {
+        "location": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/location",
+          "type": "string"
+        },
+        "default_profile": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/default_profile",
+          "type": "boolean"
+        },
+        "profile_background_tile": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_background_tile",
+          "type": "boolean"
+        },
+        "statuses_count": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/statuses_count",
+          "type": "number"
+        },
+        "lang": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/lang",
+          "type": "string"
+        },
+        "profile_link_color": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_link_color",
+          "type": "string"
+        },
+        "profile_banner_url": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_banner_url",
+          "type": "string"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/id",
+          "type": "number"
+        },
+        "following": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/following",
+          "type": "boolean"
+        },
+        "protected": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/protected",
+          "type": "boolean"
+        },
+        "favourites_count": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/favourites_count",
+          "type": "number"
+        },
+        "profile_text_color": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_text_color",
+          "type": "string"
+        },
+        "description": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/description",
+          "type": "string"
+        },
+        "verified": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/verified",
+          "type": "boolean"
+        },
+        "contributors_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/contributors_enabled",
+          "type": "boolean"
+        },
+        "profile_sidebar_border_color": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_sidebar_border_color",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/name",
+          "type": "string"
+        },
+        "profile_background_color": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_background_color",
+          "type": "string"
+        },
+        "created_at": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/created_at",
+          "type": "string"
+        },
+        "is_translation_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/is_translation_enabled",
+          "type": "boolean"
+        },
+        "default_profile_image": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/default_profile_image",
+          "type": "boolean"
+        },
+        "followers_count": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/followers_count",
+          "type": "number"
+        },
+        "has_extended_profile": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/has_extended_profile",
+          "type": "boolean"
+        },
+        "profile_image_url_https": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_image_url_https",
+          "type": "string"
+        },
+        "geo_enabled": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/geo_enabled",
+          "type": "boolean"
+        },
+        "profile_background_image_url": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_background_image_url",
+          "type": "string"
+        },
+        "profile_background_image_url_https": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_background_image_url_https",
+          "type": "string"
+        },
+        "follow_request_sent": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/follow_request_sent",
+          "type": "boolean"
+        },
+        "entities": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/entities",
+          "properties": {
+            "description": {
+              "id": "http:\/\/wso2jsonschema.org\/recipient\/entities\/description",
+              "properties": {
+                "urls": {
+                  "id": "http:\/\/wso2jsonschema.org\/recipient\/entities\/description\/urls",
+                  "items": [],
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "url": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/url",
+          "type": "string"
+        },
+        "utc_offset": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/utc_offset",
+          "type": "string"
+        },
+        "time_zone": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/time_zone",
+          "type": "string"
+        },
+        "notifications": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/notifications",
+          "type": "boolean"
+        },
+        "profile_use_background_image": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_use_background_image",
+          "type": "boolean"
+        },
+        "friends_count": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/friends_count",
+          "type": "number"
+        },
+        "profile_sidebar_fill_color": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_sidebar_fill_color",
+          "type": "string"
+        },
+        "screen_name": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/screen_name",
+          "type": "string"
+        },
+        "id_str": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/id_str",
+          "type": "string"
+        },
+        "profile_image_url": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/profile_image_url",
+          "type": "string"
+        },
+        "listed_count": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/listed_count",
+          "type": "number"
+        },
+        "is_translator": {
+          "id": "http:\/\/wso2jsonschema.org\/recipient\/is_translator",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}
