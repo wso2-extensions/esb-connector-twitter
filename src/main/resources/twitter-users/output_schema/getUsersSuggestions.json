@@ -2,35 +2,26 @@
   "id": "http:\/\/wso2jsonschema.org",
   "title": "root",
   "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
-  "properties": {
-    "aaa": {
-      "id": "http:\/\/wso2jsonschema.org\/aaa",
-      "type": "string"
-    },
-    "ssss": {
-      "id": "http:\/\/wso2jsonschema.org\/ssss",
-      "items": [
-        {
-          "id": "http:\/\/wso2jsonschema.org\/ssss\/0",
-          "properties": {
-            "name": {
-              "id": "http:\/\/wso2jsonschema.org\/ssss\/0\/name",
-              "type": "string"
-            },
-            "slug": {
-              "id": "http:\/\/wso2jsonschema.org\/ssss\/0\/slug",
-              "type": "string"
-            },
-            "size": {
-              "id": "http:\/\/wso2jsonschema.org\/ssss\/0\/size",
-              "type": "number"
-            }
-          },
-          "type": "object"
+  "id": "http:\/\/wso2jsonschema.org\/ssss",
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/ssss\/0",
+      "properties": {
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/ssss\/0\/name",
+          "type": "string"
+        },
+        "slug": {
+          "id": "http:\/\/wso2jsonschema.org\/ssss\/0\/slug",
+          "type": "string"
+        },
+        "size": {
+          "id": "http:\/\/wso2jsonschema.org\/ssss\/0\/size",
+          "type": "number"
         }
-      ],
-      "type": "array"
+      },
+      "type": "object"
     }
-  },
-  "type": "object"
+  ],
+  "type": "array"
 }

@@ -2,39 +2,37 @@
   "id": "http:\/\/wso2jsonschema.org",
   "title": "root",
   "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
-  "properties": {
-    "items": [
-      {
-        "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0",
-        "properties": {
-          "position": {
-            "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0\/position",
-            "type": "string"
-          },
-          "id": {
-            "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0\/id",
-            "type": "number"
-          },
-          "query": {
-            "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0\/query",
-            "type": "string"
-          },
-          "name": {
-            "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0\/name",
-            "type": "string"
-          },
-          "created_at": {
-            "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0\/created_at",
-            "type": "string"
-          },
-          "id_str": {
-            "id": "http:\/\/wso2jsonschema.org\/bbbbb\/0\/id_str",
-            "type": "string"
-          }
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/root\/0",
+      "properties": {
+        "position": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/position",
+          "type": "string"
         },
-        "type": "object"
-      }
-    ]
-  },
-  "type": "object"
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/id",
+          "type": "number"
+        },
+        "query": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/query",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/name",
+          "type": "string"
+        },
+        "created_at": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/created_at",
+          "type": "string"
+        },
+        "id_str": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/id_str",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "type": "array"
 }
