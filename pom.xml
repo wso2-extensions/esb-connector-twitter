@@ -39,6 +39,7 @@
         <jruby.version>1.3.0</jruby.version>
         <org.testng.version>6.1.1</org.testng.version>
         <integration.base.version>1.0.1</integration.base.version>
+        <carbon.platform.version>4.4.1</carbon.platform.version>
     </properties>
     <dependencies>
         <dependency>
@@ -240,7 +241,8 @@
                                 ${basedir}/src/test/resources/
                             </value>
                             <properties>
-                                <test.framework.version>${carbon.platform.version}
+                                <test.framework.version>
+                                    ${carbon.platform.version}
                                 </test.framework.version>
                             </properties>
                         </property>
