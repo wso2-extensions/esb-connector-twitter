@@ -17,11 +17,11 @@
  ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="init">
-    <parameter name="consumerKey"/>
-    <parameter name="consumerSecret"/>
-    <parameter name="accessToken"/>
-    <parameter name="accessTokenSecret"/>
-    <parameter name="apiUrl"/>
+    <parameter name="consumerKey" description="The consumer key of the Twitter account."/>
+    <parameter name="consumerSecret" description="The consumer secret of the Twitter account."/>
+    <parameter name="accessToken" description="The access token of the Twitter account."/>
+    <parameter name="accessTokenSecret" description="The access token secret of the Twitter account."/>
+    <parameter name="apiUrl" description="The URL of the Twitter REST API"/>
     <sequence>
         <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
         <!-- If the apiUrl is not specified, set the default value as https://api.twitter.com -->
