@@ -111,7 +111,13 @@
           "properties": {
             "contributors": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/contributors",
-              "type": "string"
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/contributors\/0",
+                  "type": "number"
+                }
+              ],
+              "type": "array"
             },
             "text": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/text",
@@ -119,7 +125,23 @@
             },
             "geo": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/geo",
-              "type": "string"
+              "properties": {
+                "type": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/geo\/type",
+                  "type": "string"
+                },
+                "coordinates": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/geo\/coordinates",
+                  "items": [
+                    {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/geo\/coordinates\/0",
+                      "type": "number"
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              "type": "object"
             },
             "retweeted": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/retweeted",
@@ -222,7 +244,7 @@
             },
             "in_reply_to_status_id": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/in_reply_to_status_id",
-              "type": "string"
+              "type": "number"
             },
             "retweet_count": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/retweet_count",
@@ -234,7 +256,7 @@
             },
             "in_reply_to_user_id": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/in_reply_to_user_id",
-              "type": "string"
+              "type": "number"
             },
             "favorite_count": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/favorite_count",
@@ -250,7 +272,13 @@
             },
             "coordinates": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/coordinates",
-              "type": "string"
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/status\/coordinates\/0",
+                  "type": "array"
+                }
+              ],
+              "type": "array"
             }
           },
           "type": "object"
@@ -290,7 +318,7 @@
         },
         "utc_offset": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/utc_offset",
-          "type": "string"
+          "type": "number"
         },
         "time_zone": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/time_zone",

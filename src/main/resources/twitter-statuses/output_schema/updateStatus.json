@@ -5,7 +5,13 @@
   "properties": {
     "contributors": {
       "id": "http:\/\/wso2jsonschema.org\/contributors",
-      "type": "string"
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/contributors\/0",
+          "type": "number"
+        }
+      ],
+      "type": "array"
     },
     "text": {
       "id": "http:\/\/wso2jsonschema.org\/text",
@@ -13,7 +19,23 @@
     },
     "geo": {
       "id": "http:\/\/wso2jsonschema.org\/geo",
-      "type": "string"
+      "properties": {
+        "type": {
+          "id": "http:\/\/wso2jsonschema.org\/geo\/type",
+          "type": "string"
+        },
+        "coordinates": {
+          "id": "http:\/\/wso2jsonschema.org\/geo\/coordinates",
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/geo\/coordinates\/0",
+              "type": "number"
+            }
+          ],
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "retweeted": {
       "id": "http:\/\/wso2jsonschema.org\/retweeted",
@@ -121,7 +143,7 @@
     },
     "in_reply_to_status_id": {
       "id": "http:\/\/wso2jsonschema.org\/in_reply_to_status_id",
-      "type": "string"
+      "type": "number"
     },
     "retweet_count": {
       "id": "http:\/\/wso2jsonschema.org\/retweet_count",
@@ -133,7 +155,7 @@
     },
     "in_reply_to_user_id": {
       "id": "http:\/\/wso2jsonschema.org\/in_reply_to_user_id",
-      "type": "string"
+      "type": "number"
     },
     "favorite_count": {
       "id": "http:\/\/wso2jsonschema.org\/favorite_count",
@@ -281,7 +303,7 @@
         },
         "utc_offset": {
           "id": "http:\/\/wso2jsonschema.org\/user\/utc_offset",
-          "type": "string"
+          "type": "number"
         },
         "time_zone": {
           "id": "http:\/\/wso2jsonschema.org\/user\/time_zone",
@@ -328,7 +350,13 @@
     },
     "coordinates": {
       "id": "http:\/\/wso2jsonschema.org\/coordinates",
-      "type": "string"
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/coordinates\/0",
+          "type": "array"
+        }
+      ],
+      "type": "array"
     }
   },
   "type": "object"
