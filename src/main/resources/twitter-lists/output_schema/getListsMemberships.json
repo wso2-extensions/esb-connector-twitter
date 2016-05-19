@@ -86,7 +86,7 @@
                 },
                 "following": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/following",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "favourites_count": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/favourites_count",
@@ -154,7 +154,7 @@
                 },
                 "follow_request_sent": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/follow_request_sent",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "url": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/url",
@@ -162,7 +162,7 @@
                 },
                 "utc_offset": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/utc_offset",
-                  "type": "string"
+                  "type": "number"
                 },
                 "time_zone": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/time_zone",
@@ -170,7 +170,7 @@
                 },
                 "notifications": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/notifications",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "friends_count": {
                   "id": "http:\/\/wso2jsonschema.org\/lists\/0\/user\/friends_count",
@@ -224,7 +224,7 @@
               "type": "string"
             }
           },
-          "type": "null"
+          "type": "object"
         }
       ],
       "type": "array"

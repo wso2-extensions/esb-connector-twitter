@@ -141,7 +141,7 @@
         },
         "utc_offset": {
           "id": "http:\/\/wso2jsonschema.org\/sender\/utc_offset",
-          "type": "string"
+          "type": "number"
         },
         "time_zone": {
           "id": "http:\/\/wso2jsonschema.org\/sender\/time_zone",
@@ -386,7 +386,7 @@
         },
         "utc_offset": {
           "id": "http:\/\/wso2jsonschema.org\/recipient\/utc_offset",
-          "type": "string"
+          "type": "number"
         },
         "time_zone": {
           "id": "http:\/\/wso2jsonschema.org\/recipient\/time_zone",

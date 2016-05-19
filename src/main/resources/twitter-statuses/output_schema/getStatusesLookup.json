@@ -8,7 +8,13 @@
       "properties": {
         "contributors": {
           "id": "http:\/\/wso2jsonschema.org\/20\/contributors",
-          "type": "string"
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/20\/contributors\/0",
+              "type": "number"
+            }
+          ],
+          "type": "array"
         },
         "text": {
           "id": "http:\/\/wso2jsonschema.org\/20\/text",
@@ -16,7 +22,23 @@
         },
         "geo": {
           "id": "http:\/\/wso2jsonschema.org\/20\/geo",
-          "type": "string"
+          "properties": {
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/20\/geo\/type",
+              "type": "string"
+            },
+            "coordinates": {
+              "id": "http:\/\/wso2jsonschema.org\/20\/geo\/coordinates",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/20\/geo\/coordinates\/0",
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            }
+          },
+          "type": "object"
         },
         "retweeted": {
           "id": "http:\/\/wso2jsonschema.org\/20\/retweeted",
@@ -86,7 +108,7 @@
         },
         "in_reply_to_status_id": {
           "id": "http:\/\/wso2jsonschema.org\/20\/in_reply_to_status_id",
-          "type": "string"
+          "type": "number"
         },
         "retweet_count": {
           "id": "http:\/\/wso2jsonschema.org\/20\/retweet_count",
@@ -98,7 +120,7 @@
         },
         "in_reply_to_user_id": {
           "id": "http:\/\/wso2jsonschema.org\/20\/in_reply_to_user_id",
-          "type": "string"
+          "type": "number"
         },
         "favorite_count": {
           "id": "http:\/\/wso2jsonschema.org\/20\/favorite_count",
@@ -293,7 +315,13 @@
         },
         "coordinates": {
           "id": "http:\/\/wso2jsonschema.org\/20\/coordinates",
-          "type": "string"
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/20\/coordinates\/0",
+              "type": "array"
+            }
+          ],
+          "type": "array"
         }
       },
       "type": "object"
@@ -303,7 +331,13 @@
       "properties": {
         "contributors": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/contributors",
-          "type": "string"
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/contributors\/0",
+              "type": "number"
+            }
+          ],
+          "type": "array"
         },
         "text": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/text",
@@ -311,7 +345,23 @@
         },
         "geo": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/geo",
-          "type": "string"
+          "properties": {
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/geo\/type",
+              "type": "string"
+            },
+            "coordinates": {
+              "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/geo\/coordinates",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/geo\/coordinates\/0",
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            }
+          },
+          "type": "object"
         },
         "retweeted": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/retweeted",
@@ -414,7 +464,7 @@
         },
         "in_reply_to_status_id": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/in_reply_to_status_id",
-          "type": "string"
+          "type": "number"
         },
         "retweet_count": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/retweet_count",
@@ -426,7 +476,7 @@
         },
         "in_reply_to_user_id": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/in_reply_to_user_id",
-          "type": "string"
+          "type": "number"
         },
         "favorite_count": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/favorite_count",
@@ -665,7 +715,13 @@
         },
         "coordinates": {
           "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/coordinates",
-          "type": "string"
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/432656548536401920\/coordinates\/0",
+              "type": "array"
+            }
+          ],
+          "type": "array"
         }
       },
       "type": "object"

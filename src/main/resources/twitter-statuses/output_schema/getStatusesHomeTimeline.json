@@ -194,7 +194,7 @@
         },
         "in_reply_to_status_id": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/in_reply_to_status_id",
-          "type": "string"
+          "type": "number"
         },
         "created_at": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/created_at",
@@ -210,7 +210,13 @@
         },
         "coordinates": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/coordinates",
-          "type": "string"
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/coordinates\/0",
+              "type": "array"
+            }
+          ],
+          "type": "array"
         },
         "possibly_sensitive_appealable": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/possibly_sensitive_appealable",
@@ -222,7 +228,13 @@
         },
         "contributors": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/contributors",
-          "type": "string"
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/contributors\/0",
+              "type": "number"
+            }
+          ],
+          "type": "array"
         },
         "retweeted_status": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status",
@@ -399,7 +411,7 @@
             },
             "in_reply_to_status_id": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/in_reply_to_status_id",
-              "type": "string"
+              "type": "number"
             },
             "created_at": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/created_at",
@@ -415,7 +427,13 @@
             },
             "coordinates": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/coordinates",
-              "type": "string"
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/coordinates\/0",
+                  "type": "array"
+                }
+              ],
+              "type": "array"
             },
             "possibly_sensitive_appealable": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/possibly_sensitive_appealable",
@@ -427,11 +445,33 @@
             },
             "contributors": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/contributors",
-              "type": "string"
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/contributors\/0",
+                  "type": "number"
+                }
+              ],
+              "type": "array"
             },
             "geo": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/geo",
-              "type": "string"
+              "properties": {
+                "type": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/geo\/type",
+                  "type": "string"
+                },
+                "coordinates": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/geo\/coordinates",
+                  "items": [
+                    {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/geo\/coordinates\/0",
+                      "type": "number"
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              "type": "object"
             },
             "entities": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/entities",
@@ -610,7 +650,7 @@
             },
             "in_reply_to_user_id": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/in_reply_to_user_id",
-              "type": "string"
+              "type": "number"
             },
             "retweet_count": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweeted_status\/retweet_count",
@@ -848,7 +888,23 @@
         },
         "geo": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/geo",
-          "type": "string"
+          "properties": {
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/geo\/type",
+              "type": "string"
+            },
+            "coordinates": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/geo\/coordinates",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/geo\/coordinates\/0",
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            }
+          },
+          "type": "object"
         },
         "entities": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/entities",
@@ -1043,7 +1099,7 @@
         },
         "in_reply_to_user_id": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/in_reply_to_user_id",
-          "type": "string"
+          "type": "number"
         },
         "retweet_count": {
           "id": "http:\/\/wso2jsonschema.org\/root\/0\/retweet_count",
@@ -1191,7 +1247,7 @@
             },
             "utc_offset": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/user\/utc_offset",
-              "type": "string"
+              "type": "number"
             },
             "time_zone": {
               "id": "http:\/\/wso2jsonschema.org\/root\/0\/user\/time_zone",
