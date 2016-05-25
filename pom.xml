@@ -21,7 +21,7 @@
     <groupId>org.wso2.carbon.connector</groupId>
     <artifactId>org.wso2.carbon.connector.twitter</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.2-SNAPSHOT</version>
+    <version>2.0.3-SNAPSHOT</version>
     <name>WSO2 Carbon - Mediation Library Connector For Twitter</name>
     <url>http://wso2.org</url>
     <properties>
