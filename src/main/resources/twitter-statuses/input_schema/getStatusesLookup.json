@@ -5,7 +5,8 @@
   "properties": {
     "includeEntities": {
       "id": "http:\/\/wso2jsonschema.org\/includeEntities",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "id": {
       "id": "http:\/\/wso2jsonschema.org\/id",
@@ -13,11 +14,13 @@
     },
     "trimUser": {
       "id": "http:\/\/wso2jsonschema.org\/trimUser",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "map": {
       "id": "http:\/\/wso2jsonschema.org\/map",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

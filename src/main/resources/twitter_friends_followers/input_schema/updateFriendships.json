@@ -5,19 +5,23 @@
   "properties": {
     "userID": {
       "id": "http:\/\/wso2jsonschema.org\/userID",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "device": {
       "id": "http:\/\/wso2jsonschema.org\/device",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "screenName": {
       "id": "http:\/\/wso2jsonschema.org\/screenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "retweets": {
       "id": "http:\/\/wso2jsonschema.org\/retweets",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

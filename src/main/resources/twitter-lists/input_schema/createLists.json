@@ -5,7 +5,8 @@
   "properties": {
     "description": {
       "id": "http:\/\/wso2jsonschema.org\/description",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "name": {
       "id": "http:\/\/wso2jsonschema.org\/name",
@@ -13,7 +14,8 @@
     },
     "mode": {
       "id": "http:\/\/wso2jsonschema.org\/mode",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

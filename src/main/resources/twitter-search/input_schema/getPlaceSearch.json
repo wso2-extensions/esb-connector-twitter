@@ -5,35 +5,43 @@
   "properties": {
     "containedWithin": {
       "id": "http:\/\/wso2jsonschema.org\/containedWithin",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "query": {
       "id": "http:\/\/wso2jsonschema.org\/query",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "granularity": {
       "id": "http:\/\/wso2jsonschema.org\/granularity",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "longitude": {
       "id": "http:\/\/wso2jsonschema.org\/longitude",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "latitude": {
       "id": "http:\/\/wso2jsonschema.org\/latitude",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "accuracy": {
       "id": "http:\/\/wso2jsonschema.org\/accuracy",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "maxResults": {
       "id": "http:\/\/wso2jsonschema.org\/maxResults",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "ip": {
       "id": "http:\/\/wso2jsonschema.org\/ip",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

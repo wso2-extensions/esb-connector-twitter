@@ -5,19 +5,23 @@
   "properties": {
     "ownerScreenName": {
       "id": "http:\/\/wso2jsonschema.org\/ownerScreenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "listId": {
       "id": "http:\/\/wso2jsonschema.org\/listId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "ownerId": {
       "id": "http:\/\/wso2jsonschema.org\/ownerId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "slug": {
       "id": "http:\/\/wso2jsonschema.org\/slug",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

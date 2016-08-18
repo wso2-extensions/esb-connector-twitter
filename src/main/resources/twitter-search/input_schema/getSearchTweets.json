@@ -5,35 +5,43 @@
   "properties": {
     "count": {
       "id": "http:\/\/wso2jsonschema.org\/count",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "locale": {
       "id": "http:\/\/wso2jsonschema.org\/locale",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "lang": {
       "id": "http:\/\/wso2jsonschema.org\/lang",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "until": {
       "id": "http:\/\/wso2jsonschema.org\/until",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "includeEntities": {
       "id": "http:\/\/wso2jsonschema.org\/includeEntities",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "geocode": {
       "id": "http:\/\/wso2jsonschema.org\/geocode",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "sinceId": {
       "id": "http:\/\/wso2jsonschema.org\/sinceId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "page": {
       "id": "http:\/\/wso2jsonschema.org\/page",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "q": {
       "id": "http:\/\/wso2jsonschema.org\/q",
@@ -41,15 +49,18 @@
     },
     "callback": {
       "id": "http:\/\/wso2jsonschema.org\/callback",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "resultType": {
       "id": "http:\/\/wso2jsonschema.org\/resultType",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "maxId": {
       "id": "http:\/\/wso2jsonschema.org\/maxId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

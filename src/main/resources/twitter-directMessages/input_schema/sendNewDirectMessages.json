@@ -5,15 +5,18 @@
   "properties": {
     "userID": {
       "id": "http:\/\/wso2jsonschema.org\/userID",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "text": {
       "id": "http:\/\/wso2jsonschema.org\/text",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "screenName": {
       "id": "http:\/\/wso2jsonschema.org\/screenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

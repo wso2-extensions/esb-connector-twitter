@@ -5,11 +5,13 @@
   "properties": {
     "cursor": {
       "id": "http:\/\/wso2jsonschema.org\/cursor",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "stringifyIds": {
       "id": "http:\/\/wso2jsonschema.org\/stringifyIds",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

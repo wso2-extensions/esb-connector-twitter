@@ -9,7 +9,8 @@
     },
     "trimUser": {
       "id": "http:\/\/wso2jsonschema.org\/trimUser",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

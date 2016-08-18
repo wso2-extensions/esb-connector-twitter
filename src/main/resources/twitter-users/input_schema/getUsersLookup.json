@@ -5,15 +5,18 @@
   "properties": {
     "includeUserEntities": {
       "id": "http:\/\/wso2jsonschema.org\/includeUserEntities",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "userID": {
       "id": "http:\/\/wso2jsonschema.org\/userID",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "screenName": {
       "id": "http:\/\/wso2jsonschema.org\/screenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"
