@@ -9,7 +9,8 @@
     },
     "exclude": {
       "id": "http:\/\/wso2jsonschema.org\/exclude",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

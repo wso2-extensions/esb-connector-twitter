@@ -5,31 +5,38 @@
   "properties": {
     "includeEntities": {
       "id": "http:\/\/wso2jsonschema.org\/includeEntities",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "profileLinkColor": {
       "id": "http:\/\/wso2jsonschema.org\/profileLinkColor",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "location": {
       "id": "http:\/\/wso2jsonschema.org\/location",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "skipStatus": {
       "id": "http:\/\/wso2jsonschema.org\/skipStatus",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "description": {
       "id": "http:\/\/wso2jsonschema.org\/description",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "name": {
       "id": "http:\/\/wso2jsonschema.org\/name",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "url": {
       "id": "http:\/\/wso2jsonschema.org\/url",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

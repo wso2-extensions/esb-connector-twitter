@@ -5,39 +5,48 @@
   "properties": {
     "mediaIds": {
       "id": "http:\/\/wso2jsonschema.org\/mediaIds",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "status": {
       "id": "http:\/\/wso2jsonschema.org\/status",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "possiblySensitive": {
       "id": "http:\/\/wso2jsonschema.org\/possiblySensitive",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "inReplyToStatusId": {
       "id": "http:\/\/wso2jsonschema.org\/inReplyToStatusId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "displayCoordinates": {
       "id": "http:\/\/wso2jsonschema.org\/displayCoordinates",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "placeId": {
       "id": "http:\/\/wso2jsonschema.org\/placeId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "trimUser": {
       "id": "http:\/\/wso2jsonschema.org\/trimUser",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "longitude": {
       "id": "http:\/\/wso2jsonschema.org\/longitude",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "latitude": {
       "id": "http:\/\/wso2jsonschema.org\/latitude",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

@@ -5,27 +5,33 @@
   "properties": {
     "includeEntities": {
       "id": "http:\/\/wso2jsonschema.org\/includeEntities",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "userID": {
       "id": "http:\/\/wso2jsonschema.org\/userID",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "sinceId": {
       "id": "http:\/\/wso2jsonschema.org\/sinceId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "count": {
       "id": "http:\/\/wso2jsonschema.org\/count",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "screenName": {
       "id": "http:\/\/wso2jsonschema.org\/screenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "maxId": {
       "id": "http:\/\/wso2jsonschema.org\/maxId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

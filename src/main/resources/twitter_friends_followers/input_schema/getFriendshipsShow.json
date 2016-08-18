@@ -5,19 +5,23 @@
   "properties": {
     "targetId": {
       "id": "http:\/\/wso2jsonschema.org\/targetId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "sourceScreenName": {
       "id": "http:\/\/wso2jsonschema.org\/sourceScreenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "targetScreenName": {
       "id": "http:\/\/wso2jsonschema.org\/targetScreenName",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "sourceId": {
       "id": "http:\/\/wso2jsonschema.org\/sourceId",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"

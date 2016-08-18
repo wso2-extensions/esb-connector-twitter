@@ -9,15 +9,18 @@
     },
     "id": {
       "id": "http:\/\/wso2jsonschema.org\/id",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "includeMyRetweet": {
       "id": "http:\/\/wso2jsonschema.org\/includeMyRetweet",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     },
     "trimUser": {
       "id": "http:\/\/wso2jsonschema.org\/trimUser",
-      "type": "string"
+      "type": "string",
+      "nullable": "true"
     }
   },
   "type": "object"
