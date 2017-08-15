@@ -22,7 +22,7 @@
             <file>getFriendsIds.xml</file>
             <description>Returns a cursored collection of user IDs for every user the specified user
                 is following
-                (otherwise known as their "friends").
+                (otherwise known as their 'friends').
             </description>
         </component>
         <component name="getFriendshipsNoReweetsIds">
@@ -82,7 +82,7 @@
             <file>getFriendsList.xml</file>
             <description>Returns a cursored collection of user objects for every user the specified
                 user is following
-                (otherwise known as their “friends”).
+                (otherwise known as their 'friends').
             </description>
         </component>
         <component name="getFriendshipsLookup">

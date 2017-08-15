@@ -74,7 +74,7 @@
         </component>
         <component name="updateProfile">
             <file>updateProfile.xml</file>
-            <description>Sets some values that users are able to set under the “Account” tab of
+            <description>Sets some values that users are able to set under the 'Account' tab of
                 their settings page. Only the parameters specified will be updated.
             </description>
         </component>
