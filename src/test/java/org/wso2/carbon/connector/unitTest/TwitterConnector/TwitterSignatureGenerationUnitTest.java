@@ -34,10 +34,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.wso2.carbon.connector.twitter.TwitterConstants;
 import org.wso2.carbon.connector.twitter.TwitterSignatureGeneration;
-import java.util.Calendar;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * generate the authorization header
@@ -63,17 +59,17 @@ public class TwitterSignatureGenerationUnitTest {
         ctx.setProperty(TwitterConstants.TWITTER_CONSUMER_SECRET, "dummyConsumerSecret");
         ctx.setProperty(TwitterConstants.TWITTER_ACCESS_TOKEN, "dummyAccessToken");
         ctx.setProperty(TwitterConstants.TWITTER_ACCESS_TOKEN_SECRET, "dummyAccessTokenSecret");
-        ctx.setProperty(TwitterConstants.ENC, "UTF-8");
         ctx.setProperty(TwitterConstants.SIGNATURE_METHOD, "HmacSHA1");
         ctx.setProperty(TwitterConstants.HTTP_METHOD, "GET");
-        ctx.setProperty(TwitterConstants.TWITTER_ENDPOINT, "uri.var.apiUrl.final");
-        ctx.setProperty(TwitterConstants.EMPTY_STR, "");
-
+        ctx.setProperty(TwitterConstants.TWITTER_ENDPOINT, "https://api.twitter.com/oauth/request_token");
         twitterSignatureGeneration.connect(ctx);
-        System.out.println(ctx.getProperty("uri.var.signature").toString()+"\n\n");
-
-        twitterGenerateSampleSignature.connect();
-        Assert.assertEquals(ctx.getProperty("uri.var.signature").toString().contains("oauth_signature"),true);
+        String output = ctx.getProperty("uri.var.signature").toString();
+        String signature = output.substring(output.indexOf("oauth_signature=") + 17, output.indexOf("\",oauth_token"));
+        String oauthNonce = output.substring(output.indexOf("oauth_nonce") + 13, output.indexOf("\",oauth_version"));
+        String oauthTimestamp = output
+                .substring(output.indexOf("oauth_timestamp") + 17, output.indexOf("\",oauth_nonce"));
+        String sampleSignature = twitterGenerateSampleSignature.connect(oauthNonce, oauthTimestamp);
+        Assert.assertEquals(signature, sampleSignature);
     }
 
     private MessageContext createMessageContext() throws AxisFault {
