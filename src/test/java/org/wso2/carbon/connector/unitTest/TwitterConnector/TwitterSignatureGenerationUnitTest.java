@@ -32,6 +32,7 @@ import org.apache.synapse.core.axis2.Axis2MessageContext;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.wso2.carbon.connector.twitter.RemoveTwitterContext;
 import org.wso2.carbon.connector.twitter.TwitterConstants;
 import org.wso2.carbon.connector.twitter.TwitterSignatureGeneration;
 
@@ -41,20 +42,19 @@ import org.wso2.carbon.connector.twitter.TwitterSignatureGeneration;
 public class TwitterSignatureGenerationUnitTest {
 
     private TwitterSignatureGeneration twitterSignatureGeneration;
+    private RemoveTwitterContext removeTwitterContext;
     private TwitterGenerateSampleSignature twitterGenerateSampleSignature;
     private SynapseConfiguration synapseConfig;
     private MessageContext ctx;
     private ConfigurationContext configContext;
 
+
     @BeforeMethod
     public void setUp() throws Exception {
         twitterSignatureGeneration = new TwitterSignatureGeneration();
         twitterGenerateSampleSignature = new TwitterGenerateSampleSignature();
+        removeTwitterContext=new RemoveTwitterContext();
         ctx = createMessageContext();
-    }
-
-    @Test
-    public void testTwitterSignatureGeneration() throws Exception {
         ctx.setProperty(TwitterConstants.TWITTER_CONSUMER_KEY, "dummyConsumerKey");
         ctx.setProperty(TwitterConstants.TWITTER_CONSUMER_SECRET, "dummyConsumerSecret");
         ctx.setProperty(TwitterConstants.TWITTER_ACCESS_TOKEN, "dummyAccessToken");
@@ -63,6 +63,10 @@ public class TwitterSignatureGenerationUnitTest {
         ctx.setProperty(TwitterConstants.HTTP_METHOD, "GET");
         ctx.setProperty(TwitterConstants.TWITTER_ENDPOINT, "https://api.twitter.com/oauth/request_token");
         twitterSignatureGeneration.connect(ctx);
+    }
+
+    @Test
+    public void testTwitterSignatureGeneration() throws Exception {
         String output = ctx.getProperty("uri.var.signature").toString();
         String signature = output.substring(output.indexOf("oauth_signature=") + 17, output.indexOf("\",oauth_token"));
         String oauthNonce = output.substring(output.indexOf("oauth_nonce") + 13, output.indexOf("\",oauth_version"));
@@ -70,6 +74,13 @@ public class TwitterSignatureGenerationUnitTest {
                 .substring(output.indexOf("oauth_timestamp") + 17, output.indexOf("\",oauth_nonce"));
         String sampleSignature = twitterGenerateSampleSignature.connect(oauthNonce, oauthTimestamp);
         Assert.assertEquals(signature, sampleSignature);
+    }
+
+    @Test
+    public void testRemoveTwitterContext() throws Exception {
+        removeTwitterContext.connect(ctx);
+        System.out.println(ctx);
+        Assert.assertNull(ctx.getProperty("uri.var.signature"));
     }
 
     private MessageContext createMessageContext() throws AxisFault {
