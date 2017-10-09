@@ -30,21 +30,17 @@ import org.apache.synapse.MessageContext;
 import org.apache.synapse.SynapseException;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.core.axis2.Axis2MessageContext;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.wso2.carbon.connector.twitter.RemoveTwitterContext;
 import org.wso2.carbon.connector.twitter.TwitterConstants;
 import org.wso2.carbon.connector.twitter.TwitterSignatureGeneration;
 
 /**
  * generate the authorization header
  */
-public class TwitterSignatureGenerationUnitTest {
+public class TwitterSignatureGenerationExceptionUnitTest {
 
     private TwitterSignatureGeneration twitterSignatureGeneration;
-    private RemoveTwitterContext removeTwitterContext;
-    private TwitterGenerateSampleSignature twitterGenerateSampleSignature;
     private SynapseConfiguration synapseConfig;
     private MessageContext ctx;
     private ConfigurationContext configContext;
@@ -52,10 +48,12 @@ public class TwitterSignatureGenerationUnitTest {
     @BeforeMethod
     public void setUp() throws Exception {
         twitterSignatureGeneration = new TwitterSignatureGeneration();
-        twitterGenerateSampleSignature = new TwitterGenerateSampleSignature();
-        removeTwitterContext = new RemoveTwitterContext();
         ctx = createMessageContext();
-        ctx.setProperty(TwitterConstants.TWITTER_CONSUMER_KEY, "dummyConsumerKey");
+    }
+
+    @Test(description = "Test case for TwitterSignatureGeneration() method with missing parameter 'dummyConsumerKey'",
+          expectedExceptions = SynapseException.class)
+    public void testTwitterSignatureGenerationError() {
         ctx.setProperty(TwitterConstants.TWITTER_CONSUMER_SECRET, "dummyConsumerSecret");
         ctx.setProperty(TwitterConstants.TWITTER_ACCESS_TOKEN, "dummyAccessToken");
         ctx.setProperty(TwitterConstants.TWITTER_ACCESS_TOKEN_SECRET, "dummyAccessTokenSecret");
@@ -63,24 +61,6 @@ public class TwitterSignatureGenerationUnitTest {
         ctx.setProperty(TwitterConstants.HTTP_METHOD, "GET");
         ctx.setProperty(TwitterConstants.TWITTER_ENDPOINT, "https://api.twitter.com/oauth/request_token");
         twitterSignatureGeneration.connect(ctx);
-    }
-
-    @Test(description = "Test case for TwitterSignatureGeneration() method")
-    public void testTwitterSignatureGeneration() throws Exception {
-        String output = ctx.getProperty("uri.var.signature").toString();
-        String signature = output.substring(output.indexOf("oauth_signature=") + 17, output.indexOf("\",oauth_token"));
-        String oauthNonce = output.substring(output.indexOf("oauth_nonce") + 13, output.indexOf("\",oauth_version"));
-        String oauthTimestamp = output
-                .substring(output.indexOf("oauth_timestamp") + 17, output.indexOf("\",oauth_nonce"));
-        String sampleSignature = twitterGenerateSampleSignature.connect(oauthNonce, oauthTimestamp);
-        Assert.assertEquals(signature, sampleSignature);
-    }
-
-    @Test(description = "Test case for RemoveTwitterContext() method")
-    public void testRemoveTwitterContext() throws Exception {
-        removeTwitterContext.connect(ctx);
-        System.out.println(ctx);
-        Assert.assertNull(ctx.getProperty("uri.var.signature"));
     }
 
     private MessageContext createMessageContext() throws AxisFault {

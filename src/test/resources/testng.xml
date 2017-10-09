@@ -3,6 +3,7 @@
     <test name="Twitter-Connector-Unit-Test" preserve-order="true" verbose="2">
         <classes>
             <class name="org.wso2.carbon.connector.unitTest.TwitterConnector.TwitterSignatureGenerationUnitTest"/>
+            <class name="org.wso2.carbon.connector.unitTest.TwitterConnector.TwitterSignatureGenerationExceptionUnitTest"/>
         </classes>
     </test>
 </suite>
