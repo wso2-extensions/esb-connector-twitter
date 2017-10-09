@@ -34,7 +34,7 @@
         <script language="js">
             <![CDATA[
                 // optional url param variables
-                var q = mc.getProperty('uri.var.q');
+                var q = encodeURIComponent(mc.getProperty('uri.var.q'));
                 var page = mc.getProperty('uri.var.page');
                 var count  = mc.getProperty('uri.var.count');
                 var includeEntities = mc.getProperty('uri.var.includeEntities');
