@@ -24,7 +24,7 @@
         <script language="js">
             <![CDATA[
                 // optional url param variables
-                var query = mc.getProperty('uri.var.query');
+                var query = encodeURIComponent(mc.getProperty('uri.var.query'));
                 var uriParams = '';
 
                 uriParams = 'query=' + query + '&';

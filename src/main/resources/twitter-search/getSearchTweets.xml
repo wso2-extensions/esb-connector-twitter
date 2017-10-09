@@ -55,7 +55,7 @@
         <script language="js">
             <![CDATA[
                 // optional url param variables
-                var q = mc.getProperty('uri.var.q');
+                var q = encodeURIComponent(mc.getProperty('uri.var.q'));
                 var lang = mc.getProperty('uri.var.lang');
                 var resultType  = mc.getProperty('uri.var.resultType');
                 var geocode = mc.getProperty('uri.var.geocode');
