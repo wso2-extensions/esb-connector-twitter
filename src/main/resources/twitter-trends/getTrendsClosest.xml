@@ -35,7 +35,7 @@
                 latitude = 'lat=' + encodeURIComponent(latitude);
                 mc.setProperty('uri.var.latitude', latitude)
 
-                uriParams = 'long=' + longitude + '&';
+                uriParams += 'long=' + longitude + '&';
                 longitude = 'long=' + encodeURIComponent(longitude);
                 mc.setProperty('uri.var.longitude', longitude)
 

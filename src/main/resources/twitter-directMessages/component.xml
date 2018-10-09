@@ -24,12 +24,6 @@
                 user
             </description>
         </component>
-        <component name="getSentDirectMessages">
-            <file>getSentDirectMessages.xml</file>
-            <description>Returns the 20 most recent direct messages sent by the authenticating
-                user
-            </description>
-        </component>
         <component name="sendNewDirectMessages">
             <file>sendNewDirectMessages.xml</file>
             <description>Sends a new direct message to the specified user from the authenticating

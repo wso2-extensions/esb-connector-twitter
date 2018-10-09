@@ -27,24 +27,23 @@
                 var id = mc.getProperty('uri.var.id');
                 var uriParams = '';
 
-                uriParams = 'id=' + id + '&';
-                id = 'id=' + encodeURIComponent(id);
-                mc.setProperty('uri.var.id', id)
+                uriParams = id;
+                mc.setProperty('uri.var.id', '');
 
                 if(uriParams != ''){
-                    mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
+                    mc.setProperty('uri.var.uriParams' , uriParams.toString());
                 }
             ]]>
         </script>
         <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/saved_searches/destroy.json')"/>
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/saved_searches/destroy/',get-property('uri.var.uriParams'),'.json')"/>
         <property name="uri.var.httpMethod" value="POST"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
         <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="post"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/saved_searches/destroy.json?{uri.var.uriParams}"/>
+                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/saved_searches/destroy/{uri.var.uriParams}.json"/>
             </endpoint>
         </call>
         <!-- Remove custom header information in response -->

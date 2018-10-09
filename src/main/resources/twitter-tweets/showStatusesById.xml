@@ -27,19 +27,31 @@
                by the authenticating user will include an additional current_user_retweet node,
                containing the ID of the source status for the retweet."/>
     <parameter name="includeEntities"
-               description="The entities node will be disincluded when set to false."/>
+               description="The entities node will be excluded when set to false."/>
+    <parameter name="includeExtAltText"
+               description="If alt text has been added to any attached media entities, this parameter will return an
+                ext_alt_text value in the top-level key for the media entity. If no value has been set, this will be
+                 returned as null."/>
+    <parameter name="includeCardUri"
+               description="When set to either true , t or 1 , the retrieved Tweet will include a card_uri attribute
+                when there is an ads card attached to the Tweet and when that card was attached using the card_uri
+                 value."/>
     <sequence>
         <property name="uri.var.id" expression="$func:id"/>
         <property name="uri.var.trimUser" expression="$func:trimUser"/>
         <property name="uri.var.includeMyRetweet" expression="$func:includeMyRetweet"/>
         <property name="uri.var.includeEntities" expression="$func:includeEntities"/>
+        <property name="uri.var.includeExtAltText" expression="$func:includeExtAltText"/>
+        <property name="uri.var.includeCardUri" expression="$func:includeCardUri"/>
         <script language="js">
             <![CDATA[
                 // optional url param variables
-                var id  = mc.getProperty('uni.var.id');
+                var id  = mc.getProperty('uri.var.id');
                 var includeMyRetweet  = mc.getProperty('uri.var.includeMyRetweet');
                 var trimUser = mc.getProperty('uri.var.trimUser');
                 var includeEntities = mc.getProperty('uri.var.includeEntities');
+                var includeExtAltText = mc.getProperty('uri.var.includeExtAltText');
+                var includeCardUri = mc.getProperty('uri.var.includeCardUri');
                 var uriParams = '';
                 uriParams += 'id=' + id + '&';
                 id = 'id=' + encodeURIComponent(id);
@@ -58,6 +70,16 @@
                     uriParams += 'include_entities=' + includeEntities + '&';
                     includeEntities = 'include_entities=' + encodeURIComponent(includeEntities);
                     mc.setProperty('uri.var.includeEntities', includeEntities)
+                }
+                if (includeExtAltText != null && includeExtAltText != "") {
+                    uriParams += 'include_ext_alt_text=' + includeExtAltText + '&';
+                    includeExtAltText = 'include_ext_alt_text=' + encodeURIComponent(includeExtAltText);
+                    mc.setProperty('uri.var.includeExtAltText', includeExtAltText)
+                }
+                if (includeCardUri != null && includeCardUri != "") {
+                    uriParams += 'include_card_uri=' + includeCardUri + '&';
+                    includeCardUri = 'include_card_uri=' + encodeURIComponent(includeCardUri);
+                    mc.setProperty('uri.var.includeCardUri', includeCardUri)
                 }
                 if(uriParams != ''){
                     mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
