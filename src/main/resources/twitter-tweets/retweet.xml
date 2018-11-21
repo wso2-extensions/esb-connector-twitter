@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="retweets">
+<template xmlns="http://ws.apache.org/ns/synapse" name="retweet">
     <parameter name="id" description="The numerical ID of the desired status."/>
     <parameter name="trimUser" description="When set to either true, t or 1, each tweet returned in
     a timeline will include a user object including only the status authors numerical ID.
@@ -27,31 +27,31 @@
         <script language="js">
             <![CDATA[
                 // optional url param variables
-                var id  = mc.getProperty('uni.var.id');
+                var id  = mc.getProperty('uri.var.id');
                 var trimUser = mc.getProperty('uri.var.trimUser');
                 var uriParams = '';
-                uriParams += 'id=' + id + '&';
-                id = 'id=' + encodeURIComponent(id);
-                mc.setProperty('uri.var.id', id);
+                uriParams += id + '.json?';
+                mc.setProperty('id' , id.toString());
+                mc.setProperty('uri.var.id', '');
                 if (trimUser != null && trimUser != "") {
                     uriParams += 'trim_user=' + trimUser + '&';
                     trimUser = 'trim_user=' + encodeURIComponent(trimUser);
                     mc.setProperty('uri.var.trimUser', trimUser)
                 }
                 if(uriParams != ''){
-                    mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
+                    mc.setProperty('uri.var.uriParams' , uriParams.toString());
                 }
             ]]>
         </script>
         <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/statuses/retweet.json')"/>
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/statuses/retweet/',get-property('id'),'.json')"/>
         <property name="uri.var.httpMethod" value="POST"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
         <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="POST"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/statuses/retweet.json?{uri.var.uriParams}"/>
+                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/statuses/retweet/{uri.var.uriParams}"/>
             </endpoint>
         </call>
         <!-- Remove custom header information in response -->

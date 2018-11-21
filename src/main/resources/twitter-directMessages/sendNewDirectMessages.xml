@@ -18,52 +18,40 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="sendNewDirectMessages">
     <parameter name="userID" description="The ID of the user for whom to return results for."/>
-    <parameter name="screenName" description="The screen name of the user for whom to return results for."/>
     <parameter name="text"
                description="The text of your direct message. Be sure to URL encode as necessary, and keep the message under 140 characters."/>
     <sequence>
         <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-        <property name="uri.var.screenName" expression="$func:screenName"/>
-        <property name="uri.var.userID" expression="$func:userID"/>
-        <property name="uri.var.text" expression="$func:text"/>
-        <script language="js">
-            <![CDATA[
-                // optional url param variables
-                var screenName = mc.getProperty('uri.var.screenName');
-                var userID = mc.getProperty('uri.var.userID');
-                var text  = mc.getProperty('uri.var.text');
-                var uriParams = '';
-
-                if (screenName != null && screenName != "") {
-                    uriParams = 'screen_name=' + screenName + '&';
-                    screenName='screen_name=' + encodeURIComponent(screenName);
-                    mc.setProperty('uri.var.screenName',screenName)
+        <payloadFactory media-type="json">
+            <format>
+                {
+                    "event":{
+                        "type":"message_create",
+                        "message_create":{
+                            "target":{
+                                "recipient_id":"$1"
+                            },
+                            "message_data":{
+                                "text":"$2"
+                            }
+                        }
+                    }
                 }
-                if (userID != null && userID != "") {
-                    uriParams += 'user_id=' + userID + '&';
-                    userID='user_id=' + encodeURIComponent(userID);
-                    mc.setProperty('uri.var.userID',userID)
-                }
-                if (text != null && text != "") {
-                    uriParams += 'text=' + text + '&';
-                    text='text=' + encodeURIComponent(text);
-                    mc.setProperty('uri.var.text',text)
-                }
-
-                if(uriParams != ''){
-                    mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
-                }
-            ]]>
-        </script>
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:userID"/>
+                <arg evaluator="xml" expression="$func:text"/>
+            </args>
+        </payloadFactory>
         <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/direct_messages/new.json')"/>
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/direct_messages/events/new.json')"/>
         <property name="uri.var.httpMethod" value="POST"/>
         <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
         <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
         <call>
             <endpoint>
                 <http method="post"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/direct_messages/new.json?{uri.var.uriParams}"/>
+                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/direct_messages/events/new.json"/>
             </endpoint>
         </call>
         <!-- Remove custom header information in response -->

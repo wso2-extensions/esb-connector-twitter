@@ -29,8 +29,8 @@
             <description>Returns a single Tweet, specified by the id parameter.
             </description>
         </component>
-        <component name="retweets">
-            <file>retweets.xml</file>
+        <component name="retweet">
+            <file>retweet.xml</file>
             <description>Retweets a tweet. Returns the original tweet with retweet details embedded.
             </description>
         </component>
