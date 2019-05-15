@@ -1,0 +1,9 @@
+{
+  "consumerKey": "%s(consumerKey)",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "screenName": "%s(screenName2)",
+  "skipStatus": "%s(skipStatus)",
+  "includeEntities": "%s(includeEntities)"
+}

@@ -1,0 +1,8 @@
+{
+  "consumerKey": "",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "sourceScreenName": "%s(sourceScreenName)",
+  "targetScreenName": "%s(targetScreenName)"
+}
