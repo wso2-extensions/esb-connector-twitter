@@ -1,0 +1,11 @@
+{
+  "consumerKey": "%s(consumerKey)",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "count": "%s(count)",
+  "sinceId": "%s(sinceId)",
+  "maxId": "%s(maxId)",
+  "trimUser": "%s(trimUser)",
+  "contributorDetails": "%s(contributorDetails)"
+}

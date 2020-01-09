@@ -1,0 +1,9 @@
+{
+  "consumerKey": "",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "cursor": "%s(cursor)",
+  "skipStatus": "%s(skipStatus1)",
+  "includeEntities": "%s(includeEntities1)"
+}

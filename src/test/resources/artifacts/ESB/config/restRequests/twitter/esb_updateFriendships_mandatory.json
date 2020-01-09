@@ -1,0 +1,9 @@
+{
+  "consumerKey": "%s(consumerKey)",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "userID": "%s(userID1)",
+  "screenName": "%s(screenName2)",
+  "retweets": "%s(retweets)"
+}

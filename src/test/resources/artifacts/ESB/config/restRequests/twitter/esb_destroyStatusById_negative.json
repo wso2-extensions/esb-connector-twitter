@@ -1,0 +1,7 @@
+{
+  "consumerKey": "",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "id": "%s(Id3)"
+}

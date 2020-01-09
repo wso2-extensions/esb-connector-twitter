@@ -1,0 +1,9 @@
+{
+  "consumerKey": "%s(consumerKey)",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "q": "%s(q)",
+  "page": "%s(page)",
+  "count": "%s(count)"
+}

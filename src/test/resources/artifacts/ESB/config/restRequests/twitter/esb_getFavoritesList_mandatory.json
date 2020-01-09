@@ -1,0 +1,9 @@
+{
+  "consumerKey": "%s(consumerKey)",
+  "consumerSecret": "%s(consumerSecret)",
+  "accessToken": "%s(accessToken)",
+  "accessTokenSecret": "%s(accessTokenSecret)",
+  "screenName": "%s(screenName)",
+  "sinceId": "%s(sinceId)",
+  "maxId": "%s(maxId1)"
+}
