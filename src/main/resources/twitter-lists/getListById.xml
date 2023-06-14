@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -16,14 +16,9 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="getListsMemberships">
+<template xmlns="http://ws.apache.org/ns/synapse" name="getListById">
     <parameter name="id"
-               description="The ID of the Twitter user."/>
-    <parameter name="max_results"
-               description="The maximum number of results to be returned per page."/>
-    <parameter name="pagination_token"
-               description="Used to request the next page of results if all results weren't returned
-                with the latest request, or to go back to the previous page of results."/>
+               description="The ID of the List to lookup."/>
 
     <parameter name="expansions"
                description="Additional fields required in the response."/>
@@ -34,8 +29,6 @@
 
     <sequence>
         <property name="uri.var.id" expression="$func:id"/>
-        <property name="uri.var.max_results" expression="$func:max_results"/>
-        <property name="uri.var.pagination_token" expression="$func:pagination_token"/>
         <property name="uri.var.expansions" expression="$func:expansions"/>
         <property name="uri.var.list_fields" expression="$func:list_fields"/>
         <property name="uri.var.user_fields" expression="$func:user_fields"/>
@@ -45,18 +38,12 @@
                 var queryParams = [];
 
                 // optional query param variables
-                var max_results = mc.getProperty("uri.var.max_results");
-                var pagination_token = mc.getProperty("uri.var.pagination_token");
                 var expansions = mc.getProperty("uri.var.expansions");
                 var list_fields = mc.getProperty("uri.var.list_fields");
                 var user_fields = mc.getProperty("uri.var.user_fields");
 
                 // Add query params to the array
-                if (max_results != null && max_results != "") {
-                    queryParams.push('max_results=' + max_results);
-                } if (pagination_token != null && pagination_token != "") {
-                    queryParams.push('pagination_token=' + pagination_token);
-                } if (expansions != null && expansions != "") {
+                if (expansions != null && expansions != "") {
                     queryParams.push('expansions=' + expansions);
                 } if (list_fields != null && list_fields != "") {
                     queryParams.push('list.fields=' + list_fields);
@@ -74,7 +61,7 @@
         </script>
 
         <property name="uri.var.callEndpointUri"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/users/',get-property('uri.var.id'),'/list_memberships?',get-property('uri.var.queryParams'))"/>
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/lists/',get-property('uri.var.id'),'?',get-property('uri.var.queryParams'))"/>
         <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
         <property name="httpMethod" value="get"/>
         <twitter.callWithRetry/>
