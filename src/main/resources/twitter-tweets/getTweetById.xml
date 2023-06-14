@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="getTweetById">
+    <parameter name="id"
+               description="Unique identifier of the Tweet to request."/>
+
+    <parameter name="expansions"
+               description="Additional fields required in the response."/>
+    <parameter name="media_fields"
+               description="This fields parameter enables you to select which specific media fields will deliver."/>
+    <parameter name="place_fields"
+               description="This fields parameter enables you to select which specific place fields will deliver."/>
+    <parameter name="poll_fields"
+               description="This fields parameter enables you to select which specific poll fields will deliver."/>
+    <parameter name="tweet_fields"
+               description="This fields parameter enables you to select which specific Tweet fields will deliver."/>
+    <parameter name="user_fields"
+               description="This fields parameter enables you to select which specific user fields will deliver."/>
+
+    <sequence>
+        <property name="uri.var.id" expression="$func:id"/>
+        <property name="uri.var.expansions" expression="$func:expansions"/>
+        <property name="uri.var.media_fields" expression="$func:media_fields"/>
+        <property name="uri.var.place_fields" expression="$func:place_fields"/>
+        <property name="uri.var.poll_fields" expression="$func:poll_fields"/>
+        <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
+        <property name="uri.var.user_fields" expression="$func:user_fields"/>
+
+        <script language="js">
+            <![CDATA[
+                var queryParams = [];
+
+                // Optional query param variables
+                var expansions = mc.getProperty("uri.var.expansions");
+                var media_fields = mc.getProperty("uri.var.media_fields");
+                var place_fields = mc.getProperty("uri.var.place_fields");
+                var poll_fields = mc.getProperty("uri.var.poll_fields");
+                var tweet_fields = mc.getProperty("uri.var.tweet_fields");
+                var user_fields = mc.getProperty("uri.var.user_fields");
+
+                // Add params to the queryParams array
+                if (expansions != null && expansions != "") {
+                    queryParams.push('expansions=' + expansions);
+                } if (media_fields != null && media_fields != "") {
+                    queryParams.push('media.fields=' + media_fields);
+                } if (place_fields != null && place_fields != "") {
+                    queryParams.push('place.fields=' + place_fields);
+                } if (poll_fields != null && poll_fields != "") {
+                    queryParams.push('poll.fields=' + poll_fields);
+                } if (tweet_fields != null && tweet_fields != "") {
+                    queryParams.push('tweet.fields=' + tweet_fields);
+                } if (user_fields != null && user_fields != "") {
+                    queryParams.push('user.fields=' + user_fields);
+                }
+
+                // Combine query params into a single string
+                var queryParamsString = queryParams.join('&');
+
+                if (queryParamsString !== '') {
+                    mc.setProperty('uri.var.queryParams', queryParamsString);
+                }
+            ]]>
+        </script>
+
+        <property name="uri.var.callEndpointUri"
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/tweets/',get-property('uri.var.id'),'?',get-property('uri.var.queryParams'))"/>
+        <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
+        <property name="httpMethod" value="get"/>
+        <twitter.callWithRetry/>
+    </sequence>
+</template>
