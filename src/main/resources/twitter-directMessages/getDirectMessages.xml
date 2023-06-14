@@ -17,59 +17,82 @@
  ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getDirectMessages">
-    <parameter name="count"
-               description="Specifies the number of direct messages to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of Tweets to return because suspended or deleted content is removed after the count has been applied."/>
-    <parameter name="cursor"
-               description="For paging through result sets greater than 1 page, use the “next_cursor” property from the previous request."/>
+    <parameter name="event_types"
+               description="The newest, most recent UTC timestamp to which the Tweets will be provided."/>
+    <parameter name="max_results"
+               description="The maximum number of results to be returned per page."/>
+    <parameter name="pagination_token"
+               description="This parameter is used to move forwards or backwards through 'pages' of results,
+               based on the value of the next_token or previous_token in the response."/>
+
+    <parameter name="expansions"
+               description="Additional fields required in the response."/>
+    <parameter name="dm_event_fields"
+               description="Extra fields to include in the event payload."/>
+    <parameter name="media_fields"
+               description="This fields parameter enables you to select which specific media fields will deliver."/>
+    <parameter name="tweet_fields"
+               description="This fields parameter enables you to select which specific Tweet fields will deliver."/>
+    <parameter name="user_fields"
+               description="This fields parameter enables you to select which specific user fields will deliver."/>
+
     <sequence>
-        <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-        <property name="uri.var.count" expression="$func:count"/>
-        <property name="uri.var.cursor" expression="$func:cursor"/>
+        <property name="uri.var.event_types" expression="$func:event_types"/>
+        <property name="uri.var.max_results" expression="$func:max_results"/>
+        <property name="uri.var.pagination_token" expression="$func:pagination_token"/>
+
+        <property name="uri.var.expansions" expression="$func:expansions"/>
+        <property name="uri.var.dm_event_fields" expression="$func:dm_event_fields"/>
+        <property name="uri.var.media_fields" expression="$func:media_fields"/>
+        <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
+        <property name="uri.var.user_fields" expression="$func:user_fields"/>
+
         <script language="js">
             <![CDATA[
-                // optional url param variables
-                var count  = mc.getProperty('uri.var.count');
-                var cursor  = mc.getProperty('uri.var.cursor');
-                var uriParams = '';
+                var queryParams = [];
 
-                if (count != null && count != "") {
-                    uriParams = 'count=' + count + '&';
-                    count='count=' + encodeURIComponent(count);
-                    mc.setProperty('uri.var.count',count)
-                }
-                if (cursor != null && cursor != "") {
-                    uriParams += 'include_entities=' + cursor + '&';
-                    cursor='cursor=' + encodeURIComponent(cursor);
-                    mc.setProperty('uri.var.cursor',cursor)
+                // Optional query param variables
+                var event_types = mc.getProperty("uri.var.event_types");
+                var max_results = mc.getProperty("uri.var.max_results");
+                var pagination_token = mc.getProperty("uri.var.pagination_token");
+                var expansions = mc.getProperty("uri.var.expansions");
+                var dm_event_fields = mc.getProperty("uri.var.dm_event_fields");
+                var media_fields = mc.getProperty("uri.var.media_fields");
+                var tweet_fields = mc.getProperty("uri.var.tweet_fields");
+                var user_fields = mc.getProperty("uri.var.user_fields");
+
+                // Add params to the queryParams array
+                if (event_types != null && event_types != "") {
+                    queryParams.push('event_types=' + event_types);
+                } if (max_results != null && max_results != "") {
+                    queryParams.push('max_results=' + max_results);
+                } if (pagination_token != null && pagination_token != "") {
+                    queryParams.push('pagination_token=' + pagination_token);
+                } if (expansions != null && expansions != "") {
+                    queryParams.push('expansions=' + expansions);
+                } if (dm_event_fields != null && dm_event_fields != "") {
+                    queryParams.push('dm_event.fields=' + dm_event_fields);
+                } if (media_fields != null && media_fields != "") {
+                    queryParams.push('media.fields=' + media_fields);
+                } if (tweet_fields != null && tweet_fields != "") {
+                    queryParams.push('tweet.fields=' + tweet_fields);
+                } if (user_fields != null && user_fields != "") {
+                    queryParams.push('user.fields=' + user_fields);
                 }
 
-                if(uriParams != ''){
-                    mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
+                // Combine query params into a single string
+                var queryParamsString = queryParams.join('&');
+
+                if (queryParamsString !== '') {
+                    mc.setProperty('uri.var.queryParams', queryParamsString);
                 }
             ]]>
         </script>
-        <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/direct_messages/events/list.json')"/>
-        <property name="uri.var.httpMethod" value="GET"/>
-        <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
-        <call>
-            <endpoint>
-                <http method="get"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/direct_messages/events/list.json?{uri.var.uriParams}"/>
-            </endpoint>
-        </call>
-        <!-- Remove custom header information in response -->
-        <header name="x-access-level" scope="transport" action="remove"/>
-        <header name="x-twitter-response-tags" scope="transport" action="remove"/>
-        <header name="x-transaction" scope="transport" action="remove"/>
-        <header name="x-response-time" scope="transport" action="remove"/>
-        <header name="x-connection-hash" scope="transport" action="remove"/>
-        <header name="x-content-type-options" scope="transport" action="remove"/>
-        <header name="x-frame-options" scope="transport" action="remove"/>
-        <header name="x-rate-limit-limit" scope="transport" action="remove"/>
-        <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
-        <header name="x-rate-limit-reset" scope="transport" action="remove"/>
-        <header name="x-xss-protection" scope="transport" action="remove"/>
+
+        <property name="uri.var.callEndpointUri"
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/dm_events?',get-property('uri.var.queryParams'))"/>
+        <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
+        <property name="httpMethod" value="get"/>
+        <twitter.callWithRetry/>
     </sequence>
 </template>
