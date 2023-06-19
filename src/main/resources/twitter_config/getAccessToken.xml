@@ -73,9 +73,6 @@
                     mc.getConfiguration().getRegistry().updateResource(refreshTokenRegistryPath,newRefreshToken);
                     ]]>
                 </script>
-
-                <property name="uri.var.accessToken.reg" expression="$ctx:uri.var.accessToken"/>
-                <property name="uri.var.refreshToken.reg" expression="$ctx:uri.var.refreshToken"/>
             </then>
             <else>
                 <property name="error" expression="json-eval($.error)"/>

@@ -76,7 +76,6 @@
                     mc.getConfiguration().getRegistry().updateResource(newAccessRegistryPath,newAccessToken);
                     ]]>
                 </script>
-                <property name="uri.var.accessToken.reg" expression="$ctx:uri.var.accessToken"/>
             </then>
             <else>
                 <property name="uri.var.accessToken"
@@ -99,7 +98,6 @@
                     mc.getConfiguration().getRegistry().updateResource(refreshTokenRegistryPath,newRefreshToken);
                     ]]>
                 </script>
-                <property name="uri.var.refreshToken.reg" expression="$ctx:uri.var.refreshToken"/>
             </then>
             <else>
                 <property name="uri.var.refreshToken"
