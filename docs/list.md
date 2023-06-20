@@ -83,7 +83,7 @@ The updateList operation updates an existing list for the authenticated user.
 
 **Properties**
 * id : `Required` - `String` - The ID of the List to be updated.
-* name : `Optional` - `String` - The name of the List you wish to create.
+* name : `Optional` - `String` - The new name of the List you wish to update.
 * description : `Optional` - `String` - Description of the List.
 * private : `Optional` - `Boolean` - Determine whether the List should be private.
 
@@ -123,9 +123,6 @@ The deleteList operation deletes a list for the authenticated user.
 ```xml
 <twitter.deleteList>
     <id>{$ctx:id}</id>
-    <name>{$ctx:name}</name>
-    <description>{$ctx:description}</description>
-    <private>{$ctx:private}</private>
 </twitter.deleteList>
 ```
 
@@ -141,9 +138,7 @@ Following is a sample REST/JSON request that can be handled by the deleteList op
 {
    "accessToken":"UnY3dE9NQWc3OHhFdVlqaUp3Sm1neE1sRjVFWldNaDRQZkxYQUJCMzV1aUxSOjE2ODYzMDgyOTIxMjM6MTowOmF0OjE",
    "clientId":"ZW82OS1rYkJnOEhmUUpjSDNnS246MTpjaQ",
-   "name":"test list",
-   "description":"list for testing",
-   "private":true
+   "id":"1667124005638397955"
 }
 ```
 
@@ -158,7 +153,7 @@ Following is a sample REST/JSON request that can be handled by the deleteList op
 ```
 
 **Related Twitter documentation**
-https://developer.twitter.com/en/docs/twitter-api/lists/manage-lists/api-reference/put-lists-id
+https://developer.twitter.com/en/docs/twitter-api/lists/manage-lists/api-reference/delete-lists-id
 
 #### Retrieving information of a list using id
 The getListById operation retrieves information about a single list specified by the requested ID.

@@ -33,7 +33,7 @@ The sendNewDirectMessage operation sends a new direct message to the specified u
 
 **Properties**
 * participant_id : `Required` - `String` - The User ID of the account this one-to-one Direct Message is to be sent to.
-* attachments : `Optional` - `Array` - A single Media ID being attached to the Direct Message. This field is required if text is not present. Currently Twitter supports only 1 attachment.
+* attachments : `Optional` - `Array` - A single Media ID being attached to the Direct Message. This field is required if text is not present. Currently, Twitter supports only 1 attachment.
 * text : `Optional` - `String` - Text of the Direct Message being created. This field is required if attachments is not present. Text messages support up to 10,000 characters.
 
 **Sample request**
@@ -78,7 +78,7 @@ The addDirectMessage operation creates a Direct Message on behalf of an authenti
 
 **Properties**
 * dm_conversation_id : `Required` - `String` - The dm_conversation_id of the conversation to add the Direct Message to. Supports both 1-1 and group conversations.
-* attachments : `Optional` - `Array` - A single Media ID being attached to the Direct Message. This field is required if text is not present. Currently Twitter supports only 1 attachment.
+* attachments : `Optional` - `Array` - A single Media ID being attached to the Direct Message. This field is required if text is not present. Currently, Twitter supports only 1 attachment.
 * text : `Optional` - `String` - Text of the Direct Message being created. This field is required if attachments is not present. Text messages support up to 10,000 characters.
 
 **Sample request**
@@ -110,7 +110,7 @@ Following is a sample REST/JSON request that can be handled by the addDirectMess
 https://developer.twitter.com/en/docs/twitter-api/direct-messages/manage/api-reference/post-dm_conversations-dm_conversation_id-messages
 
 #### Retrieving direct messages
-The getDirectMessages operation returns a list of Direct Messages for the authenticated user, both sent and received.
+The getDirectMessages operation retrives a list of Direct Messages for the authenticated user, both sent and received.
 
 **getDirectMessages**
 ```xml
@@ -127,7 +127,7 @@ The getDirectMessages operation returns a list of Direct Messages for the authen
 ```
 
 **Properties**
-* event_types : `Optional` - `Enum` - The type of Direct Message event to returm. If not included, all types are returned. Valid values for this parameter are: `MessageCreate, ParticipantsJoin, ParticipantsLeave`.
+* event_types : `Optional` - `Enum` - The type of Direct Message event to return. If not included, all types are returned. Valid values for this parameter are: `MessageCreate, ParticipantsJoin, ParticipantsLeave`.
 * max_results: `Optional` - `Integer` - The maximum number of results to be returned in a page. Must be between 1 and 100. The default is 100.
 * pagination_token : `Optional` - `String` - Contains either the next_token or previous_token value.
 * expansions : `Optional` - `Enum` - Expansions enable you to request additional data objects that relate to the returned Direct Message conversation events. Submit a list of desired expansions in a comma-separated list without spaces. The IDs that represents the expanded data objects will be included directly in the event data object, and the expanded object metadata will be returned within the includes response object. Valid values for this parameter are: `attachments.media_keys, referenced_tweets.id, sender_id, participant_ids`.

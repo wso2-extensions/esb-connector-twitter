@@ -173,7 +173,7 @@ https://developer.twitter.com/en/docs/twitter-api/users/lookup/api-reference/get
 #### Retrieving information of a user using username
 The getUserByUsername operation retrieves information about a single user specified by the requested username.
 
-**getMutesUsersIds**
+**getUserByUsername**
 ```xml
 <twitter.getUserByUsername>
     <username>{$ctx:username}</username>

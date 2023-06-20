@@ -637,7 +637,7 @@ Following is a sample REST/JSON request that can be handled by the createRetweet
 ```
 
 **Related Twitter documentation**
-https://developer.twitter.com/en/docs/twitter-api/tweets/likes/api-reference/post-users-id-likes
+https://developer.twitter.com/en/docs/twitter-api/tweets/retweets/api-reference/post-users-id-retweets
 
 #### Retrieving the user home timeline
 The getUserHomeTimeline operation retrieves a collection of the most recent Tweets and Retweets posted by you and users you follow.
@@ -1020,7 +1020,7 @@ The getUserTweetsTimeline operation retrieves Tweets composed by a single user, 
 ```
 
 **Properties**
-* id: `Required` - `String` -Unique identifier of the user for whom to return Tweets mentioning the user.
+* id: `Required` - `String` -Unique identifier of the user who composed the Tweets.
 * start_time : `Optional` - `Date (ISO 8601)` - YYYY-MM-DDTHH:mm:ssZ (ISO 8601/RFC 3339). The oldest UTC timestamp from which the Tweets will be provided. Timestamp is in second granularity and is inclusive (for example, 12:00:01 includes the first second of the minute).
 * end_time : `Optional` - `Date (ISO 8601)` - YYYY-MM-DDTHH:mm:ssZ (ISO 8601/RFC 3339). The new UTC timestamp from which the Tweets will be provided. Timestamp is in second granularity and is inclusive (for example, 12:00:01 includes the first second of the minute).
 * since_id : `Optional` - `String` - Returns results with a Tweet ID greater than (that is, more recent than) the specified 'since' Tweet ID. There are limits to the number of Tweets that can be accessed through the API. If the limit of Tweets has occurred since the since_id, the since_id will be forced to the oldest ID available.
