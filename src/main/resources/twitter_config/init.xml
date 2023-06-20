@@ -24,7 +24,7 @@
     <parameter name="accessToken"
                description="Value of the Access Token to access the api via request"/>
     <parameter name="refreshToken"
-               description="value of the refresh token."/>
+               description="Value of the refresh token."/>
     <parameter name="clientId"
                description="User Id that allows you to use OAuth 2.0 as an authentication method."/>
 

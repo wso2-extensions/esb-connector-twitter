@@ -18,7 +18,7 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getDirectMessages">
     <parameter name="event_types"
-               description="The newest, most recent UTC timestamp to which the Tweets will be provided."/>
+               description="The type of Direct Message event to return."/>
     <parameter name="max_results"
                description="The maximum number of results to be returned per page."/>
     <parameter name="pagination_token"
