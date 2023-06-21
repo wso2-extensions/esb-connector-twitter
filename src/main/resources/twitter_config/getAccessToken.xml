@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+
+   WSO2 LLC. licenses this file to you under the Apache License,
+   Version 2.0 (the "License"); you may not use this file except
+   in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<template name="getAccessToken" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence>
+        <property name="FORCE_POST_PUT_NOBODY" value="true" scope="axis2" type="BOOLEAN"/>
+        <property name="Accept-Encoding" scope="transport" action="remove"/>
+        <property name="messageType" value="application/x-www-form-urlencoded" type="STRING" scope="axis2"/>
+        <call blocking="true">
+            <endpoint>
+                <http method="post"
+                      uri-template="{uri.var.apiUrl}/2/oauth2/token?grant_type=refresh_token&amp;client_id={uri.var.clientId}&amp;refresh_token={uri.var.refreshToken}">
+                    <timeout>
+                        <duration>{$ctx:timeout}</duration>
+                        <responseAction>fault</responseAction>
+                    </timeout>
+                    <suspendOnFailure>
+                        <errorCodes>-1</errorCodes>
+                        <progressionFactor>1.0</progressionFactor>
+                    </suspendOnFailure>
+                    <markForSuspension>
+                        <errorCodes>-1</errorCodes>
+                    </markForSuspension>
+                </http>
+            </endpoint>
+        </call>
+        <property name="httpCode" expression="$axis2:HTTP_SC" scope="default" type="STRING"/>
+        <filter source="$ctx:httpCode" regex="20[0-9]">
+            <then>
+                <property name="uri.var.accessToken" expression="json-eval($.access_token)"/>
+                <property name="uri.var.refreshToken" expression="json-eval($.refresh_token)"/>
+
+                <!--         Setting the new access token to the registry. -->
+                <script language="js">
+                    <![CDATA[
+                    importPackage(Packages.org.apache.synapse.config);
+
+                    // Update accessToken value in registry
+                    var newAccessToken = mc.getProperty('uri.var.accessToken');
+                    var accessTokenRegistryPath = mc.getProperty('uri.var.accessTokenRegistryPath');
+                    var existingAccessToken =mc.getConfiguration().getRegistry().getResource(accessTokenRegistryPath);
+
+                    if(existingAccessToken == null){
+                    // Create the registry entry if no such entry exists.
+                    mc.getConfiguration().getRegistry().newResource(accessTokenRegistryPath,false);
+                    }
+                    // Update the registry entry.
+                    mc.getConfiguration().getRegistry().updateResource(accessTokenRegistryPath,newAccessToken);
+
+                    // Same flow for the refresh token
+                    var newRefreshToken = mc.getProperty('uri.var.refreshToken');
+                    var refreshTokenRegistryPath = mc.getProperty('uri.var.refreshTokenRegistryPath');
+                    var existingRefreshToken =mc.getConfiguration().getRegistry().getResource(refreshTokenRegistryPath);
+
+                    if(existingRefreshToken == null){
+                    mc.getConfiguration().getRegistry().newResource(refreshTokenRegistryPath,false);
+                    }
+                    mc.getConfiguration().getRegistry().updateResource(refreshTokenRegistryPath,newRefreshToken);
+                    ]]>
+                </script>
+            </then>
+            <else>
+                <property name="error" expression="json-eval($.error)"/>
+                <property name="messageType" value="application/json" type="STRING" scope="axis2"/>
+            </else>
+        </filter>
+    </sequence>
+</template>

@@ -18,16 +18,22 @@
 -->
 <component name="twitter-directMessages" type="synapse/template">
     <subComponents>
-        <component name="getDirectMessages">
-            <file>getDirectMessages.xml</file>
-            <description>Returns the 20 most recent direct messages sent to the authenticating
-                user
+        <component name="addDirectMessage">
+            <file>addDirectMessage.xml</file>
+            <description>Creates a Direct Message on behalf of an authenticated user,
+                and adds it to the specified conversation.
             </description>
         </component>
-        <component name="sendNewDirectMessages">
-            <file>sendNewDirectMessages.xml</file>
-            <description>Sends a new direct message to the specified user from the authenticating
-                user.
+        <component name="getDirectMessages">
+            <file>getDirectMessages.xml</file>
+            <description>Returns a list of Direct Messages for the authenticated user, both sent and received.
+                Direct Message events are returned in reverse chronological order.
+                Supports retrieving events from the previous 30 days.
+            </description>
+        </component>
+        <component name="sendNewDirectMessage">
+            <file>sendNewDirectMessage.xml</file>
+            <description>Sends a new direct message to the specified user from the authenticating user.
             </description>
         </component>
     </subComponents>

@@ -18,25 +18,70 @@
 -->
 <component name="twitter-tweets" type="synapse/template">
     <subComponents>
-        <component name="getStatusesRetweetsById">
-            <file>getStatusesRetweetsById.xml</file>
-            <description>Returns a collection of the 100 most recent retweets of the tweet specified
-                by the id parameter.
+        <component name="createRetweet">
+            <file>createRetweet.xml</file>
+            <description>Retweets a Tweet.
             </description>
         </component>
-        <component name="showStatusesById">
-            <file>showStatusesById.xml</file>
-            <description>Returns a single Tweet, specified by the id parameter.
+        <component name="createTweet">
+            <file>createTweet.xml</file>
+            <description>Create a Tweet.
             </description>
         </component>
-        <component name="retweet">
-            <file>retweet.xml</file>
-            <description>Retweets a tweet. Returns the original tweet with retweet details embedded.
+        <component name="deleteTweet">
+            <file>deleteTweet.xml</file>
+            <description>Delete a Tweet when given the Tweet ID.
             </description>
         </component>
-        <component name="destroyStatusById">
-            <file>destroyStatusById.xml</file>
-            <description>Destroys the status specified by the required ID parameter
+        <component name="getLikedTweetsList">
+            <file>getLikedTweetsList.xml</file>
+            <description>Retrieves a list of liked Tweets of the specified user ID.
+            </description>
+        </component>
+        <component name="searchTweets">
+            <file>searchTweets.xml</file>
+            <description> Retrieves a collection of tweets that meet the specified search criteria.
+            </description>
+        </component>
+        <component name="getTweetById">
+            <file>getTweetById.xml</file>
+            <description>Retrieves information about a single Tweet specified by the requested ID.
+            </description>
+        </component>
+        <component name="getTweetsLookup">
+            <file>getTweetsLookup.xml</file>
+            <description>Retrieves information about one or more Tweets specified by the requested IDs.
+            </description>
+        </component>
+        <component name="getUserHomeTimeline">
+            <file>getUserHomeTimeline.xml</file>
+            <description>Retrieves a collection of most recent Tweets and Retweets posted by you and users you follow.
+                This endpoint can return every Tweet created on a timeline over the last 7 days as
+                well as the most recent 800 regardless of creation date.
+            </description>
+        </component>
+        <component name="getUserMentionsTimeline">
+            <file>getUserMentionsTimeline.xml</file>
+            <description>Retrieves Tweets mentioning a single user specified by the requested user ID.
+                By default, the most recent ten Tweets are returned per request.
+                Using pagination, up to the most recent 800 Tweets can be retrieved.
+            </description>
+        </component>
+        <component name="getUserTweetsTimeline">
+            <file>getUserTweetsTimeline.xml</file>
+            <description>Retrieves Tweets composed by a single user, specified by the requested user ID.
+                By default, the most recent ten Tweets are returned per request.
+                Using pagination, the most recent 3,200 Tweets can be retrieved.
+            </description>
+        </component>
+        <component name="likeTweet">
+            <file>likeTweet.xml</file>
+            <description>Allows a user to like a Tweet.
+            </description>
+        </component>
+        <component name="unlikeTweet">
+            <file>unlikeTweet.xml</file>
+            <description>Allows a user to unlike a Tweet that was previously liked.
             </description>
         </component>
     </subComponents>

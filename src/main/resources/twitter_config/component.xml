@@ -20,9 +20,27 @@
     <subComponents>
         <component name="init">
             <file>init.xml</file>
-            <description>Common Method having the configurations applicable to all the Methods in
-                the Connector.
+            <description>Common method having the configurations applicable to all the methods in
+                the connector.
             </description>
+        </component>
+        <component name="callWithRetry">
+            <file>callWithRetry.xml</file>
+            <description>Templating the API call with retry option.
+            </description>
+            <hidden>true</hidden>
+        </component>
+        <component name="callOptions">
+            <file>callOptions.xml</file>
+            <description>Templating the http call types GET, POST, PUT and DELETE.
+            </description>
+            <hidden>true</hidden>
+        </component>
+        <component name="getAccessToken">
+            <file>getAccessToken.xml</file>
+            <description>Get an access token by calling the Twitter refresh token endpoint.
+            </description>
+            <hidden>true</hidden>
         </component>
     </subComponents>
 </component>

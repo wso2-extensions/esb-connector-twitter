@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="createTweet">
+
+    <parameter name="direct_message_deep_link"
+               description="Tweets a link directly to a Direct Message conversation with an account."/>
+    <parameter name="for_super_followers_only"
+               description="Allows you to Tweet exclusively for Super Followers."/>
+    <parameter name="geo"
+               description="A JSON object that contains location information for a Tweet."/>
+    <parameter name="media"
+               description="A JSON object that contains media information being attached to created Tweet."/>
+    <parameter name="poll"
+               description="A JSON object that contains options for a Tweet with a poll."/>
+    <parameter name="quote_tweet_id"
+               description="Link to the Tweet being quoted."/>
+    <parameter name="reply"
+               description="A JSON object that contains information of the Tweet being replied to."/>
+    <parameter name="reply_settings"
+               description="Settings to indicate who can reply to the Tweet."/>
+    <parameter name="text"
+               description="Text of the Tweet being created."/>
+
+    <sequence>
+        <property name="uri.var.direct_message_deep_link" expression="$func:direct_message_deep_link"/>
+        <property name="uri.var.for_super_followers_only" expression="$func:for_super_followers_only" type="BOOLEAN"/>
+        <property name="uri.var.geo" expression="$func:geo"/>
+        <property name="uri.var.media" expression="$func:media"/>
+        <property name="uri.var.poll" expression="$func:poll"/>
+        <property name="uri.var.quote_tweet_id" expression="$func:quote_tweet_id"/>
+        <property name="uri.var.reply" expression="$func:reply"/>
+        <property name="uri.var.reply_settings" expression="$func:reply_settings"/>
+        <property name="uri.var.text" expression="$func:text"/>
+
+        <payloadFactory media-type="json">
+            <format></format>
+            <args></args>
+        </payloadFactory>
+
+        <script language="js">
+            <![CDATA[
+                var payload = mc.getPayloadJSON();
+
+                // Request body variables
+                var direct_message_deep_link  = mc.getProperty('uri.var.direct_message_deep_link');
+                var for_super_followers_only  = mc.getProperty('uri.var.for_super_followers_only');
+                var geo  = mc.getProperty('uri.var.geo');
+                var media  = mc.getProperty('uri.var.media');
+                var poll  = mc.getProperty('uri.var.poll');
+                var quote_tweet_id  = mc.getProperty('uri.var.quote_tweet_id');
+                var reply  = mc.getProperty('uri.var.reply');
+                var reply_settings  = mc.getProperty('uri.var.reply_settings');
+                var text  = mc.getProperty('uri.var.text');
+
+                payload.for_super_followers_only = false;
+
+                // Add variables to the request body
+                if (direct_message_deep_link != null && direct_message_deep_link != "") {
+                    payload.direct_message_deep_link = direct_message_deep_link;
+                } if (for_super_followers_only != null && for_super_followers_only == true) {
+                    payload.for_super_followers_only = true;
+                } if (geo != null && geo != "") {
+                    payload.geo = JSON.parse(geo);
+                } if (media != null && media != "") {
+                    payload.geo = JSON.parse(geo);
+                } if (poll != null && poll != "") {
+                    payload.poll = JSON.parse(poll);
+				} if (quote_tweet_id != null && quote_tweet_id !=  "") {
+                    payload.quote_tweet_id = quote_tweet_id;
+                } if (reply != null && reply != "") {
+                    payload.geo = JSON.parse(geo);
+                } if (reply_settings != null && reply_settings != "") {
+                    payload.reply_settings = reply_settings;
+                } if (text != null && text != "") {
+                    payload.text = text;
+                }
+
+                mc.setPayloadJSON(payload);
+            ]]>
+        </script>
+
+        <property name="uri.var.callEndpointUri"
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/tweets')"/>
+        <property name="ContentType" value="application/json" scope="axis2"/>
+        <property name="httpMethod" value="post"/>
+        <twitter.callWithRetry/>
+    </sequence>
+</template>

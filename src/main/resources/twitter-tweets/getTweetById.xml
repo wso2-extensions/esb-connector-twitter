@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -16,34 +16,29 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="getDirectMessages">
-    <parameter name="event_types"
-               description="The type of Direct Message event to return."/>
-    <parameter name="max_results"
-               description="The maximum number of results to be returned per page."/>
-    <parameter name="pagination_token"
-               description="This parameter is used to move forwards or backwards through 'pages' of results,
-               based on the value of the next_token or previous_token in the response."/>
+<template xmlns="http://ws.apache.org/ns/synapse" name="getTweetById">
+    <parameter name="id"
+               description="Unique identifier of the Tweet to request."/>
 
     <parameter name="expansions"
                description="Additional fields required in the response."/>
-    <parameter name="dm_event_fields"
-               description="Extra fields to include in the event payload."/>
     <parameter name="media_fields"
                description="This fields parameter enables you to select which specific media fields will deliver."/>
+    <parameter name="place_fields"
+               description="This fields parameter enables you to select which specific place fields will deliver."/>
+    <parameter name="poll_fields"
+               description="This fields parameter enables you to select which specific poll fields will deliver."/>
     <parameter name="tweet_fields"
                description="This fields parameter enables you to select which specific Tweet fields will deliver."/>
     <parameter name="user_fields"
                description="This fields parameter enables you to select which specific user fields will deliver."/>
 
     <sequence>
-        <property name="uri.var.event_types" expression="$func:event_types"/>
-        <property name="uri.var.max_results" expression="$func:max_results"/>
-        <property name="uri.var.pagination_token" expression="$func:pagination_token"/>
-
+        <property name="uri.var.id" expression="$func:id"/>
         <property name="uri.var.expansions" expression="$func:expansions"/>
-        <property name="uri.var.dm_event_fields" expression="$func:dm_event_fields"/>
         <property name="uri.var.media_fields" expression="$func:media_fields"/>
+        <property name="uri.var.place_fields" expression="$func:place_fields"/>
+        <property name="uri.var.poll_fields" expression="$func:poll_fields"/>
         <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
         <property name="uri.var.user_fields" expression="$func:user_fields"/>
 
@@ -52,28 +47,22 @@
                 var queryParams = [];
 
                 // Optional query param variables
-                var event_types = mc.getProperty("uri.var.event_types");
-                var max_results = mc.getProperty("uri.var.max_results");
-                var pagination_token = mc.getProperty("uri.var.pagination_token");
                 var expansions = mc.getProperty("uri.var.expansions");
-                var dm_event_fields = mc.getProperty("uri.var.dm_event_fields");
                 var media_fields = mc.getProperty("uri.var.media_fields");
+                var place_fields = mc.getProperty("uri.var.place_fields");
+                var poll_fields = mc.getProperty("uri.var.poll_fields");
                 var tweet_fields = mc.getProperty("uri.var.tweet_fields");
                 var user_fields = mc.getProperty("uri.var.user_fields");
 
                 // Add params to the queryParams array
-                if (event_types != null && event_types != "") {
-                    queryParams.push('event_types=' + event_types);
-                } if (max_results != null && max_results != "") {
-                    queryParams.push('max_results=' + max_results);
-                } if (pagination_token != null && pagination_token != "") {
-                    queryParams.push('pagination_token=' + pagination_token);
-                } if (expansions != null && expansions != "") {
+                if (expansions != null && expansions != "") {
                     queryParams.push('expansions=' + expansions);
-                } if (dm_event_fields != null && dm_event_fields != "") {
-                    queryParams.push('dm_event.fields=' + dm_event_fields);
                 } if (media_fields != null && media_fields != "") {
                     queryParams.push('media.fields=' + media_fields);
+                } if (place_fields != null && place_fields != "") {
+                    queryParams.push('place.fields=' + place_fields);
+                } if (poll_fields != null && poll_fields != "") {
+                    queryParams.push('poll.fields=' + poll_fields);
                 } if (tweet_fields != null && tweet_fields != "") {
                     queryParams.push('tweet.fields=' + tweet_fields);
                 } if (user_fields != null && user_fields != "") {
@@ -90,7 +79,7 @@
         </script>
 
         <property name="uri.var.callEndpointUri"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/dm_events?',get-property('uri.var.queryParams'))"/>
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/tweets/',get-property('uri.var.id'),'?',get-property('uri.var.queryParams'))"/>
         <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
         <property name="httpMethod" value="get"/>
         <twitter.callWithRetry/>

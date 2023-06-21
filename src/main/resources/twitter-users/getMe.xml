@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -16,10 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="getUsersLookup">
-    <parameter name="ids"
-               description="A comma separated list of User IDs."/>
-
+<template xmlns="http://ws.apache.org/ns/synapse" name="getMe">
     <parameter name="expansions"
                description="Additional fields required in the response."/>
     <parameter name="tweet_fields"
@@ -28,7 +25,6 @@
                description="This fields parameter enables you to select which specific user fields will deliver."/>
 
     <sequence>
-        <property name="uri.var.ids" expression="$func:ids"/>
         <property name="uri.var.expansions" expression="$func:expansions"/>
         <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
         <property name="uri.var.user_fields" expression="$func:user_fields"/>
@@ -38,15 +34,12 @@
                 var queryParams = [];
 
                 // Optional query param variables
-                var ids = mc.getProperty("uri.var.ids");
                 var expansions = mc.getProperty("uri.var.expansions");
                 var tweet_fields = mc.getProperty("uri.var.tweet_fields");
                 var user_fields = mc.getProperty("uri.var.user_fields");
 
                 // Add params to the queryParams array
-                if (ids !== null && ids !== '') {
-                    queryParams.push('ids=' + ids);
-                } if (expansions !== null && expansions !== '') {
+                if (expansions !== null && expansions !== '') {
                     queryParams.push('expansions=' + expansions);
                 } if (tweet_fields !== null && tweet_fields !== '') {
                     queryParams.push('tweet.fields=' + tweet_fields);
@@ -64,7 +57,7 @@
         </script>
 
         <property name="uri.var.callEndpointUri"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/users?',get-property('uri.var.queryParams'))"/>
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/users/me?',get-property('uri.var.queryParams'))"/>
         <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
         <property name="httpMethod" value="get"/>
         <twitter.callWithRetry/>

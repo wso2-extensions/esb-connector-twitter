@@ -17,85 +17,66 @@
  ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getListsMemberships">
-    <parameter name="userID" description="The ID of the user for whom to return results for."/>
-    <parameter name="screenName"
-               description="The screen name of the user for whom to return results for."/>
-    <parameter name="cursor"
-               description="The response from the API will include a previous_cursor and next_cursor to allow paging back and forth"/>
-    <parameter name="count"
-               description="The number of users to return per page, up to a maximum of 200. Defaults to 20."/>
-    <parameter name="filterToOwnedLists"
-               description="When set to either true, t or 1 statuses will not be included in the returned user objects."/>
+    <parameter name="id"
+               description="The ID of the Twitter user."/>
+    <parameter name="max_results"
+               description="The maximum number of results to be returned per page."/>
+    <parameter name="pagination_token"
+               description="Used to request the next page of results if all results weren't returned
+                with the latest request, or to go back to the previous page of results."/>
+
+    <parameter name="expansions"
+               description="Additional fields required in the response."/>
+    <parameter name="list_fields"
+               description="This fields parameter enables you to select which specific List fields will deliver."/>
+    <parameter name="user_fields"
+               description="This fields parameter enables you to select which specific user fields will deliver."/>
+
     <sequence>
-        <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-        <property name="uri.var.screenName" expression="$func:screenName"/>
-        <property name="uri.var.userID" expression="$func:userID"/>
-        <property name="uri.var.cursor" expression="$func:cursor"/>
-        <property name="uni.var.count" expression="$func:count"/>
-        <property name="uri.var.filterToOwnedLists" expression="$func:filterToOwnedLists"/>
+        <property name="uri.var.id" expression="$func:id"/>
+        <property name="uri.var.max_results" expression="$func:max_results"/>
+        <property name="uri.var.pagination_token" expression="$func:pagination_token"/>
+        <property name="uri.var.expansions" expression="$func:expansions"/>
+        <property name="uri.var.list_fields" expression="$func:list_fields"/>
+        <property name="uri.var.user_fields" expression="$func:user_fields"/>
+
         <script language="js">
             <![CDATA[
-                // optional url param variables
-                var screenName = mc.getProperty('uri.var.screenName');
-                var userID = mc.getProperty('uri.var.userID');
-                var cursor  = mc.getProperty('uri.var.cursor');
-                var count  = mc.getProperty('uni.var.count');
-                var filterToOwnedLists  = mc.getProperty('uri.var.filterToOwnedLists');
-                var uriParams = '';
+                var queryParams = [];
 
-                if (screenName != null && screenName != "") {
-                    uriParams = 'screen_name=' + screenName + '&';
-                    screenName = 'screen_name=' + encodeURIComponent(screenName);
-                    mc.setProperty('uri.var.screenName', screenName)
-                }
-                if (userID != null && userID != "") {
-                    uriParams += 'user_id=' + userID + '&';
-                    userID = 'user_id=' + encodeURIComponent(userID);
-                    mc.setProperty('uri.var.userID', userID)
-                }
-                if (cursor != null && cursor != "") {
-                    uriParams += 'cursor=' + cursor + '&';
-                    cursor = 'cursor=' + encodeURIComponent(cursor);
-                    mc.setProperty('uri.var.cursor', cursor)
-                }
-                if (count != null && count != "") {
-                    uriParams += 'count=' + count + '&';
-                    count = 'count=' + encodeURIComponent(count);
-                    mc.setProperty('uri.var.count', count)
-                }
-                if (filterToOwnedLists != null && filterToOwnedLists != "") {
-                    uriParams += 'filter_to_owned_lists=' + filterToOwnedLists + '&';
-                    filterToOwnedLists = 'filter_to_owned_lists=' + encodeURIComponent(filterToOwnedLists);
-                    mc.setProperty('uri.var.filterToOwnedLists', filterToOwnedLists)
+                // optional query param variables
+                var max_results = mc.getProperty("uri.var.max_results");
+                var pagination_token = mc.getProperty("uri.var.pagination_token");
+                var expansions = mc.getProperty("uri.var.expansions");
+                var list_fields = mc.getProperty("uri.var.list_fields");
+                var user_fields = mc.getProperty("uri.var.user_fields");
+
+                // Add query params to the array
+                if (max_results != null && max_results != "") {
+                    queryParams.push('max_results=' + max_results);
+                } if (pagination_token != null && pagination_token != "") {
+                    queryParams.push('pagination_token=' + pagination_token);
+                } if (expansions != null && expansions != "") {
+                    queryParams.push('expansions=' + expansions);
+                } if (list_fields != null && list_fields != "") {
+                    queryParams.push('list.fields=' + list_fields);
+                } if (user_fields != null && user_fields != "") {
+                    queryParams.push('user.fields=' + user_fields);
                 }
 
-                if(uriParams != ''){
-                    mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
+                // Combine query params into a single string
+                var queryParamsString = queryParams.join('&');
+
+                if (queryParamsString !== '') {
+                    mc.setProperty('uri.var.queryParams', queryParamsString);
                 }
             ]]>
         </script>
-        <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/lists/memberships.json')"/>
-        <property name="uri.var.httpMethod" value="GET"/>
-        <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
-        <call>
-            <endpoint>
-                <http method="get"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/lists/memberships.json?{uri.var.uriParams}"/>
-            </endpoint>
-        </call>
-        <!-- Remove custom header information in response -->
-        <header name="x-access-level" scope="transport" action="remove"/>
-        <header name="x-twitter-response-tags" scope="transport" action="remove"/>
-        <header name="x-transaction" scope="transport" action="remove"/>
-        <header name="x-response-time" scope="transport" action="remove"/>
-        <header name="x-connection-hash" scope="transport" action="remove"/>
-        <header name="x-content-type-options" scope="transport" action="remove"/>
-        <header name="x-frame-options" scope="transport" action="remove"/>
-        <header name="x-rate-limit-limit" scope="transport" action="remove"/>
-        <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
-        <header name="x-rate-limit-reset" scope="transport" action="remove"/>
-        <header name="x-xss-protection" scope="transport" action="remove"/>
+
+        <property name="uri.var.callEndpointUri"
+                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/users/',get-property('uri.var.id'),'/list_memberships?',get-property('uri.var.queryParams'))"/>
+        <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
+        <property name="httpMethod" value="get"/>
+        <twitter.callWithRetry/>
     </sequence>
 </template>
