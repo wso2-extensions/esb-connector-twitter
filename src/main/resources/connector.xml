@@ -18,7 +18,7 @@
 -->
 <connector>
     <component name="twitter" package="org.wso2.carbon.connector">
-        <dependency component="twitter_config"/>
+        <dependency component="twitter-config"/>
         <dependency component="twitter-directMessages"/>
         <dependency component="twitter-lists"/>
         <dependency component="twitter-users"/>
