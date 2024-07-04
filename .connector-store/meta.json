@@ -1,0 +1,22 @@
+{
+    "name": "Twitter",
+    "owner": "WSO2",
+    "category": "Social Media",
+    "documentationUrl": "https://apim.docs.wso2.com/en/latest/reference/connectors/twitter-connector/twitter-connector-overview/",
+    "description": "The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts with 280 characters known as 'Tweets'. The connector uses the Twitter REST API v2.0 to work with Tweets, users, lists, and direct messages.",
+    "status": "Active",
+    "labels": [
+        "connector"
+    ],
+    "releases": [
+        {
+            "tag_name": "v3.0.0",
+            "products": [
+                "MI 4.1.0",
+                "EI 6.6.0",
+                "EI 6.4.0"
+            ],
+            "isHidden": false
+        }
+    ]
+}
