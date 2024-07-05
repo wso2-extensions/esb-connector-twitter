@@ -10,7 +10,7 @@
     ],
     "releases": [
         {
-            "tagName": "v3.0.0",
+            "tagName": "org.wso2.carbon.connector.twitter-3.0.0",
             "products": [
                 "MI 4.1.0",
                 "EI 6.6.0",
