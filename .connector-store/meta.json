@@ -6,13 +6,17 @@
     "description": "The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts with 280 characters known as 'Tweets'. The connector uses the Twitter REST API v2.0 to work with Tweets, users, lists, and direct messages.",
     "status": "Active",
     "labels": [
-        "communication"
+        "communication",
+        "social-media"
     ],
     "releases": [
         {
             "tagName": "org.wso2.carbon.connector.twitter-3.0.0",
             "products": [
-                "MI 4.x.x"
+                "MI 4.3.0",
+                "MI 4.2.0",
+                "MI 4.1.0",
+                "MI 4.0.0"
             ],
             "isHidden": false
         }
