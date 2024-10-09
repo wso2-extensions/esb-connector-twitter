@@ -6,7 +6,8 @@
     "description": "The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts with 280 characters known as 'Tweets'. The connector uses the Twitter REST API v2.0 to work with Tweets, users, lists, and direct messages.",
     "status": "Active",
     "labels": [
-        "communication"
+        "communication",
+        "social-media"
     ],
     "releases": [
         {
