@@ -8,7 +8,7 @@
     "mavenArtifactId": "org.wso2.carbon.connector.twitter",
     "description": "The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts with 280 characters known as 'Tweets'. The connector uses the Twitter REST API v2.0 to work with Tweets, users, lists, and direct messages.",
     "status": "Active",
-    "connectorRank": 29,
+    "rank": 29,
     "type": "Connector",
     "labels": [
         "communication",
@@ -220,7 +220,12 @@
                     "isHidden":false
                 }
             ],
-            "connections": [],
+            "connections": [
+                {
+                    "name": "twitter",
+                    "description": "Connection for interacting with the Twitter API."
+                }
+            ],
             "isHidden": false
         }
     ]
