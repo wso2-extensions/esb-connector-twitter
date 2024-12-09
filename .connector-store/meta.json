@@ -1,10 +1,15 @@
 {
     "name": "Twitter",
     "owner": "WSO2",
+    "product": "MI",
     "category": "Social Media",
     "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/twitter-connector/twitter-connector-overview/",
+    "mavenGroupId": "org.wso2.integration.connector",
+    "mavenArtifactId": "mi-connector-twitter",
     "description": "The Twitter Connector allows you to work with Twitter, a social networking site where users broadcast short posts with 280 characters known as 'Tweets'. The connector uses the Twitter REST API v2.0 to work with Tweets, users, lists, and direct messages.",
     "status": "Active",
+    "rank": 29,
+    "type": "Connector",
     "labels": [
         "communication",
         "social-media"
@@ -17,6 +22,209 @@
                 "MI 4.2.0",
                 "MI 4.1.0",
                 "MI 4.0.0"
+            ],
+            "operations": [
+                {
+                    "name":"init",
+                    "description":"Common method having the configurations applicable to all the methods in the connector.",
+                    "isHidden":false
+                },
+                {
+                    "name":"callWithRetry",
+                    "description":"Templating the API call with retry option.",
+                    "isHidden":true
+                },
+                {
+                    "name":"callOptions",
+                    "description":"Templating the http call types GET, POST, PUT and DELETE.",
+                    "isHidden":true
+                },
+                {
+                    "name":"getAccessToken",
+                    "description":"Get an access token by calling the Twitter refresh token endpoint.",
+                    "isHidden":true
+                },
+                {
+                    "name":"addDirectMessage",
+                    "description":"Creates a Direct Message on behalf of an authenticated user, and adds it to the specified conversation.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getDirectMessages",
+                    "description":"Returns a list of Direct Messages for the authenticated user, both sent and received. Direct Message events are returned in reverse chronological order. Supports retrieving events from the previous 30 days.",
+                    "isHidden":false
+                },
+                {
+                    "name":"sendNewDirectMessage",
+                    "description":"Sends a new direct message to the specified user from the authenticating user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createList",
+                    "description":"Creates a new list for the authenticated user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"deleteList",
+                    "description":"Deletes a list for the authenticated user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getFollowingLists",
+                    "description":"Retrieves all lists the authenticating or specified user is following, including their own.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getListById",
+                    "description":"Retrieves information about a single Tweet specified by the requested ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getListsMemberships",
+                    "description":"Retrieves all Lists a specified user is a member of.",
+                    "isHidden":false
+                },
+                {
+                    "name":"updateList",
+                    "description":"Updates an existing list for the authenticated user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"blockUser",
+                    "description":"Blocks a specified user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"followUser",
+                    "description":"Follows a specified user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getBlockedUsers",
+                    "description":"Retrieves a list of users who are blocked by the specified user ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getFollowers",
+                    "description":"Retrieves a list of users who are followers of the specified user ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getFollowingUsers",
+                    "description":"Retrieves a list of users who are followed by the specified user ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getMe",
+                    "description":"Retrieves information about the authorized user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getMutedUsers",
+                    "description":"Retrieves a list of users who are muted by the specified user ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getUserById",
+                    "description":"Retrieves information about a single user specified by the requested ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getUserByUsername",
+                    "description":"Retrieves information about a single user specified by the requested username.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getUsersLookup",
+                    "description":"Retrieves information about one or more users specified by the requested IDs.",
+                    "isHidden":false
+                },
+                {
+                    "name":"muteUser",
+                    "description":"Mutes a specified user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"unblockUser",
+                    "description":"Unblocks a specified user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"unfollowUser",
+                    "description":"Unfollows a specified user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"unmuteUser",
+                    "description":"Unmutes a specified user.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createRetweet",
+                    "description":"Retweets a Tweet.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createTweet",
+                    "description":"Create a Tweet.",
+                    "isHidden":false
+                },
+                {
+                    "name":"deleteTweet",
+                    "description":"Delete a Tweet when given the Tweet ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getLikedTweetsList",
+                    "description":"Retrieves a list of liked Tweets of the specified user ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"searchTweets",
+                    "description":"Retrieves a collection of tweets that meet the specified search criteria.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getTweetById",
+                    "description":"Retrieves information about a single Tweet specified by the requested ID.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getTweetsLookup",
+                    "description":"Retrieves information about one or more Tweets specified by the requested IDs.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getUserHomeTimeline",
+                    "description":"Retrieves a collection of most recent Tweets and Retweets posted by you and users you follow. This endpoint can return every Tweet created on a timeline over the last 7 days as well as the most recent 800 regardless of creation date.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getUserMentionsTimeline",
+                    "description":"Retrieves Tweets mentioning a single user specified by the requested user ID. By default, the most recent ten Tweets are returned per request. Using pagination, up to the most recent 800 Tweets can be retrieved.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getUserTweetsTimeline",
+                    "description":"Retrieves Tweets composed by a single user, specified by the requested user ID. By default, the most recent ten Tweets are returned per request. Using pagination, the most recent 3,200 Tweets can be retrieved.",
+                    "isHidden":false
+                },
+                {
+                    "name":"likeTweet",
+                    "description":"Allows a user to like a Tweet.",
+                    "isHidden":false
+                },
+                {
+                    "name":"unlikeTweet",
+                    "description":"Allows a user to unlike a Tweet that was previously liked.",
+                    "isHidden":false
+                }
+            ],
+            "connections": [
+                {
+                    "name": "twitter",
+                    "description": "Connection for interacting with the Twitter API."
+                }
             ],
             "isHidden": false
         }
