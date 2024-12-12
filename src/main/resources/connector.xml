@@ -33,5 +33,6 @@
         <dependency component="twitter-tweets"/>
         <description>synapse library for twitter connector</description>
     </component>
+    <displayName>Twitter</displayName>
     <icon>icon/icon-twitter-small.png</icon>
 </connector>
