@@ -220,12 +220,7 @@
                     "isHidden":false
                 }
             ],
-            "connections": [
-                {
-                    "name": "twitter",
-                    "description": "Connection for interacting with the Twitter API."
-                }
-            ],
+            "connections": [],
             "isHidden": false
         },
         {
@@ -433,12 +428,7 @@
                     "isHidden":false
                 }
             ],
-            "connections": [
-                {
-                    "name": "twitter",
-                    "description": "Connection for interacting with the Twitter API."
-                }
-            ],
+            "connections": [],
             "isHidden": false
         }
     ]
