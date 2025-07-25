@@ -24,6 +24,9 @@
     <parameter name="text"
                description="Text of the Direct Message being created."/>
 
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
     <sequence>
         <property name="uri.var.participant_id" expression="$func:participant_id"/>
         <property name="uri.var.attachments" expression="$func:attachments"/>

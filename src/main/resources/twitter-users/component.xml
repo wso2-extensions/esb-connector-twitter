@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -20,71 +20,85 @@
     <subComponents>
         <component name="blockUser">
             <file>blockUser.xml</file>
+            <displayName>Block User</displayName>
             <description>Blocks a specified user.
             </description>
         </component>
         <component name="followUser">
             <file>followUser.xml</file>
+            <displayName>Follow User</displayName>
             <description>Follows a specified user.
             </description>
         </component>
         <component name="getBlockedUsers">
             <file>getBlockedUsers.xml</file>
+            <displayName>Get Blocked Users</displayName>
             <description>Retrieves a list of users who are blocked by the specified user ID.
             </description>
         </component>
         <component name="getFollowers">
             <file>getFollowers.xml</file>
+            <displayName>Get Followers</displayName>
             <description>Retrieves a list of users who are followers of the specified user ID.
             </description>
         </component>
         <component name="getFollowingUsers">
             <file>getFollowingUsers.xml</file>
+            <displayName>Get Following Users</displayName>
             <description>Retrieves a list of users who are followed by the specified user ID.
             </description>
         </component>
         <component name="getMe">
             <file>getMe.xml</file>
+            <displayName>Get Me</displayName>
             <description>Retrieves information about the authorized user.
             </description>
         </component>
         <component name="getMutedUsers">
             <file>getMutedUsers.xml</file>
+            <displayName>Get Muted Users</displayName>
             <description>Retrieves a list of users who are muted by the specified user ID.
             </description>
         </component>
         <component name="getUserById">
             <file>getUserById.xml</file>
+            <displayName>Get User By ID</displayName>
             <description>Retrieves information about a single user specified by the requested ID.
             </description>
         </component>
         <component name="getUserByUsername">
             <file>getUserByUsername.xml</file>
+            <displayName>Get User By Username</displayName>
             <description>Retrieves information about a single user specified by the requested username.
             </description>
         </component>
         <component name="getUsersLookup">
             <file>getUsersLookup.xml</file>
+            <displayName>Get Users Lookup</displayName>
             <description>Retrieves information about one or more users specified by the requested IDs.
             </description>
         </component>
         <component name="muteUser">
             <file>muteUser.xml</file>
+            <displayName>Mute User</displayName>
             <description>Mutes a specified user.
             </description>
         </component>
         <component name="unblockUser">
             <file>unblockUser.xml</file>
+            <displayName>Unblock User</displayName>
             <description>Unblocks a specified user.
             </description>
         </component>
         <component name="unfollowUser">
             <file>unfollowUser.xml</file>
+            <displayName>Unfollow User</displayName>
             <description>Unfollows a specified user.
             </description>
         </component>
         <component name="unmuteUser">
             <file>unmuteUser.xml</file>
+            <displayName>Unmute User</displayName>
             <description>Unmutes a specified user.
             </description>
         </component>

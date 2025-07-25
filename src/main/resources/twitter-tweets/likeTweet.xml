@@ -22,6 +22,9 @@
     <parameter name="tweet_id"
                description="The ID of the Tweet that you would like the user id to Like."/>
 
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
     <sequence>
         <property name="uri.var.user_id" expression="$func:user_id"/>
         <property name="uri.var.tweet_id" expression="$func:tweet_id"/>

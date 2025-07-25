@@ -24,6 +24,9 @@
     <parameter name="private"
                description="Determine whether the List should be private."/>
 
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
     <sequence>
         <property name="uri.var.name" expression="$func:name"/>
         <property name="uri.var.description" expression="$func:description"/>

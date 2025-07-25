@@ -20,6 +20,9 @@
     <parameter name="id"
                description="The ID of the List to be deleted."/>
 
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
     <sequence>
         <property name="uri.var.id" expression="$func:id"/>
 

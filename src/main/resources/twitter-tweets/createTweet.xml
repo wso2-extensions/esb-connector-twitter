@@ -36,6 +36,8 @@
                description="Settings to indicate who can reply to the Tweet."/>
     <parameter name="text"
                description="Text of the Tweet being created."/>
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
 
     <sequence>
         <property name="uri.var.direct_message_deep_link" expression="$func:direct_message_deep_link"/>
