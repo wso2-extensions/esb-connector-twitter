@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -20,69 +20,63 @@
     <subComponents>
         <component name="createRetweet">
             <file>createRetweet.xml</file>
-            <description>Retweets a Tweet.
-            </description>
+            <displayName>Create Retweet</displayName>
+            <description>Retweets a specified Tweet.</description>
         </component>
         <component name="createTweet">
             <file>createTweet.xml</file>
-            <description>Create a Tweet.
-            </description>
+            <displayName>Create Tweet</displayName>
+            <description>Posts a new Tweet.</description>
         </component>
         <component name="deleteTweet">
             <file>deleteTweet.xml</file>
-            <description>Delete a Tweet when given the Tweet ID.
-            </description>
+            <displayName>Delete Tweet</displayName>
+            <description>Deletes a Tweet by ID.</description>
         </component>
         <component name="getLikedTweetsList">
             <file>getLikedTweetsList.xml</file>
-            <description>Retrieves a list of liked Tweets of the specified user ID.
-            </description>
+            <displayName>Get Liked Tweets</displayName>
+            <description>Gets Tweets liked by a user.</description>
         </component>
         <component name="searchTweets">
             <file>searchTweets.xml</file>
-            <description> Retrieves a collection of tweets that meet the specified search criteria.
-            </description>
+            <displayName>Search Tweets</displayName>
+            <description>Finds Tweets by search criteria.</description>
         </component>
         <component name="getTweetById">
             <file>getTweetById.xml</file>
-            <description>Retrieves information about a single Tweet specified by the requested ID.
-            </description>
+            <displayName>Get Tweet by ID</displayName>
+            <description>Gets Tweet details by ID.</description>
         </component>
         <component name="getTweetsLookup">
             <file>getTweetsLookup.xml</file>
-            <description>Retrieves information about one or more Tweets specified by the requested IDs.
-            </description>
+            <displayName>Get Tweets Lookup</displayName>
+            <description>Gets details of multiple Tweets by IDs.</description>
         </component>
         <component name="getUserHomeTimeline">
             <file>getUserHomeTimeline.xml</file>
-            <description>Retrieves a collection of most recent Tweets and Retweets posted by you and users you follow.
-                This endpoint can return every Tweet created on a timeline over the last 7 days as
-                well as the most recent 800 regardless of creation date.
-            </description>
+            <displayName>Get Home Timeline</displayName>
+            <description>Gets recent Tweets and Retweets from the user's timeline.</description>
         </component>
         <component name="getUserMentionsTimeline">
             <file>getUserMentionsTimeline.xml</file>
-            <description>Retrieves Tweets mentioning a single user specified by the requested user ID.
-                By default, the most recent ten Tweets are returned per request.
-                Using pagination, up to the most recent 800 Tweets can be retrieved.
-            </description>
+            <displayName>Get Mentions Timeline</displayName>
+            <description>Gets Tweets mentioning the specified user.</description>
         </component>
         <component name="getUserTweetsTimeline">
             <file>getUserTweetsTimeline.xml</file>
-            <description>Retrieves Tweets composed by a single user, specified by the requested user ID.
-                By default, the most recent ten Tweets are returned per request.
-                Using pagination, the most recent 3,200 Tweets can be retrieved.
-            </description>
+            <displayName>Get User Tweets</displayName>
+            <description>Gets Tweets posted by a specific user.</description>
         </component>
         <component name="likeTweet">
             <file>likeTweet.xml</file>
-            <description>Allows a user to like a Tweet.
-            </description>
+            <displayName>Like Tweet</displayName>
+            <description>Likes a Tweet on behalf of the user.</description>
         </component>
         <component name="unlikeTweet">
             <file>unlikeTweet.xml</file>
-            <description>Allows a user to unlike a Tweet that was previously liked.
-            </description>
+            <displayName>Unlike Tweet</displayName>
+            <description>Unlikes a previously liked Tweet.</description>
         </component>
     </subComponents>
 </component>

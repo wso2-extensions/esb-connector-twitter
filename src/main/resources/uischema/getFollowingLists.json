@@ -1,0 +1,135 @@
+{
+  "connectorName": "twitter",
+  "operationName": "getFollowingLists",
+  "title": "Get Following Lists",
+  "help": "Retrieve the Lists that a specified Twitter user is following, with optional paging and field expansions.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "twitter"
+              ],
+              "defaultType": "connection.twitter",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration to use for Twitter API calls."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "id",
+                    "displayName": "User ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The unique ID of the Twitter user."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "max_results",
+                    "displayName": "Max Results",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Maximum number of Lists to return per page (10-100)."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "pagination_token",
+                    "displayName": "Pagination Token",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Token to request the next or previous page of results."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expansions",
+                    "displayName": "Expansions",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Additional resource expansions to include in the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "list_fields",
+                    "displayName": "List Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated List object fields to return."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "user_fields",
+                    "displayName": "User Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated User object fields to include."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Variable name to store the response payload."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Replace the current message payload with the operation response."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

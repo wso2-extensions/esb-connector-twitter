@@ -1,0 +1,154 @@
+{
+  "connectorName": "twitter",
+  "operationName": "getTweetById",
+  "title": "Get Tweet by ID",
+  "help": "Retrieve a Tweet by its unique identifier, with optional field selection and expansions.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "twitter"
+              ],
+              "defaultType": "connection.twitter",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration to use for Twitter API calls."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "id",
+                    "displayName": "Tweet ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Unique identifier of the Tweet to retrieve."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Query Options",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expansions",
+                    "displayName": "Expansions",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Additional resource expansions to include in the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "media_fields",
+                    "displayName": "Media Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated media object fields to include."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "place_fields",
+                    "displayName": "Place Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated place object fields to include."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "poll_fields",
+                    "displayName": "Poll Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated poll object fields to include."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "tweet_fields",
+                    "displayName": "Tweet Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated Tweet object fields to include."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "user_fields",
+                    "displayName": "User Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated user object fields to include."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Variable name to store the response payload."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Replace the current message payload with the operation response."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

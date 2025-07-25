@@ -1,0 +1,113 @@
+{
+  "connectorName": "twitter",
+  "operationName": "getFollowers",
+  "title": "Get Followers",
+  "help": "Returns a list of users who are followers of the specified user ID.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "twitter"
+              ],
+              "defaultType": "connection.twitter",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration to use for Twitter API calls."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "id",
+                    "displayName": "User ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The ID of the user whose followers you would like to retrieve."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "max_results",
+                    "displayName": "Max Results",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The maximum number of results to be returned per page."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "pagination_token",
+                    "displayName": "Pagination Token",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This parameter is used to move forwards or backwards through 'pages' of results."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "user_fields",
+                    "displayName": "User Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This fields parameter enables you to select which specific user fields will deliver."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Variable name to store the response payload."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Replace the current message payload with the operation response."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

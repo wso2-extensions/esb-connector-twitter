@@ -1,0 +1,223 @@
+{
+  "connectorName": "twitter",
+  "operationName": "getUserTweetsTimeline",
+  "title": "Get User Tweets Timeline",
+  "help": "Returns Tweets composed by a single user, specified by the requested user ID.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "twitter"
+              ],
+              "defaultType": "connection.twitter",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration to use for Twitter API calls."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "id",
+                    "displayName": "User ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The ID of the Twitter user."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "end_time",
+                    "displayName": "End Time",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The newest, most recent UTC timestamp to which the Tweets will be provided."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "exclude",
+                    "displayName": "Exclude",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated list of the types of Tweets to exclude from the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "max_results",
+                    "displayName": "Max Results",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The maximum number of results to be returned per page."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "pagination_token",
+                    "displayName": "Pagination Token",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This parameter is used to move forwards or backwards through 'pages' of results."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "since_id",
+                    "displayName": "Since ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Returns results with a Tweet ID greater (more recent) than the specified ID."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "start_time",
+                    "displayName": "Start Time",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The oldest UTC timestamp (from most recent 7 days) from which the Tweets will be given."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "until_id",
+                    "displayName": "Until ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Returns results with a Tweet ID less than (that is, older than) the specified ID."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expansions",
+                    "displayName": "Expansions",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Additional fields required in the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "media_fields",
+                    "displayName": "Media Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This fields parameter enables you to select which specific media fields will deliver."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "place_fields",
+                    "displayName": "Place Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This fields parameter enables you to select which specific place fields will deliver."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "poll_fields",
+                    "displayName": "Poll Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This fields parameter enables you to select which specific poll fields will deliver."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "tweet_fields",
+                    "displayName": "Tweet Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This fields parameter enables you to select which specific Tweet fields will deliver."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "user_fields",
+                    "displayName": "User Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "This fields parameter enables you to select which specific user fields will deliver."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Variable name to store the response payload."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Replace the current message payload with the operation response."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

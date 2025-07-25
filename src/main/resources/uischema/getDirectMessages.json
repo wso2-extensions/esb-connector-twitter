@@ -1,0 +1,157 @@
+{
+  "connectorName": "twitter",
+  "operationName": "getDirectMessages",
+  "title": "Get Direct Messages",
+  "help": "Retrieve Direct Message events for the authenticated user with optional filtering, paging, and field expansions.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "twitter"
+              ],
+              "defaultType": "connection.twitter",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration to use for Twitter API calls."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "event_types",
+                    "displayName": "Event Types",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated list of Direct Message event types to return (e.g., message_create)."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "max_results",
+                    "displayName": "Max Results",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Maximum number of events to return per page (10-100)."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "pagination_token",
+                    "displayName": "Pagination Token",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Token used to navigate forward or backward through result pages."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expansions",
+                    "displayName": "Expansions",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Additional resource expansions to include in the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "dm_event_fields",
+                    "displayName": "DM Event Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Direct Message event fields to include in the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "media_fields",
+                    "displayName": "Media Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Media object fields to include in the response."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "tweet_fields",
+                    "displayName": "Tweet Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Tweet fields to include when events reference Tweets."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "user_fields",
+                    "displayName": "User Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "User object fields to include in the response."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Variable name to store the response payload."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "helpTip": "Replace the current message payload with the response.",
+                    "required": "false"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

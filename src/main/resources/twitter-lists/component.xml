@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -20,33 +20,33 @@
     <subComponents>
         <component name="createList">
             <file>createList.xml</file>
-            <description>Creates a new list for the authenticated user.
-            </description>
+            <displayName>Create List</displayName>
+            <description>Creates a new list for the authenticated user.</description>
         </component>
         <component name="deleteList">
             <file>deleteList.xml</file>
-            <description>Deletes a list for the authenticated user.
-            </description>
+            <displayName>Delete List</displayName>
+            <description>Deletes a list owned by the authenticated user.</description>
         </component>
         <component name="getFollowingLists">
             <file>getFollowingLists.xml</file>
-            <description>Retrieves all lists the authenticating or specified user is following, including their own.
-            </description>
+            <displayName>Get Following Lists</displayName>
+            <description>Gets all lists followed by the authenticated or specified user.</description>
         </component>
         <component name="getListById">
             <file>getListById.xml</file>
-            <description>Retrieves information about a single Tweet specified by the requested ID.
-            </description>
+            <displayName>Get List by ID</displayName>
+            <description>Retrieves list details by list ID.</description>
         </component>
         <component name="getListsMemberships">
             <file>getListsMemberships.xml</file>
-            <description>Retrieves all Lists a specified user is a member of.
-            </description>
+            <displayName>Get List Memberships</displayName>
+            <description>Gets all lists a user is a member of.</description>
         </component>
         <component name="updateList">
             <file>updateList.xml</file>
-            <description>Updates an existing list for the authenticated user.
-            </description>
+            <displayName>Update List</displayName>
+            <description>Updates a list owned by the authenticated user.</description>
         </component>
     </subComponents>
 </component>
