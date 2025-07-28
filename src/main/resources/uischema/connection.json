@@ -1,0 +1,100 @@
+{
+  "connectorName": "twitter",
+  "connectionName": "twitter",
+  "title": "Twitter Connection",
+  "help": "<h1>Twitter Connection</h1> <b>The Twitter Connector allows you to access the Twitter API v2 using OAuth 2.0 authentication.</b>",
+  "testConnectionEnabled": true,
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "connectionName",
+        "displayName": "Connection Name",
+        "inputType": "string",
+        "defaultValue": "TWITTER_CONNECTION_1",
+        "required": "true",
+        "helpTip": "The name for the Twitter connection.",
+        "validation": "nameWithoutSpecialCharacters"
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "apiUrl",
+                    "displayName": "API URL",
+                    "inputType": "string",
+                    "defaultValue": "https://api.twitter.com",
+                    "required": "true",
+                    "helpTip": "The URL of the Twitter REST API. If not specified, defaults to https://api.twitter.com"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "timeout",
+                    "displayName": "Timeout (ms)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "5000",
+                    "required": "false",
+                    "helpTip": "Timeout duration of the API request in milliseconds. If not specified, defaults to 5000ms"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Authentication",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "clientId",
+                    "displayName": "Client ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "User ID that allows you to use OAuth 2.0 as an authentication method."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "accessToken",
+                    "displayName": "Access Token",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Value of the Access Token to access the API via request. If not provided, will be obtained using refresh token"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "refreshToken",
+                    "displayName": "Refresh Token",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Value of the refresh token used to obtain new access tokens when the current one expires"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
