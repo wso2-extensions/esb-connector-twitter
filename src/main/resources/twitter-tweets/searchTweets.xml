@@ -66,70 +66,37 @@
         <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
         <property name="uri.var.user_fields" expression="$func:user_fields"/>
 
-        <script language="js">
-            <![CDATA[
-                var queryParams = [];
+        <!-- Use RestURLBuilder to construct endpoint URL -->
+        <class name="org.wso2.carbon.twitter.connector.RestURLBuilder">
+            <property name="endpointPath" value="/2/tweets/search/recent"/>
+            <property name="queryParams" value="query,end_time,max_results,next_token,since_id,sort_order,start_time,until_id,expansions,media_fields,place_fields,poll_fields,tweet_fields,user_fields"/>
+        </class>
 
-                // Optional query param variables
-                var query = mc.getProperty("uri.var.query");
-                var end_time = mc.getProperty("uri.var.end_time");
-                var max_results = mc.getProperty("uri.var.max_results");
-                var next_token = mc.getProperty("uri.var.next_token");
-                var since_id = mc.getProperty("uri.var.since_id");
-                var sort_order = mc.getProperty("uri.var.sort_order");
-                var start_time = mc.getProperty("uri.var.start_time");
-                var until_id = mc.getProperty("uri.var.until_id");
-                var expansions = mc.getProperty("uri.var.expansions");
-                var media_fields = mc.getProperty("uri.var.media_fields");
-                var place_fields = mc.getProperty("uri.var.place_fields");
-                var poll_fields = mc.getProperty("uri.var.poll_fields");
-                var tweet_fields = mc.getProperty("uri.var.tweet_fields");
-                var user_fields = mc.getProperty("uri.var.user_fields");
-
-                // Add params to the queryParams array
-                if (query != null && query != "") {
-                    queryParams.push('query=' + query);
-                } if (end_time != null && end_time != "") {
-                    queryParams.push('end_time=' + end_time);
-                } if (max_results != null && max_results != "") {
-                    queryParams.push('max_results=' + max_results);
-                } if (next_token != null && next_token != "") {
-                    queryParams.push('next_token=' + next_token);
-                } if (since_id != null && since_id != "") {
-                    queryParams.push('since_id=' + since_id);
-                } if (sort_order != null && sort_order != "") {
-                    queryParams.push('sort_order=' + sort_order);
-                } if (start_time != null && start_time != "") {
-                    queryParams.push('start_time=' + start_time);
-                } if (until_id != null && until_id != "") {
-                    queryParams.push('until_id=' + until_id);
-                } if (expansions != null && expansions != "") {
-                    queryParams.push('expansions=' + expansions);
-                } if (media_fields != null && media_fields != "") {
-                    queryParams.push('media.fields=' + media_fields);
-                } if (place_fields != null && place_fields != "") {
-                    queryParams.push('place.fields=' + place_fields);
-                } if (poll_fields != null && poll_fields != "") {
-                    queryParams.push('poll.fields=' + poll_fields);
-                } if (tweet_fields != null && tweet_fields != "") {
-                    queryParams.push('tweet.fields=' + tweet_fields);
-                } if (user_fields != null && user_fields != "") {
-                    queryParams.push('user.fields=' + user_fields);
-                }
-
-                // Combine query params into a single string
-                var queryParamsString = queryParams.join('&');
-
-                if (queryParamsString !== '') {
-                    mc.setProperty('uri.var.queryParams', queryParamsString);
-                }
-            ]]>
-        </script>
-
-        <property name="uri.var.callEndpointUri"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/tweets/search/recent?',get-property('uri.var.queryParams'))"/>
-        <property name="NO_ENTITY_BODY" value="true" type="BOOLEAN" scope="axis2"/>
-        <property name="httpMethod" value="get"/>
-        <twitter.callWithRetry/>
+        <!-- Set JSON headers for Twitter API -->
+        <header name="Accept" value="application/json" scope="transport" action="set"/>
+        <call>
+            <endpoint>
+                <http method="get"
+                      uri-template="{uri.var.callEndpointUri}">
+                    <timeout>
+                        <duration>{$ctx:timeout}</duration>
+                        <responseAction>fault</responseAction>
+                    </timeout>
+                </http>
+            </endpoint>
+        </call>
+        
+        <!-- Remove custom Twitter header information from response -->
+        <header name="x-access-level" scope="transport" action="remove"/>
+        <header name="x-twitter-response-tags" scope="transport" action="remove"/>
+        <header name="x-transaction" scope="transport" action="remove"/>
+        <header name="x-response-time" scope="transport" action="remove"/>
+        <header name="x-connection-hash" scope="transport" action="remove"/>
+        <header name="x-content-type-options" scope="transport" action="remove"/>
+        <header name="x-frame-options" scope="transport" action="remove"/>
+        <header name="x-rate-limit-limit" scope="transport" action="remove"/>
+        <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
+        <header name="x-rate-limit-reset" scope="transport" action="remove"/>
+        <header name="x-xss-protection" scope="transport" action="remove"/>
     </sequence>
 </template>

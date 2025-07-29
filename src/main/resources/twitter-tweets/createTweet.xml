@@ -80,13 +80,13 @@
                 } if (geo != null && geo != "") {
                     payload.geo = JSON.parse(geo);
                 } if (media != null && media != "") {
-                    payload.geo = JSON.parse(geo);
+                    payload.media = JSON.parse(media);
                 } if (poll != null && poll != "") {
                     payload.poll = JSON.parse(poll);
 				} if (quote_tweet_id != null && quote_tweet_id !=  "") {
                     payload.quote_tweet_id = quote_tweet_id;
                 } if (reply != null && reply != "") {
-                    payload.geo = JSON.parse(geo);
+                    payload.reply = JSON.parse(reply);
                 } if (reply_settings != null && reply_settings != "") {
                     payload.reply_settings = reply_settings;
                 } if (text != null && text != "") {
@@ -97,10 +97,38 @@
             ]]>
         </script>
 
-        <property name="uri.var.callEndpointUri"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/tweets')"/>
+        <!-- Use RestURLBuilder to construct endpoint URL -->
+        <class name="org.wso2.carbon.twitter.connector.RestURLBuilder">
+            <property name="endpointPath" value="/2/tweets"/>
+        </class>
+        
+        <!-- Set JSON headers and properties for Twitter API -->
+        <property name="DISABLE_CHUNKING" scope="axis2" type="STRING" value="true"/>
+        <property name="messageType" value="application/json" scope="axis2"/>
         <property name="ContentType" value="application/json" scope="axis2"/>
-        <property name="httpMethod" value="post"/>
-        <twitter.callWithRetry/>
+        <call>
+            <endpoint>
+                <http method="post"
+                      uri-template="{uri.var.callEndpointUri}">
+                    <timeout>
+                        <duration>{$ctx:timeout}</duration>
+                        <responseAction>fault</responseAction>
+                    </timeout>
+                </http>
+            </endpoint>
+        </call>
+        
+        <!-- Remove custom Twitter header information from response -->
+        <header name="x-access-level" scope="transport" action="remove"/>
+        <header name="x-twitter-response-tags" scope="transport" action="remove"/>
+        <header name="x-transaction" scope="transport" action="remove"/>
+        <header name="x-response-time" scope="transport" action="remove"/>
+        <header name="x-connection-hash" scope="transport" action="remove"/>
+        <header name="x-content-type-options" scope="transport" action="remove"/>
+        <header name="x-frame-options" scope="transport" action="remove"/>
+        <header name="x-rate-limit-limit" scope="transport" action="remove"/>
+        <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
+        <header name="x-rate-limit-reset" scope="transport" action="remove"/>
+        <header name="x-xss-protection" scope="transport" action="remove"/>
     </sequence>
 </template>

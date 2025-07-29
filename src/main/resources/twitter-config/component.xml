@@ -24,23 +24,5 @@
                 the connector.
             </description>
         </component>
-        <component name="callWithRetry">
-            <file>callWithRetry.xml</file>
-            <description>Templating the API call with retry option.
-            </description>
-            <hidden>true</hidden>
-        </component>
-        <component name="callOptions">
-            <file>callOptions.xml</file>
-            <description>Templating the http call types GET, POST, PUT and DELETE.
-            </description>
-            <hidden>true</hidden>
-        </component>
-        <component name="getAccessToken">
-            <file>getAccessToken.xml</file>
-            <description>Get an access token by calling the Twitter refresh token endpoint.
-            </description>
-            <hidden>true</hidden>
-        </component>
     </subComponents>
 </component>

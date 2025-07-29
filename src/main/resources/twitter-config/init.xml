@@ -30,104 +30,15 @@
 
     <sequence>
         <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
-        <!-- If the apiUrl is not specified, set the default value as https://api.twitter.com -->
-        <filter source="boolean(get-property('uri.var.apiUrl'))" regex="false">
-            <then>
-                <property name="uri.var.apiUrl" value="https://api.twitter.com"/>
-            </then>
-        </filter>
         <property name="timeout" expression="$func:timeout"/>
-        <!-- If the timeout is not specified, set the default value as 5000 ms -->
-        <script language="js">
-            <![CDATA[
-                var timeout = mc.getProperty("timeout");
-                if (timeout == null || timeout == "") {
-                    timeout = 5000;
-                }
-                mc.setProperty("timeout", timeout.toString());
-            ]]>
-        </script>
-        <property name="uri.var.accessToken" expression="$func:accessToken"/>
-        <property name="uri.var.refreshToken" expression="$func:refreshToken"/>
-        <property name="uri.var.clientId" expression="$func:clientId"/>
-        <property name="uri.var.tokenEndpointUrl"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/2/oauth2/token')"/>
-        <property name="uri.var.accessTokenRegistryPath" value="connectors/Twitter/accessToken"/>
-        <property name="uri.var.refreshTokenRegistryPath" value="connectors/Twitter/refreshToken"/>
-        <property name="uri.var.accessToken.reg"
-                  expression="get-property('registry', $ctx:uri.var.accessTokenRegistryPath)"/>
-        <property name="uri.var.refreshToken.reg"
-                  expression="get-property('registry', $ctx:uri.var.refreshTokenRegistryPath)"/>
+
+        <class name="org.wso2.carbon.twitter.connector.OAuthAccessTokenHandler"/>
 
         <filter source="boolean($ctx:uri.var.accessToken)" regex="true">
             <then>
-                <script language="js">
-                    <![CDATA[
-                    importPackage(Packages.org.apache.synapse.config);
-                    var newAccessToken = mc.getProperty('uri.var.accessToken');
-                    var newAccessRegistryPath = mc.getProperty('uri.var.accessTokenRegistryPath');
-                    var existingAccessToken =mc.getConfiguration().getRegistry().getResource(newAccessRegistryPath);
-
-                    if(existingAccessToken == null){
-                    // Create the registry entry if no such entry exists.
-                    mc.getConfiguration().getRegistry().newResource(newAccessRegistryPath,false);
-                    }
-                    // Update the registry entry.
-                    mc.getConfiguration().getRegistry().updateResource(newAccessRegistryPath,newAccessToken);
-                    ]]>
-                </script>
-            </then>
-            <else>
-                <property name="uri.var.accessToken"
-                          expression="$ctx:uri.var.accessToken.reg"/>
-            </else>
-        </filter>
-
-        <filter source="boolean($ctx:uri.var.refreshToken)" regex="true">
-            <then>
-                <script language="js">
-                    <![CDATA[
-                    importPackage(Packages.org.apache.synapse.config);
-                    var newRefreshToken = mc.getProperty('uri.var.refreshToken');
-                    var refreshTokenRegistryPath = mc.getProperty('uri.var.refreshTokenRegistryPath');
-                    var existingRefreshToken =mc.getConfiguration().getRegistry().getResource(refreshTokenRegistryPath);
-
-                    if(existingRefreshToken == null){
-                    mc.getConfiguration().getRegistry().newResource(refreshTokenRegistryPath,false);
-                    }
-                    mc.getConfiguration().getRegistry().updateResource(refreshTokenRegistryPath,newRefreshToken);
-                    ]]>
-                </script>
-            </then>
-            <else>
-                <property name="uri.var.refreshToken"
-                          expression="$ctx:uri.var.refreshToken.reg"/>
-            </else>
-        </filter>
-
-        <filter source="boolean($ctx:uri.var.accessToken)" regex="false">
-            <then>
-                <filter source="boolean($ctx:uri.var.refreshToken) and boolean($ctx:uri.var.clientId)" regex="true">
-                    <then>
-                        <filter source="$ctx:httpMethod" regex="(post|put)">
-                            <then>
-                                <enrich>
-                                    <source clone="true" type="body"/>
-                                    <target property="ORIGINAL_MSG_PAYLOAD" type="property"/>
-                                </enrich>
-                            </then>
-                        </filter>
-                        <twitter.getAccessToken/>
-                        <filter source="$ctx:httpMethod" regex="(post|put)">
-                            <then>
-                                <enrich>
-                                    <source clone="true" property="ORIGINAL_MSG_PAYLOAD" type="property"/>
-                                    <target type="body"/>
-                                </enrich>
-                            </then>
-                        </filter>
-                    </then>
-                </filter>
+                <header name="Authorization"
+                        expression="fn:concat('Bearer ', $ctx:uri.var.accessToken)"
+                        scope="transport"/>
             </then>
         </filter>
     </sequence>

@@ -3,7 +3,6 @@
   "connectionName": "twitter",
   "title": "Twitter Connection",
   "help": "<h1>Twitter Connection</h1> <b>The Twitter Connector allows you to access the Twitter API v2 using OAuth 2.0 authentication.</b>",
-  "testConnectionEnabled": true,
   "elements": [
     {
       "type": "attribute",
