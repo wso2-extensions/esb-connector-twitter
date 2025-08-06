@@ -27,6 +27,8 @@
                description="Value of the refresh token."/>
     <parameter name="clientId"
                description="User Id that allows you to use OAuth 2.0 as an authentication method."/>
+    <parameter name="clientSecret"
+               description="Client secret for OAuth 2.0 authentication (optional for public clients)."/>
 
     <sequence>
         <property name="uri.var.apiUrl" expression="$func:apiUrl"/>

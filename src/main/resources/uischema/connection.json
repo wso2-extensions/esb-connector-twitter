@@ -70,6 +70,17 @@
                 {
                   "type": "attribute",
                   "value": {
+                    "name": "clientSecret",
+                    "displayName": "Client Secret",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Client secret for OAuth 2.0 authentication. Required for automatic token refresh functionality."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
                     "name": "accessToken",
                     "displayName": "Access Token",
                     "inputType": "stringOrExpression",
