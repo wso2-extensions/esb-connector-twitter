@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<component name="twitter-users" type="synapse/template">
+<component displayName="Users" name="twitter-users" type="synapse/template">
     <subComponents>
         <component name="blockUser">
             <file>blockUser.xml</file>

@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<component name="twitter-directMessages" type="synapse/template">
+<component displayName="Direct Message" name="twitter-directMessages" type="synapse/template">
     <subComponents>
         <component name="addDirectMessage">
             <displayName>Add Direct Message</displayName>

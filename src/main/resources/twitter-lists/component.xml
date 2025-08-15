@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<component name="twitter-lists" type="synapse/template">
+<component displayName="Lists" name="twitter-lists" type="synapse/template">
     <subComponents>
         <component name="createList">
             <file>createList.xml</file>

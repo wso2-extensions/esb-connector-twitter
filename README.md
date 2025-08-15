@@ -1,4 +1,4 @@
-### Twitter Connector
+### Twitter/X Connector
 
 The Twitter connector allows you to connect to X (formerly Twitter), an online social networking service and microblogging service that enables its users to send and read text-based posts of up to 280 characters, known as 'posts' or 'tweets'. The connector uses the X API v2 (Twitter API v2) to connect to X, create and manage posts, retrieve followers, manage lists, send direct messages, and more.
 

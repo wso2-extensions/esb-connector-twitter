@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<component name="twitter-tweets" type="synapse/template">
+<component displayName="Tweets" name="twitter-tweets" type="synapse/template">
     <subComponents>
         <component name="createRetweet">
             <file>createRetweet.xml</file>
