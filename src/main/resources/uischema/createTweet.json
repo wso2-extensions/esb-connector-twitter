@@ -1,0 +1,168 @@
+{
+  "connectorName": "twitter",
+  "operationName": "createTweet",
+  "title": "Create Tweet",
+  "help": "Post a new Tweet with optional media, poll, geo-tag, reply or quote settings, and Super Follower exclusivity.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "twitter"
+              ],
+              "defaultType": "connection.twitter",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration to use for Twitter API calls."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Request Body",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "direct_message_deep_link",
+                    "displayName": "DM Deep-link",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "URL that opens a Direct Message conversation with an account."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "for_super_followers_only",
+                    "displayName": "Super Followers Only",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Tweet exclusively for Super Followers."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "geo",
+                    "displayName": "Geo (JSON)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "JSON object with location information for the Tweet."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "media",
+                    "displayName": "Media (JSON)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "JSON object describing media IDs attached to the Tweet."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "poll",
+                    "displayName": "Poll (JSON)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "JSON object defining poll options and duration."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "quote_tweet_id",
+                    "displayName": "Quote Tweet ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "ID of the Tweet being quoted."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "reply",
+                    "displayName": "Reply (JSON)",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "JSON object containing information about the Tweet being replied to."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "reply_settings",
+                    "displayName": "Reply Settings",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Who can reply: everyone (default), mentionedUsers, or following."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "text",
+                    "displayName": "Tweet Text",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Text content of the Tweet (280-character limit)."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Output",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Output Variable Name",
+                    "inputType": "string",
+                    "deriveResponseVariable": "true",
+                    "required": "true",
+                    "helpTip": "Variable name to store the response payload."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "checkbox",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Replace the current message payload with the operation response."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

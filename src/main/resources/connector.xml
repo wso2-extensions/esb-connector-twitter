@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -18,20 +18,12 @@
 -->
 <connector>
     <component name="twitter" package="org.wso2.carbon.connector">
-        <dependency component="twitter_config"/>
-        <dependency component="twitter_friends_followers"/>
-        <dependency component="twitter-account"/>
-        <dependency component="twitter-blocks"/>
+        <dependency component="twitter-config"/>
         <dependency component="twitter-directMessages"/>
-        <dependency component="twitter-favorites"/>
-        <dependency component="twitter-help"/>
         <dependency component="twitter-lists"/>
-        <dependency component="twitter-search"/>
-        <dependency component="twitter-statuses"/>
-        <dependency component="twitter-trends"/>
         <dependency component="twitter-users"/>
         <dependency component="twitter-tweets"/>
-        <description>synapse library for twitter connector</description>
+        <description>synapse library for Twitter connector</description>
     </component>
     <displayName>Twitter</displayName>
     <icon>icon/icon-twitter-small.png</icon>

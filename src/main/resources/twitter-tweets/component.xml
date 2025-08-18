@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -16,28 +16,67 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<component name="twitter-tweets" type="synapse/template">
+<component displayName="Tweets" name="twitter-tweets" type="synapse/template">
     <subComponents>
-        <component name="getStatusesRetweetsById">
-            <file>getStatusesRetweetsById.xml</file>
-            <description>Returns a collection of the 100 most recent retweets of the tweet specified
-                by the id parameter.
-            </description>
+        <component name="createRetweet">
+            <file>createRetweet.xml</file>
+            <displayName>Create Retweet</displayName>
+            <description>Retweets a specified Tweet.</description>
         </component>
-        <component name="showStatusesById">
-            <file>showStatusesById.xml</file>
-            <description>Returns a single Tweet, specified by the id parameter.
-            </description>
+        <component name="createTweet">
+            <file>createTweet.xml</file>
+            <displayName>Create Tweet</displayName>
+            <description>Posts a new Tweet.</description>
         </component>
-        <component name="retweet">
-            <file>retweet.xml</file>
-            <description>Retweets a tweet. Returns the original tweet with retweet details embedded.
-            </description>
+        <component name="deleteTweet">
+            <file>deleteTweet.xml</file>
+            <displayName>Delete Tweet</displayName>
+            <description>Deletes a Tweet by ID.</description>
         </component>
-        <component name="destroyStatusById">
-            <file>destroyStatusById.xml</file>
-            <description>Destroys the status specified by the required ID parameter
-            </description>
+        <component name="getLikedTweetsList">
+            <file>getLikedTweetsList.xml</file>
+            <displayName>Get Liked Tweets</displayName>
+            <description>Gets Tweets liked by a user.</description>
+        </component>
+        <component name="searchTweets">
+            <file>searchTweets.xml</file>
+            <displayName>Search Tweets</displayName>
+            <description>Finds Tweets by search criteria.</description>
+        </component>
+        <component name="getTweetById">
+            <file>getTweetById.xml</file>
+            <displayName>Get Tweet by ID</displayName>
+            <description>Gets Tweet details by ID.</description>
+        </component>
+        <component name="getTweetsLookup">
+            <file>getTweetsLookup.xml</file>
+            <displayName>Get Tweets Lookup</displayName>
+            <description>Gets details of multiple Tweets by IDs.</description>
+        </component>
+        <component name="getUserHomeTimeline">
+            <file>getUserHomeTimeline.xml</file>
+            <displayName>Get Home Timeline</displayName>
+            <description>Gets recent Tweets and Retweets from the user's timeline.</description>
+        </component>
+        <component name="getUserMentionsTimeline">
+            <file>getUserMentionsTimeline.xml</file>
+            <displayName>Get Mentions Timeline</displayName>
+            <description>Gets Tweets mentioning the specified user.</description>
+        </component>
+        <component name="getUserTweetsTimeline">
+            <file>getUserTweetsTimeline.xml</file>
+            <displayName>Get User Tweets</displayName>
+            <description>Gets Tweets posted by a specific user.</description>
+        </component>
+        <component name="likeTweet">
+            <file>likeTweet.xml</file>
+            <displayName>Like Tweet</displayName>
+            <description>Likes a Tweet on behalf of the user.</description>
+        </component>
+        <component name="unlikeTweet">
+            <file>unlikeTweet.xml</file>
+            <displayName>Unlike Tweet</displayName>
+            <description>Unlikes a previously liked Tweet.</description>
         </component>
     </subComponents>
 </component>

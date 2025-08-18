@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2023, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template xmlns="http://ws.apache.org/ns/synapse" name="searchTweets">
+    <parameter name="query"
+               description="Query for matching Tweets."/>
+    <parameter name="end_time"
+               description="The newest, most recent UTC timestamp to which the Tweets will be provided."/>
+    <parameter name="max_results"
+               description="The maximum number of results to be returned per page."/>
+    <parameter name="next_token"
+               description="This parameter is used to get the next 'page' of results."/>
+    <parameter name="since_id"
+               description="Returns results with a Tweet ID greater (more recent) than the specified ID."/>
+    <parameter name="sort_order"
+               description="This parameter is used to specify the order in which you want the Tweets returned."/>
+    <parameter name="start_time"
+               description="The oldest UTC timestamp (from most recent 7 days) from which the Tweets will be given."/>
+    <parameter name="until_id"
+               description="Returns results with a Tweet ID less than (that is, older than) the specified ID."/>
+
+    <parameter name="expansions"
+               description="Additional fields required in the response."/>
+    <parameter name="media_fields"
+               description="This fields parameter enables you to select which specific media fields will deliver."/>
+    <parameter name="place_fields"
+               description="This fields parameter enables you to select which specific place fields will deliver."/>
+    <parameter name="poll_fields"
+               description="This fields parameter enables you to select which specific poll fields will deliver."/>
+    <parameter name="tweet_fields"
+               description="This fields parameter enables you to select which specific Tweet fields will deliver."/>
+    <parameter name="user_fields"
+               description="This fields parameter enables you to select which specific user fields will deliver."/>
+
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
+    <sequence>
+        <property name="uri.var.query" expression="$func:query"/>
+        <property name="uri.var.end_time" expression="$func:end_time"/>
+        <property name="uri.var.max_results" expression="$func:max_results"/>
+        <property name="uri.var.next_token" expression="$func:next_token"/>
+        <property name="uri.var.since_id" expression="$func:since_id"/>
+        <property name="uri.var.sort_order" expression="$func:sort_order"/>
+        <property name="uri.var.start_time" expression="$func:start_time"/>
+        <property name="uri.var.until_id" expression="$func:until_id"/>
+        <property name="uri.var.expansions" expression="$func:expansions"/>
+        <property name="uri.var.media_fields" expression="$func:media_fields"/>
+        <property name="uri.var.place_fields" expression="$func:place_fields"/>
+        <property name="uri.var.poll_fields" expression="$func:poll_fields"/>
+        <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
+        <property name="uri.var.user_fields" expression="$func:user_fields"/>
+
+        <!-- Use RestURLBuilder to construct endpoint URL -->
+        <class name="org.wso2.carbon.twitter.connector.RestURLBuilder">
+            <property name="endpointPath" value="/2/tweets/search/recent"/>
+            <property name="queryParams" value="query,end_time,max_results,next_token,since_id,sort_order,start_time,until_id,expansions,media_fields,place_fields,poll_fields,tweet_fields,user_fields"/>
+        </class>
+
+        <!-- Set JSON headers for Twitter API -->
+        <header name="Accept" value="application/json" scope="transport" action="set"/>
+        <call>
+            <endpoint>
+                <http method="get"
+                      uri-template="{uri.var.callEndpointUri}">
+                    <timeout>
+                        <duration>{$ctx:timeout}</duration>
+                        <responseAction>fault</responseAction>
+                    </timeout>
+                </http>
+            </endpoint>
+        </call>
+        
+        <!-- Remove custom Twitter header information from response -->
+        <header name="x-access-level" scope="transport" action="remove"/>
+        <header name="x-twitter-response-tags" scope="transport" action="remove"/>
+        <header name="x-transaction" scope="transport" action="remove"/>
+        <header name="x-response-time" scope="transport" action="remove"/>
+        <header name="x-connection-hash" scope="transport" action="remove"/>
+        <header name="x-content-type-options" scope="transport" action="remove"/>
+        <header name="x-frame-options" scope="transport" action="remove"/>
+        <header name="x-rate-limit-limit" scope="transport" action="remove"/>
+        <header name="x-rate-limit-remaining" scope="transport" action="remove"/>
+        <header name="x-rate-limit-reset" scope="transport" action="remove"/>
+        <header name="x-xss-protection" scope="transport" action="remove"/>
+    </sequence>
+</template>

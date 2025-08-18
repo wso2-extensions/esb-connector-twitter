@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -17,75 +17,54 @@
  ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getListsMemberships">
-    <parameter name="userID" description="The ID of the user for whom to return results for."/>
-    <parameter name="screenName"
-               description="The screen name of the user for whom to return results for."/>
-    <parameter name="cursor"
-               description="The response from the API will include a previous_cursor and next_cursor to allow paging back and forth"/>
-    <parameter name="count"
-               description="The number of users to return per page, up to a maximum of 200. Defaults to 20."/>
-    <parameter name="filterToOwnedLists"
-               description="When set to either true, t or 1 statuses will not be included in the returned user objects."/>
+    <parameter name="id"
+               description="The ID of the Twitter user."/>
+    <parameter name="max_results"
+               description="The maximum number of results to be returned per page."/>
+    <parameter name="pagination_token"
+               description="Used to request the next page of results if all results weren't returned
+                with the latest request, or to go back to the previous page of results."/>
+
+    <parameter name="expansions"
+               description="Additional fields required in the response."/>
+    <parameter name="list_fields"
+               description="This fields parameter enables you to select which specific List fields will deliver."/>
+    <parameter name="user_fields"
+               description="This fields parameter enables you to select which specific user fields will deliver."/>
+
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
     <sequence>
-        <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-        <property name="uri.var.screenName" expression="$func:screenName"/>
-        <property name="uri.var.userID" expression="$func:userID"/>
-        <property name="uri.var.cursor" expression="$func:cursor"/>
-        <property name="uni.var.count" expression="$func:count"/>
-        <property name="uri.var.filterToOwnedLists" expression="$func:filterToOwnedLists"/>
-        <script language="js">
-            <![CDATA[
-                // optional url param variables
-                var screenName = mc.getProperty('uri.var.screenName');
-                var userID = mc.getProperty('uri.var.userID');
-                var cursor  = mc.getProperty('uri.var.cursor');
-                var count  = mc.getProperty('uni.var.count');
-                var filterToOwnedLists  = mc.getProperty('uri.var.filterToOwnedLists');
-                var uriParams = '';
+        <property name="uri.var.id" expression="$func:id"/>
+        <property name="uri.var.max_results" expression="$func:max_results"/>
+        <property name="uri.var.pagination_token" expression="$func:pagination_token"/>
+        <property name="uri.var.expansions" expression="$func:expansions"/>
+        <property name="uri.var.list_fields" expression="$func:list_fields"/>
+        <property name="uri.var.user_fields" expression="$func:user_fields"/>
 
-                if (screenName != null && screenName != "") {
-                    uriParams = 'screen_name=' + screenName + '&';
-                    screenName = 'screen_name=' + encodeURIComponent(screenName);
-                    mc.setProperty('uri.var.screenName', screenName)
-                }
-                if (userID != null && userID != "") {
-                    uriParams += 'user_id=' + userID + '&';
-                    userID = 'user_id=' + encodeURIComponent(userID);
-                    mc.setProperty('uri.var.userID', userID)
-                }
-                if (cursor != null && cursor != "") {
-                    uriParams += 'cursor=' + cursor + '&';
-                    cursor = 'cursor=' + encodeURIComponent(cursor);
-                    mc.setProperty('uri.var.cursor', cursor)
-                }
-                if (count != null && count != "") {
-                    uriParams += 'count=' + count + '&';
-                    count = 'count=' + encodeURIComponent(count);
-                    mc.setProperty('uri.var.count', count)
-                }
-                if (filterToOwnedLists != null && filterToOwnedLists != "") {
-                    uriParams += 'filter_to_owned_lists=' + filterToOwnedLists + '&';
-                    filterToOwnedLists = 'filter_to_owned_lists=' + encodeURIComponent(filterToOwnedLists);
-                    mc.setProperty('uri.var.filterToOwnedLists', filterToOwnedLists)
-                }
+        <!-- Use RestURLBuilder to construct endpoint URL -->
+        <class name="org.wso2.carbon.twitter.connector.RestURLBuilder">
+            <property name="endpointPath" value="/2/users/{id}/list_memberships"/>
+            <property name="pathParams" value="id"/>
+            <property name="queryParams" value="max_results,pagination_token,expansions,list_fields,user_fields"/>
+        </class>
 
-                if(uriParams != ''){
-                    mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
-                }
-            ]]>
-        </script>
-        <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/lists/memberships.json')"/>
-        <property name="uri.var.httpMethod" value="GET"/>
-        <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
+        <!-- Set JSON headers for Twitter API -->
+        <header name="Accept" value="application/json" scope="transport" action="set"/>
         <call>
             <endpoint>
                 <http method="get"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/lists/memberships.json?{uri.var.uriParams}"/>
+                      uri-template="{uri.var.callEndpointUri}">
+                    <timeout>
+                        <duration>{$ctx:timeout}</duration>
+                        <responseAction>fault</responseAction>
+                    </timeout>
+                </http>
             </endpoint>
         </call>
-        <!-- Remove custom header information in response -->
+        
+        <!-- Remove custom Twitter header information from response -->
         <header name="x-access-level" scope="transport" action="remove"/>
         <header name="x-twitter-response-tags" scope="transport" action="remove"/>
         <header name="x-transaction" scope="transport" action="remove"/>

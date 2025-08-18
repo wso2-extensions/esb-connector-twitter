@@ -17,57 +17,45 @@
  ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getUsersLookup">
-    <parameter name="userID" description="The ID of the user for whom to return results for."/>
-    <parameter name="screenName"
-               description="The screen name of the user for whom to return results for."/>
-    <parameter name="includeUserEntities"
-               description="The user object entities node will be disincluded when set to false."/>
+    <parameter name="ids"
+               description="A comma separated list of User IDs."/>
+
+    <parameter name="expansions"
+               description="Additional fields required in the response."/>
+    <parameter name="tweet_fields"
+               description="This fields parameter enables you to select which specific Tweet fields will deliver."/>
+    <parameter name="user_fields"
+               description="This fields parameter enables you to select which specific user fields will deliver."/>
+
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
+
     <sequence>
-        <class name="org.wso2.carbon.connector.twitter.RemoveTwitterContext"/>
-        <property name="uri.var.screenName" expression="$func:screenName"/>
-        <property name="uri.var.userID" expression="$func:userID"/>
-        <property name="uni.var.includeUserEntities" expression="$func:includeUserEntities"/>
-        <script language="js">
-            <![CDATA[
-				// optional url param variables
-				var screenName = mc.getProperty('uri.var.screenName');
-				var userID = mc.getProperty('uri.var.userID');
-			    var includeUserEntities  = mc.getProperty('uni.var.includeUserEntities');
-				var uriParams = '';
+        <property name="uri.var.ids" expression="$func:ids"/>
+        <property name="uri.var.expansions" expression="$func:expansions"/>
+        <property name="uri.var.tweet_fields" expression="$func:tweet_fields"/>
+        <property name="uri.var.user_fields" expression="$func:user_fields"/>
 
-				if (screenName != null && screenName != "") {
-					uriParams = 'screen_name=' + screenName + '&';
-					screenName = 'screen_name=' + encodeURIComponent(screenName);
-					mc.setProperty('uri.var.screenName', screenName)
-				}
-				if (userID != null && userID != "") {
-					uriParams += 'user_id=' + userID + '&';
-					userID = 'user_id=' + encodeURIComponent(userID);
-					mc.setProperty('uri.var.userID', userID)
-				}
-			    if (includeUserEntities != null && includeUserEntities != "") {
-					uriParams += 'include_user_entities=' + includeUserEntities + '&';
-					includeUserEntities = 'include_user_entities=' + encodeURIComponent(includeUserEntities);
-					mc.setProperty('uri.var.includeUserEntities', includeUserEntities)
-				}
-
-				if(uriParams != ''){
-					mc.setProperty('uri.var.uriParams' , uriParams.toString().substring(0, uriParams.toString().lastIndexOf("&")));
-				}
-			]]>
-        </script>
-        <property name="uri.var.apiUrl.final"
-                  expression="fn:concat(get-property('uri.var.apiUrl'),'/1.1/users/lookup.json')"/>
-        <property name="uri.var.httpMethod" value="GET"/>
-        <class name="org.wso2.carbon.connector.twitter.TwitterSignatureGeneration"/>
-        <header name="Authorization" expression="get-property('uri.var.signature')" scope="transport"/>
+        <!-- Use RestURLBuilder to construct endpoint URL -->
+        <class name="org.wso2.carbon.twitter.connector.RestURLBuilder">
+            <property name="endpointPath" value="/2/users"/>
+            <property name="queryParams" value="ids,expansions,tweet_fields,user_fields"/>
+        </class>
+        <!-- Set JSON headers for Twitter API -->
+        <header name="Accept" value="application/json" scope="transport" action="set"/>
         <call>
             <endpoint>
                 <http method="get"
-                      uri-template="legacy-encoding:{uri.var.apiUrl}/1.1/users/lookup.json?{uri.var.uriParams}"/>
+                      uri-template="{uri.var.callEndpointUri}">
+                    <timeout>
+                        <duration>{$ctx:timeout}</duration>
+                        <responseAction>fault</responseAction>
+                    </timeout>
+                </http>
             </endpoint>
         </call>
-        <!-- Remove custom header information in response -->
+        
+        <!-- Remove custom Twitter header information from response -->
         <header name="x-access-level" scope="transport" action="remove"/>
         <header name="x-twitter-response-tags" scope="transport" action="remove"/>
         <header name="x-transaction" scope="transport" action="remove"/>

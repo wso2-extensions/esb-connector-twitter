@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~  Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com) All Rights Reserved.
  ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
  ~  Version 2.0 (the "License"); you may not use this file except
  ~  in compliance with the License.
  ~  You may obtain a copy of the License at
@@ -16,39 +16,37 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<component name="twitter-lists" type="synapse/template">
+<component displayName="Lists" name="twitter-lists" type="synapse/template">
     <subComponents>
-        <component name="getLists">
-            <file>getLists.xml</file>
-            <description>Returns all lists the authenticating or specified user subscribes to,
-                including their own. The
-                user is specified using the user_id or screen_name parameters. If no user is given,
-                the authenticating
-                user is used.
-            </description>
+        <component name="createList">
+            <file>createList.xml</file>
+            <displayName>Create List</displayName>
+            <description>Creates a new list for the authenticated user.</description>
+        </component>
+        <component name="deleteList">
+            <file>deleteList.xml</file>
+            <displayName>Delete List</displayName>
+            <description>Deletes a list owned by the authenticated user.</description>
+        </component>
+        <component name="getFollowingLists">
+            <file>getFollowingLists.xml</file>
+            <displayName>Get Following Lists</displayName>
+            <description>Gets all lists followed by the authenticated or specified user.</description>
+        </component>
+        <component name="getListById">
+            <file>getListById.xml</file>
+            <displayName>Get List by ID</displayName>
+            <description>Retrieves list details by list ID.</description>
         </component>
         <component name="getListsMemberships">
             <file>getListsMemberships.xml</file>
-            <description>Returns the lists the specified user has been added to. If user_id or
-                screen_name are not
-                provided the memberships for the authenticating user are returned.
-            </description>
+            <displayName>Get List Memberships</displayName>
+            <description>Gets all lists a user is a member of.</description>
         </component>
-        <component name="createLists">
-            <file>createLists.xml</file>
-            <description>Creates a new list for the authenticated user.</description>
-        </component>
-        <component name="getListsOwnerships">
-            <file>getListsOwnerships.xml</file>
-            <description>Get the lists owned by the specified Twitter user.</description>
-        </component>
-        <component name="destroyLists">
-            <file>destroyLists.xml</file>
-            <description>Get the lists owned by the specified Twitter user.</description>
-        </component>
-        <component name="updateLists">
-            <file>updateLists.xml</file>
-            <description>Updates the specified list.</description>
+        <component name="updateList">
+            <file>updateList.xml</file>
+            <displayName>Update List</displayName>
+            <description>Updates a list owned by the authenticated user.</description>
         </component>
     </subComponents>
 </component>
